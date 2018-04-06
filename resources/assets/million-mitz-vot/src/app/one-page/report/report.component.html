@@ -1,0 +1,116 @@
+<h4 class="page-title">
+    <span style="color: #EC307C;"></span> Report
+</h4>
+<div class="margin-top-30" style="text-align:center">
+<div class="container" style="background: white;">
+<div class="content-form-page">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+        <fieldset>
+          <div class="row" style="padding: 20px;">
+            <span style="font-size: 20px;">Avaliable Amount : </span>
+            <span class="avaliable-amount">${{avaliable_money}}</span>
+            <button type="button" class="btn btn-primary green" style="margin-top:-10px;" [disabled]="avaliable_money == 0" (click)="initPaidData();get_paid_dialog.show();">Get Paid Now</button>
+          </div>
+          <div class="alert alert-success " [class.hidden] = "successMessage == ''">
+            <button type="button" class="close" (click) = "successMessage = ''"></button>
+            <p>{{successMessage}}</p>
+          </div>
+          <div class="alert alert-danger " [class.hidden] = "appState.errorMessage == ''">
+            <button class="close" (click) = "appState.errorMessage = ''"></button>
+            <p>{{appState.errorMessage}}</p>
+          </div>
+          <table class="table table-striped table-bordered table-advance table-hover">
+              <thead>
+                  <tr>
+                      <th>Date</th>
+                      <th>Type</th>
+                      <th>User</th>
+                      <th>Amount($)</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of transactions; let i = index;">
+                    <td style="text-align:left;width:25%;">{{item.date}}</td>
+                    <td style="text-align:left;width:25%;">{{transaction_type[item.type]}}</td>
+                    <td style="text-align:left;width:25%;">{{item.name}} ({{item.email}})</td>
+                    <td style="text-align:left;width:25%;">{{item.amount}}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                  <td colspan="4">
+                    <div class="paging_bootstrap_number" style="text-align:right;">
+                      <pagination class=""
+                                  [(ngModel)]="curPage"
+                                  [totalItems]="totalCount"
+                                  [itemsPerPage]="itemsPerPage"
+                                  [maxSize]="100"
+                                  previousText="&lsaquo;"
+                                  nextText="&rsaquo;"
+                                  (pageChanged)="refreshTable($event)">
+                      </pagination>
+                    </div>
+                  </td>
+              </tr>
+              </tfoot>
+          </table>
+
+
+        </fieldset>
+
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+<div bsModal #get_paid_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Get Paid" aria-hidden="true">
+  <div class="modal-dialog modal-lg" style="width:600px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="get_paid_dialog.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3><i></i>Get Paid</h3>
+
+      </div>
+      <div class="modal-body">
+
+        <div class="form-horizontal" role="form" novalidate style="display: block;">
+            <div class="alert alert-danger " [class.hidden] = "errorPaidMessage == ''">
+              <button class="close" (click) = "errorPaidMessage = ''"></button>
+              <p>{{errorPaidMessage}}</p>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Email : </label>
+              <div class="col-md-7">
+                <input class="form-control" style="text-align: left;" readonly value="{{authenticate.email}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Password : </label>
+              <div class="col-md-7">
+                <input type="password" class="form-control" style="text-align: left;" [(ngModel)]="password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Amount : </label>
+              <div class="col-md-7">
+                <input type="number" class="form-control" style="text-align: left;" [(ngModel)]="paid_amount">
+              </div>
+            </div>
+
+          <fieldset style="text-align: right;padding-right: 30px;">
+            <div class="">
+              <button type="button" class="btn btn-primary green" (click)="getpaid();">OK</button>
+              <button type="button" class="btn btn-primary red" (click)="get_paid_dialog.hide();">Cancel</button>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

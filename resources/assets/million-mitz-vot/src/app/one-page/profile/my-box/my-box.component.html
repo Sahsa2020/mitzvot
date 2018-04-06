@@ -1,0 +1,287 @@
+<h4 class="page-title">
+    <span style="color: #EC307C;">My</span> Boxes
+</h4>
+<div class="content-form-page">
+  <div class="row">
+    <div class="col-xs-6">
+        <div class="btn-group" *ngIf = "authService.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN">
+            <button class="btn sbold green add-box-btn" *ngIf="authService.currentUser.role == USER_TYPE.INDIVIDUAL" (click) = "model.device_id = 0; model.location = ''; add_box_dialog.show();">{{tr("ADD_NEW")}}
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-6">
+      <label class="pull-right" style = "margin-top: 15px;">
+        Current Firmware Version: {{general.firmware_version.major_version}}.{{general.firmware_version.minor_version}}
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="dataTables_wrapper" style="padding-top: 15px;">
+      <div class="row">
+        <!-- <div class="col-md-6 col-sm-6">
+          <div class="dataTables_length" id="sample_5_length">
+            <label>{{tr("SHOW")}}
+              <select name="sample_5_length" aria-controls="sample_5" class="form-control input-sm input-xsmall input-inline">
+                <option value="6">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="-1">All</option>
+              </select>
+            </label>
+          </div>
+        </div> -->
+        <!-- <div class="col-md-6 col-sm-6">
+          <div id="sample_5_filter" class="dataTables_filter">
+            <label>Search:
+              <input type="search" class="form-control input-sm input-small input-inline" placeholder="" aria-controls="sample_5">
+            </label>
+          </div>
+        </div> -->
+      </div>
+      <div class="table-scrollable">
+        <table class="table table-striped table-bordered table-advance table-hover table-checkable order-column dataTable" role="grid">
+          <thead>
+            <tr role="row">
+              <th class="sorting" tabindex="0"  rowspan="1" colspan="1"  style="width: 6%;">
+                {{tr("DEVICE_ID")}}
+              </th>
+              <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 9%;">
+                {{tr("LOCATION")}}
+              </th>
+              <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 9%;">
+                {{tr("DAILY_COUNT")}}
+              </th>
+              <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 9%;">
+                {{tr("LIFETIME_COUNT")}}
+              </th>
+              <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 9%;">
+                {{tr("AMOUNT_IN_BOX")}}
+              </th>
+              <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 9%;">
+                {{tr("TOTAL_AMOUNT_DEPOSITED")}}
+              </th>
+              <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 9%;">
+                Version
+              </th>
+              <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 40%;">
+                {{tr("ACTION")}}
+              </th>
+            </tr>
+          </thead>
+          <!-- <tfoot>
+            <tr>
+              <th colspan="3" style="text-align:right" rowspan="1">Total:&nbsp;&nbsp;</th>
+              <th rowspan="1" colspan="1">$9589 ( $30253 total)</th>
+            </tr>
+          </tfoot> -->
+          <tbody>
+            <tr class="gradeX" role="row" *ngFor="let box of profileService.boxes; let i = index">
+              <td class=""> {{box.device_id}} </td>
+              <td class="sorting_1">
+                  {{country_names[box.country_code]}}
+              </td>
+              <td class=""> {{box.d_count}} </td>
+              <td class=""> {{box.lifetime_count}} </td>
+              <td class=""> {{box.deposit_amount}}</td>
+              <td class=""> {{box.amount}}</td>
+              <td class=""> {{box.major_version}}.{{box.minor_version}}</td>
+              <td style="line-height: 45px;">
+                <button type="button" class="btn btn-primary green" (click)="setModelData(box); dev_index = i; edit_box_dialog.show();">{{tr("EDIT")}}</button>
+                <button type="button" class="btn btn-warning blue" (click)="device_id = box.device_id; dev_index = i; reset_box_dialog.show();">{{tr("RESET")}}</button>
+                <button type="button" class="btn red" (click)="device_id = box.device_id; dev_index = i; remove_box_dialog.show();">{{tr("REMOVE")}}</button>
+                <button type="button" class="btn orange" (click)="device_id = box.device_id; dev_index = i;firmware_update_dialog.show();" [disabled] = "box.update_flag == 1">Firmware Update</button>
+                <button type="button" class="btn orange" (click)="device_id = box.device_id; dev_index = i;sound_update_dialog.show();" [disabled] = "box.sound_update_flag == 1">Sound Update</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-success " [class.hidden] = "successMessage == ''">
+    <button type="button" class="close" (click) = "successMessage = ''"></button>
+    <p>{{successMessage}}</p>
+  </div>
+</div>
+<div bsModal #add_box_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Add Box" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="add_box_dialog.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3><i class="fa fa-plus"></i>{{tr("ADD_NEW")}}</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form" style="display: block;" #addboxForm = "ngForm">
+          <div class="row">
+            <fieldset>
+              <div class="form-group">
+                <label class="col-lg-4 control-label">{{tr("DEVICE_ID")}}<span class="require">*</span></label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" name="device_id" required="true" [(ngModel)]="model.device_id">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-4 control-label">{{tr("SECRET_CODE")}}<span class="require">*</span></label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" name="secretCode" required="true" [(ngModel)]="model.secretCode">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-4 control-label">Major Version<span class="require">*</span></label>
+                <div class="col-lg-8">
+                  <input type="number" class="form-control" name="major_version" required="true" [(ngModel)]="model.major_version">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-4 control-label">Minor Version<span class="require">*</span></label>
+                <div class="col-lg-8">
+                  <input type="number" class="form-control" name="minor_version" required="true" [(ngModel)]="model.minor_version">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-4 control-label">{{tr("LOCATION")}}<span class="require">*</span></label>
+                <div class="col-lg-8">
+                  <select class="form-control" [(ngModel)]="model.country_code" name="country_code" required>
+                    <option value="{{country_code}}" *ngFor="let country_code of country_codes;">{{country_names[country_code]}}</option>
+                  </select>
+                  <!-- <input type="text" class="form-control" name="location" required="true" [(ngModel)]="model.location"> -->
+                </div>
+              </div>
+            </fieldset>
+            <fieldset style="text-align: right;padding-right: 30px;">
+              <div class="">
+                <button class="btn btn-primary green" (click)="createBox(addboxForm);">{{tr("CREATE")}}</button>
+                <button class="btn red" (click)="add_box_dialog.hide();">{{tr("CANCEL")}}</button>
+              </div>
+            </fieldset>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal #edit_box_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Add Box" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="edit_box_dialog.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3><i class="fa fa-edit"></i>{{tr("MODIFY")}}</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form" novalidate style="display: block;" #editboxForm = "ngForm">
+          <div class="row">
+            <fieldset>
+              <div class="form-group">
+                <label class="col-lg-4 control-label">{{tr("DEVICE_ID")}}<span class="require">*</span></label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" name="device_id" required="true" disabled [(ngModel)]="model.device_id">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-4 control-label">Major Version<span class="require">*</span></label>
+                <div class="col-lg-8">
+                  <input type="number" class="form-control" name="major_version" required="true" [(ngModel)]="model.major_version">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-4 control-label">Minor Version<span class="require">*</span></label>
+                <div class="col-lg-8">
+                  <input type="number" class="form-control" name="minor_version" required="true" [(ngModel)]="model.minor_version">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-4 control-label">{{tr("LOCATION")}}<span class="require">*</span></label>
+                <div class="col-lg-8">
+                  <!-- <input type="text" class="form-control" name="location" required="true" [(ngModel)]="model.location"> -->
+                  <select class="form-control" [(ngModel)]="model.country_code" name="country_code" required>
+                    <option value="{{country_code}}" *ngFor="let country_code of country_codes;">{{country_names[country_code]}}</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset style="text-align: right;padding-right: 30px;">
+              <div class="">
+                <button class="btn btn-primary green" (click)="editBox(editboxForm);">{{tr("EDIT")}}</button>
+                <button class="btn red" (click)="edit_box_dialog.hide();">{{tr("CANCEL")}}</button>
+              </div>
+            </fieldset>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div bsModal #remove_box_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Add Box" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="edit_box_dialog.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3><i class="fa fa-warning"></i>{{tr("DELETE")}}</h3>
+      </div>
+      <div class="modal-body">
+        <p>{{tr("DELETE_MESSAGE")}}</p>
+        <button class="btn btn-primary red" (click)="removeBox();remove_box_dialog.hide();">{{tr("DELETE")}}</button>
+        <button class="btn green" (click)="remove_box_dialog.hide();">{{tr("CANCEL")}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div bsModal #reset_box_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Reset Box" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="reset_box_dialog.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3><i class="fa fa-warning"></i>{{tr("RESET")}}</h3>
+      </div>
+      <div class="modal-body">
+        <p>{{tr("RESET_MESSAGE")}}</p>
+        <button class="btn btn-primary red" (click)="resetBox();reset_box_dialog.hide();">{{tr("RESET")}}</button>
+        <button class="btn green" (click)="reset_box_dialog.hide();">{{tr("CANCEL")}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div bsModal #firmware_update_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Firmware" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="firmware_update_dialog.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3><i class="fa fa-warning"></i>Firmware Update</h3>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to update your boxes with the latest firmware version?</p>
+        <button class="btn btn-primary red" (click)="updateFirmware();firmware_update_dialog.hide();">Yes</button>
+        <button class="btn green" (click)="firmware_update_dialog.hide();">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div bsModal #sound_update_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Firmware" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="sound_update_dialog.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3><i class="fa fa-warning"></i>Sound Update</h3>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to update your boxes with the recently uploaded sound?</p>
+        <button class="btn btn-primary red" (click)="updateSound();sound_update_dialog.hide();">Yes</button>
+        <button class="btn green" (click)="sound_update_dialog.hide();">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

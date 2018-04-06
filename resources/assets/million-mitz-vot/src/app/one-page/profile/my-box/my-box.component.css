@@ -1,0 +1,25 @@
+td, th{
+  text-align: center;
+}
+.modal-content{
+  border-radius: 5px !important;
+}
+.modal-header{
+  height: 55px;
+}
+.form-horizontal .form-group {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+div.content-form-page{
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 20px;
+}
+button.btn.add-box-btn{
+  background: #E54176;
+  color: white;
+  border: none;
+  border-radius: 2px !important;
+  padding: 10px;
+}

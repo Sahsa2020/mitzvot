@@ -1,0 +1,210 @@
+.portlet.light.bordered{
+  border: 0px !important;
+}
+
+/*  new design  */
+.banner-txt{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 35%;
+  left: 50%;
+  text-align: center;
+}
+.banner img{
+  width: 100%;
+}
+.banner-txt img{
+  margin: auto;
+  width: auto;
+  cursor: pointer;
+}
+.banner-txt h1{
+  color: #fff;
+  font-weight: bold;
+}
+.community-btn.btn-white{
+  background: #fff;
+  border-color: #fff;
+  color: #333 !important;
+  font-weight: bold;
+} 
+.community-btn.btn-white:hover{
+  color: #fff !important;
+} 
+.motivation-box{
+  background: #fff;
+  box-shadow: 0 5px 10px -5px #666;
+  border-radius: 2px;
+  padding: 20px;
+  position: relative;
+  top: -100px;
+  height: 100%;
+}
+.motivation-box h2{
+  color: #333;
+  border-bottom: 1px solid #467FFD;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-size: 36px;
+}
+.motivation-box strong{
+  color: #333;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.motivation-box p{
+  margin: 0;
+}
+.family-box{
+  position: absolute;
+  z-index: 1;
+  top: 14px;
+  left: 28px;
+  min-height: 350px;
+  text-align: center;
+}
+.second-section{
+  display: inline-block;
+  width: 100%;
+}
+.second-section h3, .fourth-section h3{
+  font-size: 34px;
+  margin-bottom: 20px;
+  line-height: 40px;
+  color: #333;
+}
+.second-section h3 span, .fourth-section h3 span{
+  color: #467FFD;
+  font-weight: bold;
+}
+.second-section p{
+  line-height: 26px;
+}
+.third-section{
+  display: inline-block;
+  width: 100%;
+  background: url(../../../assets/img/wrapper.jpg) no-repeat center;
+  background-size: cover;
+  padding: 20px 0; 
+}
+.third-section h2{
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+}
+.third-section p{
+  color: #fff;
+}
+.director-box h4{
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+.director-box p{
+  line-height: 25px;
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+  .navbar-nav{
+      float: left;
+  }
+  .navbar ul li a {
+      padding: 12px 10px;
+      font-size: 12px;
+  }
+  .dropdown {
+      width: 210px;
+      top: 70px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+  .navbar ul li:last-child{
+      float: right;
+      vertical-align: top;
+  }
+  .navbar ul li a {
+      padding: 5px 8px;
+      font-size: 10px;
+  }
+  .navbar ul li:last-child a{
+      padding: 0;
+  }
+  .navbar .dropdown ul li a{
+      padding: 5px 10px;
+      font-size: 12px;
+  }
+  .navbar .dropdown ul li:last-child{
+      float: none;
+  }
+  .dropdown .drop-head {
+      padding: 10px;
+      margin-bottom: 0;
+  }
+  .dropdown {
+      width: 220px;
+      top: 60px;
+  }
+  .banner-txt h1 {
+      font-size: 25px;
+  }
+  .motivation-box {
+      padding: 10px;
+      top: -50px;
+  }
+  .motivation-box h2 {
+      margin-bottom: 10px;
+  }
+  .motivation-box strong {
+      margin-bottom: 5px;
+      font-size: 12px;
+  }
+  .motivation-box p {
+      font-size: 12px;
+  }
+}
+@media screen and ( max-width: 991px ){
+  .dotted-bg {
+      display: none;
+  }
+  .family-box {
+      position: relative;
+      top: 0;
+      left: 0;
+      min-height: 100%;
+  }
+  .family-box img {
+      margin: auto;
+  }
+}
+@media screen and ( max-width: 767px ){
+  .logo img{
+      margin: auto;
+  }
+  .navbar ul {
+      text-align: center;
+      width: 100%;
+  }
+  .navbar ul li a {
+      padding: 5px;
+      font-size: 12px;
+  }
+  .dropdown {
+      left: 0;
+      width: 100%;
+      top: 65px;
+  }
+  .motivation-box {
+      top: 0;
+      margin: 10px 0;
+  }
+}
+@media screen and ( max-width: 480px ){
+  .banner-txt h1 {
+      font-size: 20px;
+  }
+
+  .second-section h3, .fourth-section h3{font-size: 21px; line-height: 32px;}
+}

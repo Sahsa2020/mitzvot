@@ -1,0 +1,77 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "cbox",
+    "ejected": false
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css",
+        "assets/global/css/cropper.min.css",
+        "../node_modules/video.js/dist/video-js.min.css"
+      ],
+      "scripts": [
+        "assets/global/js/jquery.min.js",
+        "assets/global/js/jquery-migrate.min.js",
+        "assets/global/js/bootstrap.min.js",
+        "assets/global/js/bootstrap-datepicker.min.js",
+        "assets/global/js/owl.carousel.min.js",
+        "assets/global/js/bootstrap-fileinput.js",
+        "assets/global/plugins/fancybox/source/jquery.fancybox.pack.js",
+        "assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js",
+        "assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js",
+        "assets/global/js/cropper.min.js",
+        "assets/global/js/jquery.thooClock.js",
+        "../node_modules/video.js/dist/video.min.js",
+        "assets/global/js/jquery.vide.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.dev.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {
+    }
+  }
+}

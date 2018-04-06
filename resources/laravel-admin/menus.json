@@ -1,0 +1,45 @@
+{
+    "menus":[
+        {
+            "section":"User Manager",
+            "items":[
+                {"title":"Users","url":"\/admin\/users"},
+                {"title":"Roles","url":"\/admin\/roles"},
+                {"title":"Permissions","url":"\/admin\/permissions"},
+                {"title":"Give Role Permissions","url":"\/admin\/give-role-permissions"}
+            ]
+        },
+        {
+            "section":"News Feed",
+            "items":[
+                {"title":"Posts","url":"\/admin\/posts"}
+            ]
+        },
+        {
+            "section":"Donations",
+            "items":[
+                {"title":"Approve Donates","url":"\/admin\/donates"}
+            ]
+        },
+        {
+            "section":"Discounts",
+            "items":[
+                {"title":"Manage Discount Codes","url":"\/admin\/discounts"}
+            ]
+        },
+        {
+            "section":"Uploads",
+            "items":[
+                {"title":"Policies and Rules Upload","url":"\/admin\/upload_policies_rules"}, 
+                {"title":"Firmware Upload","url":"\/admin\/upload_firmware"}
+            ]
+        },
+        {
+            "section":"Customer Service",
+            "items":[
+                {"title":"Messages from Customers","url":"\/admin\/message_history"}, 
+                {"title":"Chats from Customers","url":"\/messages"}
+            ]
+        }
+    ]
+}

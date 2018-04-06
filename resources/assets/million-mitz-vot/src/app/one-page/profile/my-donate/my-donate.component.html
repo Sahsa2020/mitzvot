@@ -1,0 +1,141 @@
+<h4 class="page-title">
+    Ask Donate
+</h4>
+<div class="content-form-page">
+  <form class="form-horizontal " role="form" (ngSubmit) = "saveDonate(donateForm);" #donateForm="ngForm">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+        <fieldset   >
+          <legend   ></legend>
+          <div class="form-group margin-top:20px">
+            <label class="col-md-3 control-label" for="name"><span class="require"></span>Name</label>
+            <div class="col-md-6">
+              <input class="form-control " id="name" name="name" placeholder="" required="" type="text" [(ngModel)]="model.name">
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label class="col-md-3 control-label" for="name"><span class="require"></span>Brief Description</label>
+            <div class="col-md-6">
+                <textarea class="form-control ng-untouched ng-pristine ng-valid" cols="40" id="description" name="description"
+                placeholder="" rows="8"  [(ngModel)]="model.description"></textarea>
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label class="col-md-3 control-label" for="name"><span class="require"></span>Picture</label>
+
+            <!--<div class="col-md-6">
+                <div class="fileinput fileinput-new" data-provides="fileinput" style="float: left;">
+                    <span class="btn green btn-file">
+                        <span class="fileinput-new"> Select Picture </span>
+                        <span class="fileinput-exists"> Change </span>
+                        <input    accept="image/*" class="imageFile" name="file" type="file"> </span>
+                    <span class="fileinput-filename"> </span> &nbsp;
+                    <a class="close fileinput-exists" data-dismiss="fileinput" href="javascript:;"> </a>
+                </div>
+            </div>-->
+            <div class="col-md-9" style="text-align: center;">
+                <div class="fileinput fileinput-new pull-left" data-provides="fileinput">
+                    <div class="fileinput-new thumbnail" style="min-width: 200px; min-height: 200px;width: 200px;">
+                      <img id="donate-image-viewer" alt="" style="width: 100%; height: 100%;">
+                    </div>
+                    <div>
+                        <a class="btn green" (click) = "image_box_dialog.show();">Edit Image </a>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label class="col-md-3 control-label" for="name"><span class="require"></span>Address</label>
+            <div class="col-md-6">
+              <input class="form-control ng-untouched ng-pristine ng-invalid" id="address" name="address" placeholder="" required="" type="text" [(ngModel)]="model.address">
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label class="col-md-3 control-label" for="name"><span class="require"></span>City</label>
+            <div class="col-md-6">
+              <input class="form-control ng-untouched ng-pristine ng-invalid" id="city" name="city" placeholder="" required="" type="text" [(ngModel)]="model.city">
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label class="col-md-3 control-label" for="name"><span class="require"></span>Country</label>
+            <div class="col-md-6">
+              <input class="form-control ng-untouched ng-pristine ng-invalid" id="country" name="country" placeholder="" required="" type="text" [(ngModel)]="model.country">
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label class="col-md-3 control-label" for="name"><span class="require"></span>Commitment</label>
+            <div class="col-md-6">
+              <input class="form-control ng-untouched ng-pristine ng-invalid" id="commitment" name="commitment"
+              placeholder="" required="" type="text" [(ngModel)]="model.commitment">
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label class="col-md-3 control-label" for="name"><span class="require"></span>Donate Count</label>
+            <div class="col-md-6">
+              <input class="form-control ng-untouched ng-pristine ng-valid" id="donate_count"
+              name="donate_count" placeholder="" required="" type="number" [(ngModel)]="model.donate_count">
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label class="col-md-3 control-label" for="name"><span class="require"></span>Exist Count</label>
+            <div class="col-md-6">
+              <input class="form-control ng-untouched ng-pristine ng-valid" id="exist_count"
+              name="exist_count" placeholder="" required="" type="number" [(ngModel)]="model.exist_count" readonly="">
+            </div>
+          </div>
+          <div class="alert alert-success " [class.hidden] = "successMessage == ''">
+            <button type="button" class="close" (click) = "successMessage = ''"></button>
+            <p>{{successMessage}}</p>
+          </div>
+          <div class="row">
+            <div    style="text-align:center;">
+              <button class="btn btn-primary green" type="submit">Save Donate</button>
+            </div>
+          </div>
+        </fieldset>
+    </div>
+
+  </div>
+  </form>
+</div>
+<div bsModal #image_box_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Add Box" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="max-width: 450px;">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="image_box_dialog.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3><i class="fa fa-edit"></i>Crop Image</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form" style="display: block;" #editboxForm = "ngForm">
+          <div class="row">
+            <fieldset>
+              <div class="fileinput fileinput-new col-sm-12" data-provides="fileinput">
+                  <div class="fileinput-new thumbnail">
+                    <!-- <img src="{{image_src}}" alt=""> -->
+                    <!-- <img-cropper #cropper [settings]="cropperSettings"></img-cropper> -->
+                    <div class="cropper" id = "cropper" style="width: 400px; height: 400px;">
+                    </div>
+                  </div>
+                  <!-- <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div> -->
+                  <div style="    text-align: center;">
+                      <span class="btn default btn-file blue">
+                        <span class="fileinput-new">Select different image</span>
+                        <input type="file" name="..." (change)="fileChange(input)" #input>
+                      </span>
+                  </div>
+              </div>
+            </fieldset>
+            <fieldset style="text-align: right;padding-right: 30px;margin-top: 30px;">
+              <div class="">
+                <button class="btn btn-primary green" (click)="saveImage(); image_box_dialog.hide();">Select</button>
+                <button class="btn red" (click)="image_box_dialog.hide();">Cancel</button>
+              </div>
+            </fieldset>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

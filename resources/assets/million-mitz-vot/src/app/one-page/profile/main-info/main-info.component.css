@@ -1,0 +1,3 @@
+.fileinput-exists .fileinput-new, .fileinput-new .fileinput-exists{
+    display: block;
+}

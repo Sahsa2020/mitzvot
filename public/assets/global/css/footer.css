@@ -1,0 +1,168 @@
+footer{
+    display: inline-block;
+    width: 100%;
+    padding: 100px 0 0;
+    background: url(../img/footer-bg.jpg) no-repeat center;
+    background-size: cover;
+    vertical-align: top;
+}
+footer h2{
+    color: #fff;
+    margin-bottom: 25px;
+}
+footer p{
+    color: #fff;
+}
+footer ul li a{
+    color: #fff;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+footer ul li a:hover{
+    color: #F05978;
+    text-decoration: none;
+}
+footer ul li i{
+    font-size: 8px !important;
+    vertical-align: middle;
+    color: #467FFD;
+    margin-right: 10px;
+}
+.block{
+    margin: 30px 0;
+}
+.block h3{
+    color: #467FFD;
+    font-size: 14px;
+}
+.block p, .block a{
+    color: #fff;
+    word-wrap: break-word;
+}
+.social a{
+    font-size: 18px;
+    margin-right: 15px;
+}
+.block a:hover{
+    color: #F05978;
+    text-decoration: none;
+}
+.bottom-footer{
+    background: #14142C;
+    padding: 20px 0 10px;
+    margin-top: 50px;
+}
+.divider{
+    border: 1px solid #535672;
+    display: inline-block;
+    width: 1px;
+    min-height: 330px;
+}
+.community-btn{
+    display: inline-block;
+    color: #fff !important;
+    background: url(../img/send-msg-btn.png) no-repeat;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 14px 30px;
+    border-radius: 3px;
+    margin: 20px 0;
+    font-size: 13px;
+    background-size: 100% 100%;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.community-btn:hover{
+    background: url(../img/send-msg-btn-hover.png) no-repeat !important  ;
+    background-size: 100% 100% !important;
+    text-decoration: none;
+    color: #fff;
+}
+.community-btn:focus{
+    text-decoration: none;
+}
+.decline-btn{
+    display: inline-block;
+    color: #fff !important;
+    background: url(../img/decline-msg-btn.png) no-repeat;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 14px 30px;
+    border-radius: 3px;
+    margin: 20px 0;
+    font-size: 13px;
+    background-size: 100% 100%;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.decline-btn:hover{
+    background: url(../img/decline-msg-btn-hover.png) no-repeat !important  ;
+    background-size: 100% 100% !important;
+    text-decoration: none;
+    color: #fff;
+}
+.decline-btn:focus{
+    text-decoration: none;
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    .community-btn {
+        padding: 14px 15px;
+    }
+}
+@media screen and (max-width: 991px){
+    footer {
+        padding: 50px 0 0;
+    }
+}
+@media screen and ( max-width: 767px ){
+    footer {
+        padding: 20px 0 0;
+    }
+    .community-btn {
+        padding: 10px 10px;
+        margin: 10px 0;
+        font-size: 9px;
+        letter-spacing: 0;
+    }
+    .block h3 {
+        font-size: 14px;
+    }
+    .block p, .block a {
+        text-align: left;
+        font-size: 12px;
+    }
+    .bottom-block{
+        border-bottom: 1px solid #4F5271;
+    }
+    footer ul {
+        text-align: left;
+        margin: 15px 0;
+    }
+    footer ul li{
+        display: inline-block;
+        width: 30%;
+        margin: 5px 0;
+        vertical-align: top;
+    }
+    footer ul li a {
+        display: block;
+        font-size: 10px;
+        margin-bottom: 0;
+    }
+    footer ul li i {
+        font-size: 5px !important;
+        margin-right: 5px;
+    }
+    footer .col-sm-6 {
+        text-align: center;
+    }
+}
+@media screen and ( max-width: 480px ){
+    .block h3 {
+        font-size: 12px;
+    }
+    .block p, .block a {
+        text-align: left;
+        font-size: 10px;
+    }
+}

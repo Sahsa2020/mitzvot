@@ -1,0 +1,249 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 noleftpadding">
+            <div class="sidebar">
+                <div class="sidebar-inner">
+                    <div class="backtoprev">
+                        <!-- <a href="#">&lt; My Profile</a> -->
+                        <a *ngIf = "authService.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN" (click) = "showMyProfile();">< My Profile</a>
+                    </div>
+                    <div class="myprofile">
+                        <img src="{{currentSelectedUser.image_url}}" class="img-responsive" alt="Image">
+                        <h1>{{currentSelectedUser.name}}</h1>
+                        <span class="org-name"><i class="fa fa-users" aria-hidden="true"></i> {{currentSelectedUser.address}} </span>
+                        <p>{{currentSelectedUser.country}}</p>
+
+                        <div class="follow">
+                            <i class="fa fa-bell-o" aria-hidden="true"></i>
+                            <!-- You Follow -->
+                            <button style="background-color:white; border:none; cursor:pointer;font-size:16px;" type="button" class="" (click) = "followUser();" *ngIf = "authService.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && currentSelectedUser.id != authService.currentUser.id">{{currentSelectedUser.is_current_user_following > 0?"Unfollow": "Follow"}}</button>
+                        </div>
+
+                        
+
+                    </div>                    
+                    <div class="yourmitzvot" *ngIf = "authService.currentUser != null">
+                        <h2>Your Mitzvot</h2>
+                        <div class="progress-bar-block">
+                            <span>Today <span class="progress-count">{{authService.currentUser.daily_count}}/{{authService.currentUser.goal_daily}}</span></span>
+                            <div class="progress">
+                              <div class="progress-bar today-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="progress-bar-block">
+                            <span>This Week <span class="progress-count">{{authService.currentUser.weekly_count}}/{{authService.currentUser.goal_weekly}}</span></span>
+                            <div class="progress">
+                              <div class="progress-bar thisweek-bar" role="progressbar" style="width: 70%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="progress-bar-block">
+                            <span>This Month <span class="progress-count">{{authService.currentUser.monthly_count}}/{{authService.currentUser.goal_monthly}}</span></span>
+                            <div class="progress">
+                              <div class="progress-bar thismonth-bar" role="progressbar" style="width: 90%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yourmitzvot" *ngIf = "authService.currentUser != null">
+                        <h2>Your C - Box</h2>
+                        <div class="total">
+                            <span>Total<span class="dotted-border"></span><span class="cbox-count">${{authService.currentUser.deposit_money}}</span></span>
+                        </div>
+                    </div>
+                    <a href="#" class="community-btn" *ngIf = "authService.currentUser != null && authService.currentUser.deposit_money > 0 && authService.currentUser.role == USER_TYPE.INDIVIDUAL" [routerLink]="['/donate/']">send now</a>
+                    <a href="#" class="community-btn" *ngIf = "authService.currentUser != null && authService.currentUser.deposit_money > 0 && authService.currentUser.role == USER_TYPE.MEMBER" href ="/profile/donateMoney?amount={{authService.currentUser.deposit_money}}">send now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="main-body">
+                    <h2><span><i class="fa fa-star" aria-hidden="true"></i></span> Score Board</h2>
+                    <div class="table-box">
+                        <div class="table-head">
+                            <h3>Score Board</h3>
+                            <div class="top-right">
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <select class="form-control">
+                                            <option value="">Sort By</option>
+                                            <option>Price: Low to High</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="searchbox">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <span class="search-btn">
+                                        <i class="fa fa-search" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;">#</th>
+                                        <th (click) = "sort('name')" class="min-width-name">
+                                            {{tr("NAME")}}
+                                            <i class="fa font-gray pull-right" [class.fa-sort]="sortField != 'name'" [class.fa-sort-asc]="sortField == 'name' && !sortDirection" [class.fa-sort-desc]="sortField == 'name' && sortDirection"></i>
+                                        </th>
+                                        <th class="hidden-xs" (click) = "sort('type')">
+                                            City
+                                            <i class="fa font-gray pull-right" [class.fa-sort]="sortField != 'type'" [class.fa-sort-asc]="sortField == 'type' && !sortDirection" [class.fa-sort-desc]="sortField == 'type' && sortDirection"></i>
+                                        </th>
+                                        <th class="hidden-xs" (click) = "sort('country')">
+                                            {{tr("COUNTRY")}}
+                                            <i class="fa font-gray pull-right" [class.fa-sort]="sortField != 'country'" [class.fa-sort-asc]="sortField == 'country' && !sortDirection" [class.fa-sort-desc]="sortField == 'country' && sortDirection"></i>
+                                        </th>
+                                        <th class="hidden-xs" (click) = "sort('school')">
+                                            School / Organization
+                                            <i class="fa font-gray pull-right" [class.fa-sort]="sortField != 'school'" [class.fa-sort-asc]="sortField == 'school' && !sortDirection" [class.fa-sort-desc]="sortField == 'school' && sortDirection"></i>
+                                        </th>
+                                        <th (click) = "sort('daily_count')">
+                                            {{tr("DAILY_COUNT")}}
+                                            <i class="fa font-gray pull-right" [class.fa-sort]="sortField != 'daily_count'" [class.fa-sort-asc]="sortField == 'daily_count' && !sortDirection" [class.fa-sort-desc]="sortField == 'daily_count' && sortDirection"></i>
+                                        </th>
+                                        <th (click) = "sort('deposit_count')">
+                                            {{tr("DEPOSIT_COUNT")}}
+                                            <i class="fa font-gray pull-right" [class.fa-sort]="sortField != 'deposit_count'" [class.fa-sort-asc]="sortField == 'deposit_count' && !sortDirection" [class.fa-sort-desc]="sortField == 'deposit_count' && sortDirection"></i>
+                                        </th>
+                                        <th (click) = "sort('box_count')">
+                                            {{tr("BOX_COUNT")}}
+                                            <i class="fa font-gray pull-right" [class.fa-sort]="sortField != 'box_count'" [class.fa-sort-asc]="sortField == 'box_count' && !sortDirection" [class.fa-sort-desc]="sortField == 'box_count' && sortDirection"></i>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of scores; let i = index;" class="table-row" [class.selected] = "current_item == i">
+                                        <td class="text-right" style="text-align: center;">{{i + 1 + (curPage - 1) * 10}}</td>
+                                        <td class="highlight">
+                                            <!-- <div class="success" *ngIf = " i < 5"></div> -->
+                                            <a style="    margin-left: 15px;" (click) = "selectUser(i);">{{item.name}}</a>
+                                        </td>
+                                        <td class="hidden-xs">{{item.city}}</td>
+                                        <td class="hidden-xs">{{item.country}}</td>
+                                        <td class="hidden-xs">{{item.school}}</td>
+                                        <!-- <td class="text-right">{{item.score}}$</td> -->
+                                        <td class="text-right">{{item.daily_count}}</td>
+                                        <td class="text-right">{{item.deposit_count}}</td>
+                                        <td class="text-right">{{item.box_count}}</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="8">
+                                        <div class="paging_bootstrap_number" style="text-align:right;">
+                                        <pagination class=""
+                                                    [(ngModel)]="curPage"
+                                                    [totalItems]="totalCount"
+                                                    [itemsPerPage]="itemsPerPage"
+                                                    [maxSize]="100"
+                                                    previousText="&lsaquo;"
+                                                    nextText="&rsaquo;"
+                                                    (pageChanged)="refreshTable($event)">
+                                        </pagination>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- <div class="pagination-block text-right">
+                            <nav aria-label="Page navigation example">
+                              <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">&lt; Prev</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next ></a></li>
+                              </ul>
+                            </nav>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="leaders" *ngIf = "scores.length > 0">
+                <div class="head">
+                    <img src="images/list-icon.png" class="img-responsive" alt="list-icon">
+                    Following Leaders
+                </div>
+                <div class="leader-block">
+                    <ul>
+                        <li *ngFor = "let leader of generalService.followingUser">
+                            <div class="col-xs-3">
+                                <div class="star-block">
+                                    <img src="{{leader.image_url}}" class="img-responsive" alt="user">
+                                    <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-5">
+                                <div class="row">
+                                    <div class="details">
+                                        <h4>{{leader.name}}</h4>
+                                        <p>{{leader.address}}, {{leader.country}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="mitznumber">
+                                    <span>+19</span>
+                                    <span>+{{leader.deposit_count}}</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- <ul>
+                        <li>
+                            <div class="col-xs-3">
+                                <div class="star-block">
+                                    <img src="images/user1.png" class="img-responsive" alt="user">
+                                    <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-5">
+                                <div class="row">
+                                    <div class="details">
+                                        <h4>Rochel Holzkenner</h4>
+                                        <p>520 ne 8t ave, United States</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="mitznumber">
+                                    <span>+19</span>
+                                    <span>mitzvot</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-xs-3">
+                                <div class="star-block">
+                                    <img src="images/user3.png" class="img-responsive" alt="user">
+                                    <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-5">
+                                <div class="row">
+                                    <div class="details">
+                                        <h4>Rochel Holzkenner</h4>
+                                        <p>520 ne 8t ave, United States</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="mitznumber">
+                                    <span>+17</span>
+                                    <span>mitzvot</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

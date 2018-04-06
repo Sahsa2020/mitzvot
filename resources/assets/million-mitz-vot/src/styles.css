@@ -1,0 +1,190 @@
+/* You can add global styles to this file, and also import other style files */
+ul.dropdown-menu.search-filters:before{
+  left: auto;
+  right: 10px;
+}
+ul.dropdown-menu.search-filters:after{
+  left: auto;
+  right: 10px;
+}
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 40px;
+}
+.checkbox > label{
+  padding-left: 2.5rem;
+}
+.checkbox > label > span{
+  border: 1px solid #a9a9a9;
+  background: 0 0;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 19px;
+  width: 19px;
+}
+.checkbox > label > span:after{
+  content: '';
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid #666;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.checkbox > label > input:checked + span:after{
+  display:block;
+}
+
+.dashboard-stat{
+  margin: 0px;
+}
+.dashboard-stat .details{
+  padding: 0px;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+.dashboard-stat .details .number {
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 0px;
+  top: calc(50% - 60px);
+  font-size: 46px;
+}
+.dashboard-stat .more{
+  text-align: center;
+  padding: 15px 0px;
+  font-size: 14px;
+}
+.dashboard-stat .more i{
+  float: none;
+}
+.dashboard-stat .details .number span{
+  font-size: 22px;
+}
+
+.dashboard-stat.blue-madison{
+  background: white;
+  border: 1px solid #dee;
+}
+.dashboard-stat.blue-madison .details .number{
+  color: black;
+}
+.portlet>.portlet-title{
+  border-bottom: none;
+  text-align: center;
+  padding: 35px 0px !important;
+  position: relative;
+  z-index: 10;
+}
+.portlet>.portlet-title>.caption{
+  color: black;
+  float: none;
+  background: #f8f8f8;
+  padding: 5px 20px !important;
+  font-size: 40px;
+}
+.portlet.light>.portlet-title>.caption {
+  color: black;
+  font-weight: bold;
+  line-height: 35px;
+}
+body{
+  background: #f8f8f8;
+}
+
+.font-gray{
+  color: #777;
+}
+.pagination>.active>a{
+  background: #E54176;
+  border-color: #E54176;
+}
+.avatar{
+  border: 1px solid #eee;
+}
+.page-header-fixed.page-sidebar-closed-hide-logo.page-content-white .page-title{
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+  font-weight: bold;
+  padding-top: 0px;
+}
+div.content-form-page{
+  background: transparent;
+}
+
+table.dataTable.table-advance tbody tr td{
+  vertical-align: middle !important;
+  padding: 12px 10px;
+}
+
+table.dataTable.table-advance thead tr th{
+  color: black;
+  font-weight: bold;
+  background: #efefef;
+  cursor: pointer;
+  padding: 15px 8px;
+}
+table.dataTable.table-advance thead tr th i.fa{
+  margin-top: 3px;
+}
+
+.ui-pnotify{
+  width: 320px;
+  cursor: auto;
+  right: 30px;
+  top: 85px;
+  position: fixed;
+  height: auto;
+  z-index: 9999;
+}
+.ui-pnotify-container{
+  box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.5);
+  padding: 18px;
+  border: none;
+  height: 100%;
+  margin: 0;
+  border-radius: 4px!important;
+}
+
+.ui-pnotify .content-image .menu-icon {
+  font-size: 36px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin-right: 12px;
+  display: block;
+  float: left;
+  text-align: center;
+  color: #f85d2c !important;
+}
+
+.ui-pnotify-button{
+  margin-top: 10px;
+  text-align: right;
+}
+
+.icon-cross:before {
+    content: "\e678";
+}
+
+.ui-pnotify-closer{
+  cursor: pointer;
+  visibility: visible;
+  right: 8px;
+  position: absolute;
+  top: 4px;
+  font-size: 18px;
+  float: right;
+  margin-left: .2em;
+}

@@ -1,0 +1,85 @@
+<div class="page-content" style="">
+  <div class="container">
+    <div class="row">
+      <div class="portlet light bordered" *ngFor = "let director of directors">
+          <div class="portlet-title">
+              <div class="caption">
+                  <!-- <i class="icon-microphone font-blue-hoki"></i> -->
+                  <span class="caption-subject bold font-blue-hoki uppercase">{{director.name}}</span>
+                  <!-- <span class="caption-helper">more samples...</span> -->
+              </div>
+          </div>
+          <div class="portlet-body">
+              <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;">
+                <div class="scroller" style="height: 200px; overflow: hidden; width: auto;" data-initialized="1">
+                  <!-- <h4>Heading text goes here...</h4> -->
+                  <p class="col-sm-12 col-md-10">{{director.description}}</p>
+                  <div class="col-sm-4 col-md-2">
+                    <img class="img-responsive" src="{{director.image_url}}">
+                  </div>
+                </div>
+                <div class="slimScrollBar" style="background: rgb(187, 187, 187); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 200px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="margin-top-30" style="text-align:center">
+
+<h1>{{tr("MAIN_TITLE")}}</h1>
+<div class="content-form-page">
+  <form class="form-horizontal" role="form" novalidate (ngSubmit) = "sendContactMessage(contactForm);" #contactForm="ngForm">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+        <fieldset>
+          <legend>{{tr("DETAIL_TITLE")}}</legend>
+          <div class="alert alert-success " [class.hidden] = "successMessage == ''">
+            <button type="button" class="close" (click) = "successMessage = ''"></button>
+            <p>{{successMessage}}</p>
+          </div>
+          <div class="alert alert-danger " [class.hidden] = "errorMessage == ''">
+            <button class="close" (click) = "errorMessage = ''"></button>
+            <p>{{errorMessage}}</p>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label for="name" class="col-md-4 control-label"><span class="require"></span></label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="name" name="name"  required="true" placeholder='{{tr("NAME")}}'  [(ngModel)]="model.name">
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label for="name" class="col-md-4 control-label"><span class="require"></span></label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="email" name="email"  required="true" placeholder='{{tr("EMAIL")}}'  [(ngModel)]="model.email">
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label for="name" class="col-md-4 control-label"><span class="require"></span></label>
+            <div class="col-md-4">
+              <input type="email" class="form-control" id="subject" name="subject"  required="true" placeholder='{{tr("SUBJECT")}}' [(ngModel)]="model.subject">
+            </div>
+          </div>
+          <div class="form-group margin-top:20px">
+            <label for="name" class="col-md-4 control-label"><span class="require"></span></label>
+            <div class="col-md-4">
+              <textarea class="form-control" name="message" rows="8" cols="40" placeholder='{{tr("MESSAGE")}}' [(ngModel)]="model.message"></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div  style="text-align:center;">
+              <button type="submit" class="btn btn-primary green">{{tr("SEND_MESSAGE")}}</button>
+            </div>
+          </div>
+
+
+        </fieldset>
+
+    </div>
+
+  </div>
+  </form>
+</div>
+</div>

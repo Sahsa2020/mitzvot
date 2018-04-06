@@ -1,0 +1,167 @@
+.sell-item-img{
+  width: 58px;
+  height: auto;
+  margin: 0 12px 12px 0;
+  border: 1px solid rgb(187, 186, 186);
+}
+
+.price-availability-block .price strong span {
+    font-size: 20px;
+}
+
+.price-availability-block .price strong {
+    color: #e84d1c;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.price{
+  margin-top: 20px;
+}
+
+#amount{
+  text-align: center;
+  font-size: 20px;
+}
+
+.btn.spinner{
+  background: #9a9a9a;
+  border-radius: 0px;
+  padding: 1px 6px;
+}
+
+.buy-btn{
+  margin-top: 20px;
+  width: 150px;
+  height: 40px;
+}
+
+.radio-item input:checked+label:after {
+    background: -webkit-linear-gradient(left top,transparent 49%,#e84d1c 49%,#e84d1c 100%);
+    background: -moz-linear-gradient(left top,transparent 49%,#e84d1c 49%,#e84d1c 100%);
+    background: -o-linear-gradient(left top,transparent 49%,#e84d1c 49%,#e84d1c 100%);
+    content: '7';
+    position: absolute;
+    right: -0.5rem;
+    bottom: -0.5rem;
+    width: 2rem;
+    height: 2rem;
+    color: #fff;
+    font-family: tahoma;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bolder;
+    line-height: 2.8rem;
+    text-indent: 0.5rem;
+    overflow: hidden;
+    -webkit-transform: rotate(-90deg) scaleX(-1) scale(0.55);
+    -moz-transform: rotate(-90deg) scaleX(-1) scale(0.55);
+    -o-transform: rotate(-90deg) scaleX(-1) scale(0.55);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.radio-item input:checked+label {
+    border-color: #e84d1c;
+    position: relative;
+    color: #e84d1c;
+}
+
+.radio-item label {
+    color:#717171;
+    display: inline-block;
+    font-size: 15px;
+    border: 1px solid #ceced0;
+    background-color: #fafafa;
+    min-width: 2rem;
+    padding: 0.5rem 1.2rem;
+    /*margin: 0 0.5rem 0.5rem 0;*/
+    max-width: 100%;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 0.3rem;
+    border-radius: 0.3rem;
+
+}
+
+.radio-item{
+  margin-right: 5px;
+  padding: 0px;
+}
+
+.spinner-input{
+  text-align: center;
+  font-size: 13px;
+  height: 24px;
+}
+
+.main-box-img{
+  border: 2px solid #d2d2d2;
+  width: 100%;
+}
+
+.aKm {
+    background: rgba(255,255,255,.9);
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #d7d7d7;
+    height: 7px;
+    position: relative;
+    margin: 15px 0px 20px 0px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background:#fe5555;
+}
+
+.product-other-images{
+    margin-top: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.donate-content{
+  padding: 5px;
+  border: 1px solid #545454;
+  margin:5px;
+}
+
+.donate-image{
+  width: 150px;
+  height: 150px;
+  float: left;
+  margin-right: 10px;
+}
+
+.form-group-info{
+  margin-bottom: 0px;
+}
+
+.control-label{
+  padding: 5px 10px;
+}
+
+div.caption>button.search{
+  height: 34px;
+}
+
+.paging_bootstrap_number{
+  margin-top: 15px;
+}
+.transparent{
+  opacity: 0;
+}
+
+button.btn.search-filter{
+  background: #E54176;
+  color: white;
+  border: none;
+  border-radius: 5px !important;
+  padding: 10px 22px;
+}

@@ -1,0 +1,215 @@
+<div class="container-fluid" style="padding-top:0px">
+  <div class="row">
+      <div class="desktop-menu">
+          <div class="col-sm-3">
+           <div class="logo">
+              <a [routerLink]="['/home']"><img src="assets/img/logo.png" class="img-responsive" alt="Logo"></a>
+           </div>
+          </div>
+          <div class="col-sm-9">
+           <nav class="navbar">
+              <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                      <li  class="" [class.active]= "appState.get('one_page_menu_selected') == 1">
+                        <a [routerLink]="['/home']">
+                          {{tr('HOME')}}
+                        </a>
+                      </li>
+                      <li class="" [class.active]= "appState.get('one_page_menu_selected') == 7">
+                        <a [routerLink]="['/director_board/']" >
+                          {{tr('ABOUT')}}
+                        </a>                      
+                      </li>
+                      <li  class="" [class.active]= "appState.get('one_page_menu_selected') == 2" >
+                        <a class="" [routerLink]="['/score']">
+                          {{tr('SCOREBOARD')}}
+                        </a>
+                      </li>
+                      <li class="" [class.active]= "appState.get('one_page_menu_selected') == 6" >
+                        <a class="" [routerLink]="['/sell']">
+                          {{tr('SELLBOARD')}}
+                        </a>
+                      </li>                  
+                      <li class="main-menu-li nav-dropdown" [class.active]= "appState.get('one_page_menu_selected') == 9" >
+                        <a [routerLink]="['/selldonate']">{{tr('SELLDONATE')}} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu"  *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.INDIVIDUAL && authenticate.currentUser.role != USER_TYPE.MEMBER">
+                            <li><a [routerLink]="['/selldonate']">{{tr('SELLDONATE')}}</a></li>
+                            <li class="active"><a [routerLink]="['/profile/donate']">{{tr('DONATE')}}</a></li>
+                        </ul>
+                      </li>
+                      <!-- <li class="nav-dropdown">
+                          <a href="#">Sponsor <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="sponsor.html">Become a Sponsor</a></li>
+                              <li class="active"><a href="list-sponsor.html">Our Sponsors</a></li>
+                          </ul>
+                      </li> -->
+                      <li><a [routerLink]="['/contact/']">{{tr('CONTACTUS')}}</a></li>
+                      <!-- <li><a href="faq.html">FAQ</a></li> -->
+                      <li class="main-menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role == USER_TYPE.ADMIN">
+                        <a class="" href="{{SERVER_URL}}/admin">
+                          Admin
+                        </a>
+                      </li>
+                      <li class="notification">
+                          <a href="#" class="relative"><img src="assets/img/notification-icon.png" class="img-respons" alt="notification"> <span class="badge">3</span></a>
+                      </li>
+                      <li class="nav-dropdown">
+                            <a class="account-btn"><img src="{{authenticate.currentUser?.image_url}}" class="img-responsive" alt="User"> {{ authenticate.currentUser?.name }}  <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <div class="dropdown-menu" >
+                                <div class="drop-head">
+                                    <span> YOUR ACCOUNT</span>
+                                    <a class="close-btn">X</a>
+                                </div>
+                                <ul class="drop-body">
+                                    <li class="menu-li"><a [routerLink]="['/profile/']">{{tr('EDIT_PROFILE')}}</a></li>
+                                    <li class="menu-li">
+                                        <a href="{{SERVER_URL}}/messages">Chat History</a>
+                                        <span class="badge badge-danger" style="position: absolute; left: auto; bottom: 10px; top: auto; right: 5px;" [class.hidden] = "general.unread_messages == 0">{{general.unread_messages}}</span>
+                                    </li>                                
+                                    <li class="menu-li"  *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.INDIVIDUAL && authenticate.currentUser.role != USER_TYPE.MEMBER"  [class.active]= "appState.get('one_page_menu_selected') == 8" >
+                                        <a class="" [routerLink]="['/report']">
+                                          {{tr('REPORT')}}
+                                        </a>
+                                    </li>
+                                    <li class="menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/boxes']">{{tr('BOXES')}}</a></li>
+                                    <li class="menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/sounds']">My Box Sounds</a></li>
+                                    <li class="menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.INDIVIDUAL && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/members']">{{tr('MEMBERS')}}</a></li>
+                                    <li class="menu-li"><a [routerLink]="['/profile/changePassword']">{{tr('CHANGE_PASSWORD')}}</a></li>
+                                    <li class="menu-li"><a href="{{SERVER_URL}}/logout">{{tr('SIGN_OUT')}}</a></li>                                
+                                </ul>                            
+                            </div>
+                      </li>
+                      <!-- <li class="personal-account">
+                        <a class="account-btn" (click)="showMenu()"><img src="{{authenticate.currentUser?.image_url}}" class="img-responsive" alt="User"> {{ authenticate.currentUser?.name }}  <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <div class="dropdown" *ngIf="is_account_clicked">
+                            <div class="drop-head">
+                                <span> YOUR ACCOUNT</span>
+                                <a (click)="is_account_clicked=false" class="close-btn">X</a>
+                            </div>
+                            <ul class="drop-body">
+                                <li><a [routerLink]="['/profile/']">{{tr('EDIT_PROFILE')}}</a></li>
+                                <li>
+                                    <a href="{{SERVER_URL}}/messages">Chat History</a>
+                                    <span class="badge badge-danger" style="position: absolute; left: auto; bottom: 10px; top: auto; right: 5px;" [class.hidden] = "general.unread_messages == 0">{{general.unread_messages}}</span>
+                                </li>                                
+                                <li *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.INDIVIDUAL && authenticate.currentUser.role != USER_TYPE.MEMBER" class="main-menu-li" [class.active]= "appState.get('one_page_menu_selected') == 8" >
+                                    <a class="" [routerLink]="['/report']">
+                                      {{tr('REPORT')}}
+                                    </a>
+                                </li>
+                                <li *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/boxes']">{{tr('BOXES')}}</a></li>
+                                <li *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/sounds']">My Box Sounds</a></li>
+                                <li *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.INDIVIDUAL && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/members']">{{tr('MEMBERS')}}</a></li>
+                                <li><a [routerLink]="['/profile/changePassword']">{{tr('CHANGE_PASSWORD')}}</a></li>
+                                <li><a href="{{SERVER_URL}}/logout">{{tr('SIGN_OUT')}}</a></li>                                
+                            </ul>                            
+                        </div>
+                      </li> -->
+                  </ul>
+              </div>
+           </nav>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="mobile-menu">
+          <div class="col-xs-8">
+              <div class="logo">
+                  <a [routerLink]="['/home']"><img src="assets/img/logo.png" class="img-responsive" alt="Logo"></a>
+              </div>
+          </div>
+          <div class="col-xs-4">
+              <div class="menu">
+                  <a (click)="showMobileMenu(true, $event)"><img src="assets/img/menu-bar.png" class="img-responsive"></a>
+              </div>
+          </div>
+          <nav class="after-login" *ngIf="is_mobile_menu_clicked">
+              <div class="transparent"></div>
+              <!-- <div class="close-btn"><a (click)="showMobileMenu(true)">X</a></div> -->
+              <div id="sidebar">
+                  <div class="back">
+                      <a (click)="showMobileMenu(false, $event)">< Back to website</a>
+                  </div>
+                  <div class="user-details">
+                      <span class="user-img"><img src="{{ authenticate.currentUser?.image_url }}" class="img-responsive"></span>
+                      <p>{{ authenticate.currentUser?.name }}</p>
+                  </div>
+                  <ul class="drop-body">
+                    <li><a [routerLink]="['/profile/']">{{tr('EDIT_PROFILE')}}</a></li>
+                    <li><a href="{{SERVER_URL}}/messages">Chat History</a></li>
+                    <li *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.INDIVIDUAL && authenticate.currentUser.role != USER_TYPE.MEMBER" class="main-menu-li" [class.active]= "appState.get('one_page_menu_selected') == 8" >
+                        <a class="" [routerLink]="['/report']">
+                          {{tr('REPORT')}}
+                        </a>
+                    </li>
+                    <li *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/boxes']">{{tr('BOXES')}}</a></li>
+                    <li *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/sounds']">My Box Sounds</a></li>
+                    <li *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.INDIVIDUAL && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/members']">{{tr('MEMBERS')}}</a></li>
+                    <li><a [routerLink]="['/profile/changePassword']">{{tr('CHANGE_PASSWORD')}}</a></li>
+                    <li><a href="{{SERVER_URL}}/logout">{{tr('SIGN_OUT')}}</a></li> 
+                  </ul>                                  
+                  <ul>                   
+                    <li class="" [class.active]= "appState.get('one_page_menu_selected') == 7">
+                        <a [routerLink]="['/director_board/']" >
+                            {{tr('ABOUT')}}
+                        </a>   
+                    </li>
+                    <li  class="" [class.active]= "appState.get('one_page_menu_selected') == 2" >
+                        <a class="" [routerLink]="['/score']">
+                            {{tr('SCOREBOARD')}}
+                        </a>
+                    </li>     
+                    <li class="" [class.active]= "appState.get('one_page_menu_selected') == 6" >
+                        <a class="" [routerLink]="['/sell']">
+                            {{tr('SELLBOARD')}}
+                        </a>
+                    </li>
+                    <li><a [routerLink]="['/selldonate']">{{tr('SELLDONATE')}}</a></li>
+                    <li><a [routerLink]="['/contact/']">{{tr('CONTACTUS')}}</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li class="main-menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role == USER_TYPE.ADMIN">
+                        <a class="" href="{{SERVER_URL}}/admin">
+                            Admin
+                        </a>
+                    </li>                          
+                  </ul>                   
+              </div>
+          </nav>
+      </div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
+<!-- <div class="ui-pnotify stack-topright"   *ngIf="appState.errorMessage != ''">
+    <div class="alert ui-pnotify-container alert-danger ui-pnotify-shadow" style="min-height: 16px;">    
+    <div class="ui-pnotify-closer" style="cursor: pointer; visibility: visible;">
+    <button type="button" class="close" name="button" style="margin:10px" (click)="appState.errorMessage = ''"></button>
+    </div>
+    <div class="ui-pnotify-sticker" style="cursor: pointer; visibility: hidden;">
+      <span class="icon-play" title="Stick">
+      </span>
+    </div>
+    <h4 class="ui-pnotify-title" style="display: none;">
+    </h4>
+    <div class="ui-pnotify-text">
+      <div class="content-list content-image">
+        <div class="list-wrapper mgtp-10 mgbt-xs-10">
+          <div>
+            <div class="menu-icon">
+            <i class="fa fa-warning vd_red">
+            </i>
+            </div>
+            <div class="menu-text">
+              <h5>
+              <strong>Note</strong>
+              </h5>
+              <p class="lh-sm" style="margin:0px;    margin-left: 50px;">{{appState.errorMessage}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div> -->

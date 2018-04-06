@@ -1,0 +1,99 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 banner">
+            <div class="row">
+                <img src="assets/img/aboutbanner.png" class="img-responsive" alt="Banner">
+                <div class="banner-txt">
+                    <h1>About Us</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row text-center row-eq-height">
+        <div class="col-md-4">
+            <div class="motivation-box">
+                <h2>01</h2>
+                <strong>Everyday motivation</strong>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="motivation-box">
+                <h2>02</h2>
+                <strong>Easy to make a good deeds</strong>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="motivation-box">
+                <h2>03</h2>
+                <strong>Worldwide family</strong>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been .</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="second-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>We are community that have  a mission to motivate people do a <span>good deeds</span> over the world</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining.</p>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
+            </div>
+            <div class="col-md-6">
+                <div class="dotted-bg"><img src="assets/img/dottedthree-bg.jpg" class="img-responsive" alt="image"></div>
+                <div class="family-box">
+                    <img src="assets/img/about-img1.jpg" class="img-responsive" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<div class="third-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Want to start do a good deeds and motivate other?</h2>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="community-btn btn-white">join the community</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear20"></div>
+<div class="fourth-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3><span>Directors</span> Board</h3>
+            </div>
+            <div *ngFor = "let director of directors">
+                <div class="clear20"></div>
+                <div class="director-box">
+                    <div class="row1">
+                        <div class="col-md-4">
+                            <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
+                            <div class="family-box">
+                                <!-- <img src="assets/img/about2.jpg" class="img-responsive" alt="image"> -->
+                                <img src="{{ director.image_url}}" class="img-responsive" alt="image">                                
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h4>{{ director.name }}</h4>
+                            <p>{{ director.description }}</p>
+                        </div>
+                    </div>
+                </div>  
+                <div class="clear"></div>  
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<app-footer></app-footer>

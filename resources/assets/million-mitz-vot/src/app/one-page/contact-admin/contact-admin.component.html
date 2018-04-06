@@ -1,0 +1,47 @@
+<h4 class="page-title"><span style="color: #EC307C;">Talk </span> to Customer</h4>
+<div class="page-content" style="">
+  <div class="container">
+    <div class="row">
+      <div class="leader-tile" *ngFor = "let admin of admins">
+        <img onerror="this.src='assets/global/img/default_avatar.jpg'" src = "{{admin.image_url}}" class="avatar small" style="border-radius: 50% !important;"/>
+        <div style="width: 100%; padding-bottom: 10px;">
+          <div class="col-xs-8" style=" margin-top: 25px; margin-left: 25px;">
+            <h4>{{admin.name}}</h4>
+            <span>{{admin.address}}, {{admin.country}}</span>
+          </div>
+          <div class="col-xs-3" style=" margin-top: 25px;">
+            <a class="btn btn-primary pull-right green" (click) = "contact(admin.id);">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div bsModal #contact_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Add Box" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="contact_dialog.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3><i class="fa fa-edit"></i>Talk to Customer</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form" style="display: block;" method="POST" action="{{SERVER_URL}}/contactAdmin" ngNoForm >
+          <div class="row">
+            <fieldset style="margin: 10px; margin-top: 0px;">
+              <textarea class="form-control" placeholder="Please describe your problem." [(ngModel)] = "model.message" name="message" required rows="8"></textarea>
+            </fieldset>
+            <input type="hidden" name="id" [(ngModel)] = "model.id">
+            <fieldset style="text-align: right;padding-right: 30px;">
+              <div class="">
+                <button class="btn btn-primary green" type="submit">Contact</button>
+                <button class="btn red" (click)="contact_dialog.hide();" type="button">Cancel</button>
+              </div>
+            </fieldset>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

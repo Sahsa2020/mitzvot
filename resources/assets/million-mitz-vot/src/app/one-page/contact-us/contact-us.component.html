@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 banner">
+            <div class="row">
+                <img src="assets/img/aboutbanner.png" class="img-responsive" alt="Banner">
+                <div class="banner-txt">
+                    <h1>We love to hear from you!</h1>  
+                    <p>We are here to help you! Please don't hesitate to fill out the form below.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <form class="form-horizontal" role="form" (ngSubmit) = "sendContactMessage(contactForm);" #contactForm="ngForm">
+    <div class="row">
+        <div class="col-md-2 hidden-sm hidden-xs"></div>
+        <div class="col-md-8">
+            <div class="contact-form">
+                <h2>Type your message in form below</h2>
+                <fieldset>
+                    <legend></legend>
+                    <div class="alert alert-success " [class.hidden] = "successMessage == ''">
+                        <button type="button" class="close" (click) = "successMessage = ''"></button>
+                        <p>{{successMessage}}</p>
+                        </div>
+                        <div class="alert alert-danger " [class.hidden] = "errorMessage == ''">
+                        <button type="button" class="close" (click) = "errorMessage = ''"></button>
+                        <p>{{errorMessage}}</p>
+                    </div>
+                    <div class="form-group form-group-border">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="name" name="name"  required="true" placeholder='{{tr("NAME")}}'  [(ngModel)]="model.name">
+                    </div>
+                    <div class="form-group form-group-border">
+                        <label>Phone</label>
+                        <input type="email" class="form-control" id="email" name="email"  required="true" placeholder='{{tr("EMAIL")}}'  [(ngModel)]="model.email">
+                    </div>
+                    <div class="form-group form-group-border">
+                        <label>Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject"  required="true" placeholder='{{tr("SUBJECT")}}' [(ngModel)]="model.subject">
+                    </div>
+                    <div class="form-group form-group-border">
+                        <label>Message</label>
+                        <textarea class="form-control" name="message" rows="8" cols="40" required="true" placeholder='{{tr("MESSAGE")}}' [(ngModel)]="model.message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control">{{tr("SEND_MESSAGE")}}</button> 
+                    </div>
+                </fieldset>                
+            </div>
+        </div>
+        <div class="col-md-2 hidden-sm hidden-xs"></div>
+    </div>
+    <div class="clear20"></div>
+    </form>
+</div>
+<app-footer></app-footer>
+<script src="http://vjs.zencdn.net/6.4.0/video.js"></script>

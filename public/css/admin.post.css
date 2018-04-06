@@ -1,0 +1,367 @@
+video {
+    max-width: 100%;
+    height: auto;
+}
+a {
+    cursor: pointer;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.liked{
+    color: #4689c3;
+}
+.put-comment{
+    border: 1px solid #D5D5D5;
+    display: inline-block;
+    width: 100%;
+    background: #F8F8F8;
+    padding: 10px;
+    margin: 15px 0 10px;
+}
+.put-comment .user-image{
+    width: 32px;
+    height: 32px;
+}
+.put-comment .add-comment{
+    display: inline-block;
+    width: 92%;
+    vertical-align: top;
+    margin-left: 10px;
+}
+.put-comment .add-comment input{
+    border-radius: 3px;
+    width: 82%;
+    display: inline-block;
+}
+.put-comment .add-comment input[type='submit']{
+    width: auto;
+    height: 32px;
+    font-size: 15px;
+    line-height: 20px;
+}
+a.click-like{
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    margin-right: 10px;
+}
+a.click-like:hover{
+    color: #4689c3;
+}
+a.click-like.liked{
+    color: #3a80d7;
+}
+.post{
+    display: inline-block;
+    width: 90%;
+}
+.post ul li{
+    display: inline-block;
+    margin-right: 5px;
+}
+.post ul li a{
+    color: #000;
+    padding: 0 5px;
+}
+.post .user-name{
+    margin: 0 0 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+.post .user-name ul li {
+    display: block;
+}
+.post .user-name .time{
+    float: right;
+    color: #999;
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+}
+
+.post .user-name .time i{
+    color: #000;
+    margin-left: 10px;
+    font-size: 20px;
+    vertical-align: top;
+}
+.post .image,.post video{
+    margin: 20px 0;
+}
+.post .videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.post .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.like-space, .share-space{
+    display: inline-block;
+    position: relative;
+}
+.post .share-list{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    left: 15px;
+    right: 0;
+    width: 150px;
+    font-size: 12px;
+}
+.post .share-list li{
+    display: block;
+    margin: 0;
+}
+.post .share-list li a{
+    color: #fff;
+    display: block;
+    padding: 2px 5px;
+}
+.post .user-name .time .share-list{
+    left: -110px;
+    width: 200px;
+}
+.user-image{
+    background: #3097d1;
+    border: 2px solid #3071a9;
+    height: 50px;
+    width: 50px;
+    border-radius: 0;
+    vertical-align: top;
+    margin-right: 10px;
+}
+.section{
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid #D5D5D5;
+    padding: 10px;
+    background: #fff;
+}
+input[type='submit']{
+    background: #3a80d7;
+    border: 1px solid #3b6d97;
+    border-radius: 5px;
+    text-transform: capitalize;
+    float: right;
+    padding: 5px 20px;
+}
+.post .share-list li{
+    display: block;
+    margin: 0;
+}
+.post .share-list li a{
+    color: #fff;
+    display: block;
+    padding: 2px 5px;
+}
+.post .user-name .time .share-list{
+    left: -110px;
+    width: 200px;
+}
+a.click-like{
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    margin-right: 10px;
+}
+a.click-like:hover{
+    color: #3d6a91;
+}
+a.click-like.liked{
+    color: #3a80d7;
+}
+.like-space, .share-space{
+    display: inline-block;
+    position: relative;
+}
+.post .share-list{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    left: 15px;
+    right: 0;
+    width: 150px;
+    font-size: 12px;
+}
+.post .share-list li{
+    display: block;
+    margin: 0;
+}
+.post .share-list li a{
+    color: #fff;
+    display: block;
+    padding: 2px 5px;
+}
+.post .user-name .time .share-list{
+    left: -110px;
+    width: 200px;
+}
+.user-image{
+    display: inline-block;
+    background: #3097d1;
+    border: 2px solid #3071a9;
+    height: 50px;
+    width: 50px;
+    border-radius: 0;
+    vertical-align: top;
+    margin-right: 10px;
+}
+.user-image img{
+    width: auto;
+    margin: auto;
+    height: 100%;
+}
+.modal-title{
+    display: inline-block;
+    font-size: 20px;
+}
+.modal-body ul li{
+    margin: 5px 0 20px;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 10px;
+}
+.close-img{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+.modal-body ul{
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.modal-body .user-name a{
+    color: #000;
+    text-decoration: none;
+}
+.comment-box{
+    display: inline-block;
+    border: 1px solid #f1f1f1;
+    padding: 5px;
+    width: 100%;
+    margin: 20px 0;
+}
+@media screen and ( min-width: 992px ) and ( max-width: 1199px ){
+    .user-image {
+        height: 30px;
+        width: 30px;
+        margin-right: 5px;
+    }
+}
+@media screen and ( min-width: 768px ) and ( max-width: 991px ){
+    .user-image {
+        height: 30px;
+        width: 30px;
+        margin-right: 5px;
+    }
+}
+@media screen and ( max-width: 767px ){
+    .user-image {
+        height: 24px;
+        width: 24px;
+        margin-right: 0;
+    }
+    .user-status {
+        width: 85%;
+    }
+    .post {
+        display: inline-block;
+        width: 85%;
+        font-size: 12px;
+    }
+    .post .user-name .time {
+        font-size: 10px;
+    }
+    .post .user-name .time i {
+        margin-left: 5px;
+        font-size: 14px;
+    }
+    .post ul li {
+        margin-right: 0;
+        font-size: 10px;
+    }
+    a.click-like {
+        margin-right: 5px;
+        font-size: 10px;
+    }
+    .put-comment .user-image {
+        width: 22px;
+        height: 22px;
+    }
+    .put-comment .add-comment {
+        width: 85%;
+        margin-left: 5px;
+    }
+    .put-comment .add-comment input {
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}
+.close-btn{
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 23px;
+    position: absolute;
+    top: -6px;
+    right: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.close-btn:hover{
+    color: red;
+}
+
+.alert-middle {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    font-size: 23px;
+    left: 0;
+    right:0;
+    bottom:0;
+    opacity: 1;
+    padding: 25px;
+    position: fixed;
+    right: 10px;
+    top: 0;
+    transition: opacity 0.6s ease 0s;
+    width: auto;
+    z-index: 3;
+}
+
+.alert-middle-main {
+    background:#fff;
+    width: 500px;
+    margin: 0 auto;
+    color: #000;
+    max-height: 300px;
+    overflow-y: auto;
+    position:fixed;
+    border-radius:4px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -250px;
+}
+
+.alert-middle.closebtn{
+    color: #000;
+}
+
+.alert-middle.closebtn:hover {
+    color: #fd7c02;
+}

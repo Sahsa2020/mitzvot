@@ -1,0 +1,11 @@
+{
+    "menus":[
+        {
+            "section":"Management",
+            "items":[
+                {"title":"Orders","url":"\/shipper\/orders"},
+                {"title":"WareHouses","url":"\/shipper\/warehouses"}
+            ]
+        }
+    ]
+}

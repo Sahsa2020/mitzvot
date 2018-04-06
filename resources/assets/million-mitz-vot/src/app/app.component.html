@@ -1,0 +1,30 @@
+<router-outlet></router-outlet>
+<div class="modal fade in" role="basic" style="padding-right: 17px;z-index:9999999999999;" [class.show] = "appState.get('isLoading') > 0">
+  <div class="modal-backdrop fade in" style="height: 100%;opacity:0.28;background-color:rgb(253, 129, 163) !important;"></div>
+	<div class="modal-dialog" style="width:80px;height:100%;">
+    <i class="fa fa-circle-o-notch fa-spin fa-fw" aria-hidden="true" style="font-size: 44px;top: 50%;position: absolute;color: rgb(253, 129, 163);"></i>
+		<!-- <div class="modal-content">
+			<div class="modal-body">
+
+			</div>
+		</div> -->
+	</div>
+</div>
+<div class="modal fade in" role="basic" style="padding-right: 17px;z-index:9999999999999;" [class.show] = "errorMessage != ''">
+  <div class="modal-backdrop fade in" style="height: 100%;"></div>
+	<div class="modal-dialog" style="width:80px;height:100%;">
+    <!-- <i class="fa fa-circle-o-notch fa-spin fa-fw" aria-hidden="true" style="font-size: 64px;top: 50%;position: absolute;"></i> -->
+		<div class="modal-content">
+			<div class="modal-body">
+        <p>{{errorMessage}}</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="chat-window" [class.active] = "appState.get('is_chat_window_open')" *ngIf = "authService.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && appState.get('is_on_contact_us')">
+	<a class="icon" (click) = "toggleChat()"> <i class="fa fa-comments"></i></a>
+	<iframe class = "col-xs-12 form-control" frameborder="0" allowfullscreen style="height: 100%;" src = "/customer_support"></iframe>
+	<button type="button" class="close" (click)="toggleChat()" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
