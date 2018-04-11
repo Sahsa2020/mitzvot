@@ -16,9 +16,9 @@
             <div class="heading">
                 <h1>Chooose organization you want to donate</h1>
                 <div class="sort-box">
-                    <select class="form-control">
-                        <option>Sort by</option>
-                        <option>Sort by</option>
+                    <select class="form-control" [(ngModel)]="selectedValue">
+                    <option [ngValue]="null">Sort By</option>
+                    <option *ngFor="let sortType of sortTypes" [ngValue]="sortType">{{sortType.name}}</option>
                     </select>
                 </div>
             </div>
@@ -28,122 +28,43 @@
     <div class="row">
         <div class="col-sm-9">
             <div class="row row-eq-height">
-                <div class="col-md-4">
-                    <div class="organization">
+                <div class="col-md-4" *ngFor = "let donate of profileService.donates; let i = index;">
+                    <div class="organization" *ngIf = "donate.del_flg == 0 || (authenticateService.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN )">
                         <div class="image">
-                            <img src="assets/img/donate1.jpg" class="img-responsive" alt="image">
+                            <img src="{{donate.picture}}" class="img-responsive" alt="image">
                             <div class="small-img">
                                 <img src="assets/img/donate-logo.png" class="img-responsive" alt="donate-logo">
                             </div>
-                        </div>
+                        </div>                        
                         <div class="org-details">
-                            <h2>Organization name</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <a href="#" class="community-btn" data-toggle="modal" data-target=".modal">Donate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="organization">
-                        <div class="image">
-                            <img src="assets/img/donate2.jpg" class="img-responsive" alt="image">
-                            <div class="small-img">
-                                <img src="assets/img/donate-logo.png" class="img-responsive" alt="donate-logo">
+                            <h2>{{donate.name}}</h2>
+                            <p>{{donate.description}}</p>
+                            <div style="display: inline-flex;" >
+                                <span style="    font-size: 15px;">Quantity: </span>
+                                <input type="number" [(ngModel)] = "donate.quantity" style = " width: calc(100% - 60px);margin-left: 3px;" (blur) = "checkQuantity(donate);">
                             </div>
-                        </div>
-                        <div class="org-details">
-                            <h2>Organization name</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <a href="#" class="community-btn" data-toggle="modal" data-target=".bs-example-modal-sm">Donate
-                            </a>
+                            <a (click)="showPayDlg_(donate.id);" class="community-btn" >Donate</a>                            
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="organization">
-                        <div class="image">
-                            <img src="assets/img/donate3.jpg" class="img-responsive" alt="image">
-                            <div class="small-img">
-                                <img src="assets/img/donate-logo.png" class="img-responsive" alt="donate-logo">
-                            </div>
-                        </div>
-                        <div class="org-details">
-                            <h2>Organization name</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <a href="#" class="community-btn" data-toggle="modal" data-target=".bs-example-modal-sm">Donate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="clear20"></div>
-            <div class="row row-eq-height">
-                <div class="col-md-4">
-                    <div class="organization">
-                        <div class="image">
-                            <img src="assets/img/donate1.jpg" class="img-responsive" alt="image">
-                            <div class="small-img">
-                                <img src="assets/img/donate-logo.png" class="img-responsive" alt="donate-logo">
-                            </div>
-                        </div>
-                        <div class="org-details">
-                            <h2>Organization name</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <a href="#" class="community-btn" data-toggle="modal" data-target=".bs-example-modal-sm">Donate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="organization">
-                        <div class="image">
-                            <img src="assets/img/donate2.jpg" class="img-responsive" alt="image">
-                            <div class="small-img">
-                                <img src="assets/img/donate-logo.png" class="img-responsive" alt="donate-logo">
-                            </div>
-                        </div>
-                        <div class="org-details">
-                            <h2>Organization name</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <a href="#" class="community-btn" data-toggle="modal" data-target=".bs-example-modal-sm">Donate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="organization">
-                        <div class="image">
-                            <img src="assets/img/donate3.jpg" class="img-responsive" alt="image">
-                            <div class="small-img">
-                                <img src="assets/img/donate-logo.png" class="img-responsive" alt="donate-logo">
-                            </div>
-                        </div>
-                        <div class="org-details">
-                            <h2>Organization name</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <a href="#" class="community-btn" data-toggle="modal" data-target=".bs-example-modal-sm">Donate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <div class="clear20"></div>
+            </div>          
             <div class="clear20"></div>
             <div class="pagination-block text-center">
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">&lt; Prev</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next ></a></li>
-                  </ul>
-                </nav>
+                <pagination class=""
+                    [(ngModel)]="curPage"
+                    [totalItems]="totalCount"
+                    [itemsPerPage]="itemsPerPage"
+                    [maxSize]="100"
+                    previousText="&lsaquo;"
+                    nextText="&rsaquo;"
+                    (pageChanged)="refreshDonate($event)">
+                </pagination>
             </div>
         </div>
         <div class="col-sm-3">
             <div class="searchbox">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString" (keyup.enter)="search();">
                 <span class="search-btn">
                 <i class="fa fa-search" aria-hidden="true"></i></span>
             </div>
@@ -230,4 +151,89 @@
         </div>
     </div>
 </div>
+
+<div bsModal #pay_box_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Add Box" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width:600px">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" (click)="pay_box_dialog.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <h3><i class="fa fa-paypal"></i>  BUY C-BOX</h3>
+        </div>
+        <div class="modal-body">
+            <span style="font-size: 18px;color: black;">Thanks for your Donation.</span>
+            <form class="form-horizontal" role="form" style="display: block;margin-top:10px" #editboxForm = "ngForm" ng-submit="expression" action="/api/v1/sell/postPayNow" method="post">
+            <input type="hidden" name="sellbox_id" value="{{curSellBox.id}}">
+                <!--<input type="hidden" name="buy_count" value="{{buy_count}}"> -->
+            <input type="hidden" name="total_price" value="{{totalPrice}}">
+            <input type="hidden" name="donateIds" value="{{donateIds.join(',')}}">
+            <input type="hidden" name="donateQuantities" value="{{quantities.join(',')}}">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                <img src="{{selDonate.picture}}" alt="" class="img-responsive">
+                </div>
+                <div class="col-md-8">
+                <div class="form-group form-group-info">
+                    <label class="col-md-3 control-label">Price : </label>
+                    <label class="col-md-9 control-label" style="text-align: left;"><strong>{{curSellBox.price}}</strong></label>
+                </div>
+                <div class="form-group form-group-info">
+                    <label class="col-md-3 control-label">{{tr("AMOUNT")}} : </label>
+                    <label class="col-md-9 control-label" style="text-align: left;"><strong>{{buy_count}}</strong></label>
+                    <!--<div class="col-md-9 control-label">
+                    <div class="input-group" style="width: 90px;">
+                        <input type="number" [(ngModel)]="buy_count" name="buy_count" class="form-control" disabled style="padding:0px">
+                    </div>
+                    </div>-->
+                    <!-- <label class="col-md-7 control-label" style="text-align: left;"><strong>{{buy_count}}</strong></label> -->
+                </div>
+                <div class="form-group form-group-info">
+                    <label class="col-md-3 control-label">{{tr("TOTAL_PRICE")}} : </label>
+                    <label class="col-md-9 control-label" style="text-align: left;"><strong>${{totalPrice}}</strong></label>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-12 aKm"></div>
+            <span style="font-size: 18px;color: black;">Your Information</span>
+            <div class="form-group">
+                <label class="col-md-5 control-label">Name : </label>
+                <div class='col-md-5'>
+                <input class='form-control' type="text" name="payer_name" value="" required="true" style="text-align: left;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 control-label">Email : </label>
+                <div class='col-md-5'>
+                <input class='form-control' type="email" name="payer_email" value="" style="text-align: left;" required="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 control-label">Address : </label>
+                <div class='col-md-5'>
+                <input class='col-md-7 form-control' type="text" name="payer_address" value="" style="text-align: left;" required="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 control-label">Comment : </label>
+                <div class='col-md-5'>
+                <textarea class='col-md-7 form-control' name="payer_comment" value="" style="text-align: left;" ></textarea>
+                </div>
+            </div>
+            <div class="aKm"></div>
+            <fieldset style="text-align: right;padding-right: 30px;">
+                <div class="">
+                <button class="btn btn-primary green">{{tr("PAY_NOW")}}</button>
+                <button type="button" class="btn red" (click)="pay_box_dialog.hide();">{{tr("CANCEL")}}</button>
+                </div>
+            </fieldset>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <app-footer></app-footer>

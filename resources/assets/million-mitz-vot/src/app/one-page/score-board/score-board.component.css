@@ -154,8 +154,9 @@ div.caption>button.search{
   font-weight: bold;
   font-size: 16px;
 }
+/* E54176 */
 .btn.send-money-btn{
-  background: #E54176;
+  background: #467FFD;
   color: white;
   border: none;
   border-radius: 2px !important;
@@ -175,7 +176,7 @@ div.caption>button.search{
   margin-bottom: 50px;
 }
 button.btn.search-filter{
-  background: #E54176;
+  background: #467FFD;
   color: white;
   border: none;
   border-radius: 5px !important;
@@ -185,11 +186,17 @@ button.btn.search-filter{
   width: 100%;
   display: inline-flex;
 }
-tr.table-row.selected td{
+/* tr.table-row.selected td{
   background: #FFE599;
+} */
+tr.table-row.selected td{
+  background: #D7E1F5;
 }
-.table-hover>tbody>tr:hover, .table-hover>tbody>tr:hover>td {
+/* .table-hover>tbody>tr:hover, .table-hover>tbody>tr:hover>td {
     background: #FFF5B9!important;
+} */
+.table-hover>tbody>tr:hover, .table-hover>tbody>tr:hover>td {
+  background: #D7E1F5!important;
 }
 .search-area{
   display: inline-flex; 
@@ -432,9 +439,9 @@ table tr th, table tr td{
   font-size: 12px;
   
 }
-table tr td:nth-child(3){
+/* table tr td:nth-child(3){
   color: #467FFD;
-}
+} */
 td img{
   width: 50px;
   height: 50px;
@@ -620,4 +627,8 @@ footer .community-btn{
   .main-body{
       padding: 0 15px;
   }
+}
+
+.table-text {
+  color: #E09200;
 }

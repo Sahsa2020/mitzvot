@@ -11,3 +11,5 @@ export * from './contact-us';
 export * from './contact-admin';
 export * from './about';
 export * from './activate';
+export * from './sponsor';
+export * from './faq';

@@ -8,6 +8,15 @@
 .page-footer-inner{
   float: none;
 }
+.container-fluid {
+  background-color: #fff;
+  box-shadow: 0 1px 3px #ddd;		
+	background: #fff;
+	border-radius: 0;
+	/* margin-bottom: 23px; */
+	z-index: 999;
+	position: relative;
+}
 .header.scrolled{
   position: fixed;
   top: 0;

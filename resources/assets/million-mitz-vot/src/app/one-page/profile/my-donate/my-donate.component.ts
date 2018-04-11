@@ -25,6 +25,7 @@ export class MyDonateComponent implements OnInit {
     this.appState.setLoading('Loading ...');
     this.profileService.getDonate().subscribe(
      result => {
+      this.appState.closeLoading();
        if(result){
          this.model = profileService.myDonate;
          jQuery('#donate-image-viewer').attr('src', this.model.picture);

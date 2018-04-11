@@ -20,7 +20,7 @@ export class ContactUsComponent implements OnInit {
   public model:ContactMessage;
   public USER_SIGNED_INFO = USER_SIGNED_INFO;
   constructor(public lang: LanguageService, public router: Router, public appState: StateService, public authService: AuthenticateService, public generalService: GeneralService, public onePageService:OnePageService) {
-    this.appState.set("one_page_menu_selected", 7);
+    this.appState.set("one_page_menu_selected", 12);
     this.model = new ContactMessage();
   }
 

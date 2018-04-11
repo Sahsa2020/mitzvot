@@ -16,11 +16,8 @@
                         <div class="follow">
                             <i class="fa fa-bell-o" aria-hidden="true"></i>
                             <!-- You Follow -->
-                            <button style="background-color:white; border:none; cursor:pointer;font-size:16px;" type="button" class="" (click) = "followUser();" *ngIf = "authService.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && currentSelectedUser.id != authService.currentUser.id">{{currentSelectedUser.is_current_user_following > 0?"Unfollow": "Follow"}}</button>
+                            <a style="background-color:white; border:none; cursor:pointer;font-size:16px;"  class="" (click) = "followUser();" *ngIf = "authService.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && currentSelectedUser.id != authService.currentUser.id">{{currentSelectedUser.is_current_user_following > 0?"Unfollow": "Follow"}}</a>
                         </div>
-
-                        
-
                     </div>                    
                     <div class="yourmitzvot" *ngIf = "authService.currentUser != null">
                         <h2>Your Mitzvot</h2>
@@ -61,8 +58,39 @@
                     <div class="table-box">
                         <div class="table-head">
                             <h3>Score Board</h3>
-                            <div class="top-right">
-                                <div class="col-md-5">
+                            <div class="top-right ">
+                                <div class="portlet-title" >
+                                    <div class="btn-group pull-right" dropdown>
+                                        <button type="button" class="btn btn-primary search-filter" dropdownToggle>
+                                        Search Filter <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu search-filters" *dropdownMenu role="menu" aria-labelledby="split-button">
+                                        <li role="menuitem">
+                                            <a class="dropdown-item" (click) = "searchFilter = 'name'">
+                                            <i class = "fa fa-check green" [class.transparent] = "searchFilter != 'name'" ></i>
+                                            Name
+                                            </a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a class="dropdown-item" (click) = "searchFilter = 'country'">
+                                            <i class = "fa fa-check green" [class.transparent] = "searchFilter != 'country'" ></i>
+                                            Country
+                                            </a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a class="dropdown-item" (click) = "searchFilter = 'school'">
+                                            <i class = "fa fa-check green" [class.transparent] = "searchFilter != 'school'" ></i>
+                                            School / Organization
+                                            </a>
+                                        </li>
+                                        </ul>
+                                    </div>
+                                    <div class="caption pull-right search-area">
+                                        <i class="fa fa-search" style="margin-top: 10px;"></i>
+                                        <input class="form-control" [(ngModel)]="searchString" placeholder="Search" (keyup.enter)="search();" style="border: none;">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-5">
                                     <div class="row">
                                         <select class="form-control">
                                             <option value="">Sort By</option>
@@ -76,7 +104,7 @@
                                         <span class="search-btn">
                                         <i class="fa fa-search" aria-hidden="true"></i></span>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -88,7 +116,7 @@
                                             {{tr("NAME")}}
                                             <i class="fa font-gray pull-right" [class.fa-sort]="sortField != 'name'" [class.fa-sort-asc]="sortField == 'name' && !sortDirection" [class.fa-sort-desc]="sortField == 'name' && sortDirection"></i>
                                         </th>
-                                        <th class="hidden-xs" (click) = "sort('type')">
+                                        <th class="hidden-xs " (click) = "sort('type')">
                                             City
                                             <i class="fa font-gray pull-right" [class.fa-sort]="sortField != 'type'" [class.fa-sort-asc]="sortField == 'type' && !sortDirection" [class.fa-sort-desc]="sortField == 'type' && sortDirection"></i>
                                         </th>
@@ -167,7 +195,7 @@
         <div class="col-md-3">
             <div class="leaders" *ngIf = "scores.length > 0">
                 <div class="head">
-                    <img src="images/list-icon.png" class="img-responsive" alt="list-icon">
+                    <img src="/assets/img/list-icon.png" class="img-responsive" alt="list-icon">
                     Following Leaders
                 </div>
                 <div class="leader-block">

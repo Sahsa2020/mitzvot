@@ -105,10 +105,15 @@ body{
 .font-gray{
   color: #777;
 }
-.pagination>.active>a{
+/* .pagination>.active>a{
   background: #E54176;
   border-color: #E54176;
+} */
+.pagination>.active>a{
+  background: #467FFD;
+  border-color: #467FFD;
 }
+
 .avatar{
   border: 1px solid #eee;
 }

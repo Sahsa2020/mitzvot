@@ -29,6 +29,7 @@ export class SellBoardComponent implements OnInit {
   public serverUrl: string = environment.serverUrl;
   public discountPercent: number = 0;
   public isLoadingDiscountPercent: boolean = false;
+  public is_selected_checkout: boolean = false;
   // public card_number:string="";
   // public cvv_code:string="";
   // public exp_year:string="2016";

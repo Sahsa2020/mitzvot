@@ -1,0 +1,330 @@
+section{
+    background: url('../../../assets/img/sponsor-banner.jpg') no-repeat;
+    background-size: 100% 70%; 
+    color: #fff;
+    padding: 100px 0;
+}
+h1{
+    font-weight: bold;
+}
+h2{
+    font-size: 18px;
+    margin-top: 0;
+}
+h3{
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+.form-group-border{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    text-align: left;
+    background: #fff;
+}
+.form-group-border .form-control:focus{
+    box-shadow: none;
+}
+.form-group-border label, .form-group-border select.form-control {
+    padding: 0 15px;
+}
+label{
+    margin-bottom: 0;
+    color: #6d6d6d;
+    font-weight: normal;
+    padding-left: 0;
+    font-size: 13px;
+}
+.form-group-border .form-control{
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    font-size: 14px;
+    height: 25px;
+    color: #000;
+}
+select.form-control{
+    background: #fff url('../../../assets/img/select-icon.png') no-repeat 98% 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.community-btn{
+    margin: 0;
+    border: none;
+    font-size: 15px;
+}
+.checkbox label{
+    color: #fff;
+}
+.checkbox label:after{
+  content: '';
+  display: table;
+  clear: both;
+}
+.checkbox .cr {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #fb6180;
+  border-radius: 2px;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-right: .5em;
+  background: #fb6180;
+}
+.checkbox .cr .cr-icon{
+  position: absolute;
+  font-size: 12px;
+  line-height: 0;
+  top: 50%;
+  left: 20%;
+}
+.checkbox label input[type="checkbox"]{
+  display: none;
+}
+.checkbox label input[type="checkbox"] + .cr > .cr-icon{
+  transform: scale(3) rotateZ(-20deg);
+  opacity: 0;
+  transition: all .3s ease-in;
+}
+.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon {
+  transform: scale(1) rotateZ(0deg);
+  opacity: 1;
+  color: #fff;
+}
+.checkbox label input[type="checkbox"]:disabled + .cr {
+  opacity: .5;
+}
+.checkbox{
+  margin: 0;
+}
+.checkbox label a.terms{
+  color: #fb6180;
+}
+.state{
+    background: #fff;
+    color: #333;
+    text-align: left;
+    font-weight: bold;
+    padding: 12px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    border-left: 2px solid #fff;
+}
+.state:hover, .state.selected{
+    border-left: 2px solid #fb6180;
+}
+.city li{
+    display: inline-block;
+    margin: 5px 10px;
+}
+.city li a{
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+}
+.city li a:hover{
+    color: #ccc;
+}
+.table-box{
+    box-shadow: 0 1px 10px 0 #ccc;
+    -webkit-box-shadow: 0 1px 10px 0 #ccc;
+    -moz-box-shadow: 0 1px 10px 0 #ccc;
+    background: #fff;
+    padding: 0;
+    transform: translateY(60%);
+    transition:all 0.4s ease-out;
+    -webkit-transition:all 0.4s ease-out;
+    -moz-transition:all 0.4s ease-out;
+}
+.table-box.box-display{
+    transform: translateY(0);
+}
+.table-head{
+    background: #f4f4f4;
+    padding: 20px;
+    display: inline-block;
+    width: 100%;
+}
+.table-head h3{
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    float: left;
+    padding-top: 10px;
+}
+.top-right{
+    float: right;
+    width: 65%;
+}
+.table{
+    margin-bottom: 0;
+}
+.table-responsive{
+    padding: 0 20px;
+}
+.table-box select.form-control {
+    background: #fff url('../../../assets/img/select-icon.png') no-repeat 95% 50%;
+    color: #999;
+}
+.searchbox{
+    position: relative;
+}
+.search-btn{
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    color: #9D9D9D;
+    display: block;
+    font-size: 15px;
+    line-height: 30px;
+    border-left: 1px solid #ccc;
+    padding-left: 10px;
+    bottom: 1px;
+    cursor: pointer;
+    z-index: 9;
+}
+.search-btn:hover{
+    color: #467FFD;
+}
+table tr th{
+    color: #999;
+    font-weight: normal;
+}
+.table > thead > tr > th, .table > tbody > tr > td{
+    font-size: 12px;
+    font-weight: bold;
+    padding: 20px 10px;
+}
+table tr td:nth-child(3){
+    color: #467FFD;
+}
+td img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.table>tbody>tr>td{
+    vertical-align: middle;
+    color: #333;
+    text-align: left;
+}
+.table>tbody>tr>td.available{
+    color: #467ffd;
+}
+.table tr{
+    border-left: 3px solid #fff;
+    cursor: pointer;
+}
+.table thead tr{
+    border: none !important;
+}
+.table tr:hover{
+    border-left: 3px solid #467ffd;
+}
+.pagination-block{
+    padding-right: 20px;
+}
+.pagination>li>a, .pagination>li>span{
+    color: #666;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #467ffd;
+    border-color: #467ffd;
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    color: #467ffd;
+}
+.pagination>li:first-child>a, .pagination>li:first-child>span, .pagination>li:last-child>a, .pagination>li:last-child>span{
+    border-radius: 0;
+}
+.pagination>li {
+    display: inline-block;
+    margin: 0 1px;
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    .city li a {
+        padding: 10px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    h1{
+        font-size: 30px;
+    }
+    .city li {
+        margin: 5px 5px;
+    }
+    .city li a {
+        font-size: 10px;
+        padding: 10px 5px;
+    }
+    .state {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 991px){
+    .top-right {
+        width: 100%;
+        margin: 10px 0 0;
+    }
+    .table-head h3 {
+        float: none;
+    }
+    .searchbox {
+        margin: 10px -15px;
+    }
+    .table > thead > tr > th, .table > tbody > tr > td {
+        font-size: 10px;
+    }
+    .pagination-block {
+        padding-right: 0;
+        text-align: center;
+    }
+    .community-btn {
+        margin: 10px auto 20px;
+        display: block;
+    }
+}
+@media screen and (max-width: 767px){
+    .state {
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 12px;
+    }
+    section {
+        padding: 20px 0;
+    }
+    h1{
+        font-size: 25px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+    .checkbox label {
+        font-size: 10px;
+    }
+    .clear {
+        height: 0;
+    }
+    h3 {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .checkbox .cr {
+        width: 15px;
+        height: 15px;
+    }
+    .checkbox .cr .cr-icon {
+        top: 45%;
+        left: 10%;
+    }
+    .clear20{
+        display: none;
+    }
+}

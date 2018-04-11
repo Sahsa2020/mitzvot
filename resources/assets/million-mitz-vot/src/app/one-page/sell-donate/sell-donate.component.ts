@@ -17,6 +17,7 @@ declare var jQuery:any;
   templateUrl: './sell-donate.component.html',
   styleUrls: ['./sell-donate.component.css']
 })
+
 export class SellDonateComponent implements OnInit {
     @ViewChild('pay_box_dialog') pay_box_dialog: any;
 
@@ -35,6 +36,14 @@ export class SellDonateComponent implements OnInit {
     public totalCount:number = 0;
     public itemsPerPage:number = 5;
     public isSelectedAll: boolean = false;
+
+    sortTypes = [
+      {id: 1, name: "country"},
+      {id: 2, name: "name"},
+      {id: 3, name: "city"}     
+    ];
+    selectedValue = null;
+    
 
     constructor(public lang: LanguageService, public router: Router, private authenticateService: AuthenticateService, public appState: StateService, public generalService: GeneralService, public onePageService:OnePageService, public route:ActivatedRoute, public profileService:ProfileService) {
       this.appState.set("one_page_menu_selected", 9);
@@ -164,6 +173,16 @@ export class SellDonateComponent implements OnInit {
     this.pay_box_dialog.show();
    }
 
+   showPayDlg_(index){
+    this.selDonate = this.profileService.donates[index];
+    this.buy_count = this.profileService.donates[index].quantity;
+    this.quantities.push(this.profileService.donates[index].quantity);
+    this.donateIds.push(this.profileService.donates[index].id);
+    if (this.buy_count < 1)
+      return;
+    this.pay_box_dialog.show();
+   }
+
    approve(index){
      let donate_id = this.profileService.donates[index].id;
      this.appState.setLoading('Loading ...');
@@ -186,6 +205,7 @@ export class SellDonateComponent implements OnInit {
    }
 
    search(){
+     this.searchFilter = this.selectedValue.name;
      this.refreshDonate({page: this.curPage});
    }
 

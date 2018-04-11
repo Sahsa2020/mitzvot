@@ -28,6 +28,7 @@
     <link href="assets/one-page/css/settings.css" rel="stylesheet">
     <link href="assets/one-page/css/style.css" rel="stylesheet" type="text/css" />
     <link href="assets/one-page/css/red.css" rel="stylesheet" type="text/css" />
+    <link href="assets/one-page/css/blue.css" rel="stylesheet" type="text/css" />
     <!-- BEGIN THEME LAYOUT STYLES -->
     <link href="assets/global/css/layout.min.css" rel="stylesheet" type="text/css" />
     <!-- <link href="assets/global/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" /> -->
@@ -90,7 +91,14 @@
                                             </ul>
                                         </li>
                                         <li><a href="/#/contact/">Contact Us</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li class="nav-dropdown">
+                                            <a href="/#/sponsor">Sponsor <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="/#/sponsor">Become a Sponsor</a></li>
+                                                <li class="active"><a href="/#/sponsor/list">Our Sponsors</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/#/faq">FAQ</a></li>
                                         @endif
                                         @if(!Auth::guest() && Auth::user()->hasRole('ADMIN'))
                                         <li class="main-menu-li">
@@ -158,33 +166,7 @@
                                                     </li>
                                                 @endif
                                             </ul>
-                                        </li>
-                                        <!-- <li class="personal-account relative" id="account-btn">
-                                            <a  class="account-btn"><img src="{{$user->image_url}}" class="img-responsive" alt="User"> {{$user->name}} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                            <div class="dropdown" id="dropdown" hidden>
-                                                <div class="drop-head">
-                                                    <span> YOUR ACCOUNT</span>
-                                                    <a class="close-btn" id="close-btn">X</a>
-                                                </div>
-                                                <ul class="drop-body">
-                                                    <li><a href="/#/profile/">Edit Profile</a></li>
-                                                    <li>
-                                                        <a href="/messages">Chat History</a>
-                                                        <span class="badge badge-danger" style="position: absolute; left: auto; bottom: 10px; top: auto; right: 5px;" ></span>
-                                                    </li>    
-                                                    <li>
-                                                        <a class="" href="/#/report">
-                                                            Payment History
-                                                        </a>
-                                                    </li>
-                                                    <li><a href="/#/profile/boxes">Boxes</a></li>
-                                                    <li><a href="/#/profile/sounds">My Box Sounds</a></li>
-                                                    <li><a href="/#/profile/members">My Members</a></li>
-                                                    <li><a href="/#/profile/changePassword">Change Password</a></li>
-                                                    <li><a href="/logout">Log out</a></li>
-                                                </ul>
-                                            </div>
-                                        </li> -->
+                                        </li>                                       
                                     </ul>
                                 </div>
                             </div>
@@ -251,7 +233,8 @@
                                     </li>
                                     <li><a href="/#/selldonate">Donate Ask</a></li>
                                     <li><a href="/#/contact/">Contack Us</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="/#/sponsor">Sponsor</a></li>                    
+                                    <li><a href="/#/faq">FAQ</a></li>
                                     <li class="main-menu-li">
                                         <a class="" href="/admin">
                                             Admin

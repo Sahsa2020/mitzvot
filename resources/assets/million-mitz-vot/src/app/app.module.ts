@@ -15,9 +15,12 @@ import { StateService } from './state.service';
 import { OnePageService } from './one-page/one-page.service';
 import { ProfileService } from './one-page/profile/profile.service';
 import { Guard } from './guard';
-import { TestComponent } from './test/test.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { CheckoutComponent } from './one-page/sell-board/checkout/checkout.component';
+import { SponsorComponent } from './one-page/sponsor/sponsor.component';
+import { SponsorListComponent } from './one-page/sponsor/sponsor-list/sponsor-list.component';
+import { FaqComponent } from './one-page/faq/faq.component';
 
 
 @NgModule({
@@ -53,9 +56,12 @@ import { HeaderComponent } from './shared/header/header.component';
     MyDonateComponent,
     ActivateComponent,
     MySoundComponent,
-    TestComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    CheckoutComponent,
+    SponsorComponent,
+    SponsorListComponent,
+    FaqComponent
   ],
   providers: [
     AuthenticateService,
