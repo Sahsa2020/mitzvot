@@ -169,7 +169,7 @@ select.form-control{
     padding: 0 20px;
 }
 .table-box select.form-control {
-    background: #fff url('../../../assets/img/select-icon.png') no-repeat 95% 50%;
+    background: #fff url('/assets/img/select-icon.png') no-repeat 95% 50%;
     color: #999;
 }
 .searchbox{

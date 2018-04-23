@@ -30,19 +30,19 @@
                     </div>
                     <div class="form-group form-group-border">
                         <label>Name</label>
-                        <input type="text" class="form-control" id="name" name="name"  required="true" placeholder='{{tr("NAME")}}'  [(ngModel)]="model.name">
+                        <input type="text" class="form-control" id="name" name="name"  required="true"  [(ngModel)]="model.name">
                     </div>
                     <div class="form-group form-group-border">
                         <label>Phone</label>
-                        <input type="email" class="form-control" id="email" name="email"  required="true" placeholder='{{tr("EMAIL")}}'  [(ngModel)]="model.email">
+                        <input type="email" class="form-control" id="email" name="email"  required="true"  [(ngModel)]="model.email">
                     </div>
                     <div class="form-group form-group-border">
                         <label>Subject</label>
-                        <input type="text" class="form-control" id="subject" name="subject"  required="true" placeholder='{{tr("SUBJECT")}}' [(ngModel)]="model.subject">
+                        <input type="text" class="form-control" id="subject" name="subject"  required="true" [(ngModel)]="model.subject">
                     </div>
                     <div class="form-group form-group-border">
                         <label>Message</label>
-                        <textarea class="form-control" name="message" rows="8" cols="40" required="true" placeholder='{{tr("MESSAGE")}}' [(ngModel)]="model.message"></textarea>
+                        <textarea class="form-control" name="message" rows="8" cols="40" required="true" [(ngModel)]="model.message"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="form-control">{{tr("SEND_MESSAGE")}}</button> 
@@ -56,4 +56,3 @@
     </form>
 </div>
 <app-footer></app-footer>
-<script src="http://vjs.zencdn.net/6.4.0/video.js"></script>

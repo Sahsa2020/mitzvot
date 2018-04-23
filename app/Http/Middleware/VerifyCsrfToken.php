@@ -15,6 +15,7 @@ class VerifyCsrfToken extends BaseVerifier
         //
         'api/*',
         'contactAdmin',
-        'message/*'
+        'message/*',
+        'admin/give-role-permissions'
     ];
 }

@@ -1,0 +1,77 @@
+.top-bar{
+    display: inline-block;
+    background: #fff;
+    position: relative;
+    width: 100%;
+    min-height: 50px;
+    vertical-align: top;
+    box-shadow: 0 1px 10px 0 #ccc;
+    -webkit-box-shadow: 0 1px 10px 0 #ccc;
+    -moz-box-shadow: 0 1px 10px 0 #ccc;
+}
+.logo{
+    border-bottom: 1px solid #ccc;
+}
+.logo a{
+    display: block;
+    text-align: center;
+}
+.logo a img{
+    display: inline-block;
+}
+.user-box{
+    position: absolute;
+    right: 30px;
+    /* top: 15px; */
+    z-index: 9;
+}
+.user-box a{
+    padding: 8px 0 0;
+    color: #333;
+    text-decoration: none;
+}
+.user-box a:hover{
+    background: none;
+}
+.user-box img{
+    display: inline-block;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+}
+.user-box .dropdown a{
+    color: #333;
+}
+.dropdown{
+    left: -125px;
+    top: 35px;
+}
+.dropdown ul li a {
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 7px 10px;
+    display: block;
+    font-size: 13px;
+}
+.dropdown ul li a:hover {
+    color: #477AEA;
+}
+@media screen and (max-width: 991px){
+    .logo a {
+        text-align: left;
+    }
+}
+@media screen and (max-width: 767px){
+	.dropdown{
+	    left: 0;
+	    width: 100%;
+	    top: 65px;
+	}
+}
+
+.user-box .admin-top-menu {
+    top: 0px;
+    left: 0px;
+    width: auto;
+}

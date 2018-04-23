@@ -321,12 +321,12 @@ button.btn.search-filter{
   -moz-appearance: none;
   color: #999;
 }
-/* h3{
+h3{
   font-size: 22px;
   font-weight: bold;
   margin: 40px 0;
   color: #333;
-} */
+}
 .category{
   border-bottom: 1px solid #ccc;
   padding-bottom: 30px;

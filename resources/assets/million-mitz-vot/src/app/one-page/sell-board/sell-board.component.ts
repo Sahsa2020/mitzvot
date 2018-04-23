@@ -30,6 +30,18 @@ export class SellBoardComponent implements OnInit {
   public discountPercent: number = 0;
   public isLoadingDiscountPercent: boolean = false;
   public is_selected_checkout: boolean = false;
+  public input_errorMessage = "close";
+  public successMessage = "";
+
+  public payer_name = "";
+  public payer_city = "";
+  public payer_email = "";
+  public payer_country = "";
+  public payer_state = "";
+  public payer_address = "";
+  public payer_comment = "";
+  public discount_code = "";
+
   // public card_number:string="";
   // public cvv_code:string="";
   // public exp_year:string="2016";
@@ -60,7 +72,7 @@ export class SellBoardComponent implements OnInit {
      });
 
      this.appState.setLoading('Loading ...');
-     this.profileService.getAllDonates(0,5,'', 'name').subscribe(
+     this.profileService.getAllDonates(0,5,'', 'name',0).subscribe(
       result => {
         if(result != true)
           this.appState.errorMessage = 'Donates Load Error';
@@ -186,4 +198,27 @@ export class SellBoardComponent implements OnInit {
     );
   }
 
+  inputValidated() {
+    var is_input_validated = true;
+    if (this.payer_name == "")
+      is_input_validated = false;
+    if (this.payer_city == "")
+      is_input_validated = false;
+    if (this.payer_email == "")
+      is_input_validated = false;
+    if (this.payer_country == "")
+      is_input_validated = false;
+    if (this.payer_state == "")
+      is_input_validated = false;
+    if (this.payer_address == "")
+      is_input_validated = false;
+    if (this.payer_comment == "")
+      is_input_validated = false;
+    if (this.discount_code == "")
+      is_input_validated = false;
+
+    if (!is_input_validated) {
+      this.input_errorMessage = "";
+    }      
+  }
 }

@@ -211,7 +211,7 @@ class MessageController extends Controller
 
     public function tests()
     {
-        dd(Talk::channel());        
+        dd(Talk::channel());
     }
     
 }

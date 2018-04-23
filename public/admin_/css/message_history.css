@@ -1,0 +1,236 @@
+section{
+    background: #ecf5f9;
+}
+.main-body{
+    position: relative;
+    padding-left: 20px;
+}
+.main-body h1{
+    color: #333;
+    font-size: 32px;
+    margin: 40px 0;
+}
+.main-body h1 span{
+    background: #467FFD;
+    color: #fff;
+    display: inline-block;
+    font-size: 18px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    position: relative;
+    vertical-align: top;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+.main-body h1 span img{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 20px;
+} 
+.chatbox{
+    background: #fff;
+}
+.searchbox {
+    position: relative;
+}
+.searchbox input{
+    border: 0;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding: 6px 20px;
+    /* height: 65px; */
+    border-radius: 0;
+    box-shadow: none;
+}
+.search-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #ccc;
+    display: block;
+    font-size: 20px;
+    line-height: 35px;
+    border-left: 1px solid #eee;
+    padding-left: 20px;
+    bottom: 15px;
+    cursor: pointer;
+    z-index: 9;
+    background: #fff;
+}
+.chat-left, .chat-right{
+    height: 100%;
+    background: #fff;
+    min-height: 610px;
+    position: relative;
+}
+.chat-left{
+    border-right: 1px solid #eee;  
+}
+.chatbox .chat-left ul li{
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+.chatbox ul li .name{
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.chatbox ul li .name span{
+    float: right;
+    color: #ccc;
+    font-size: 12px;
+}
+.text p{
+    margin: 0;
+    line-height: 27px;
+}
+.chat-right .image img{
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.chat-right ul li{
+    display: inline-block;
+    width: 100%;
+    padding: 20px 0;
+}
+.user-list{
+    text-align: center;
+    max-height: 540px;
+    min-height: 540px;
+    overflow-y: auto;
+}
+.chatbox ul{
+    text-align: left;
+}
+.chatsent{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.chatsent textarea{
+    border: 1px solid #eee;
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    min-height: 65px;
+    padding: 20px 70px 10px 60px;
+    position: relative;
+    box-shadow: none;
+}
+.chat-sent-btn{
+    position: absolute;
+    top: 2px;
+    right: 0;
+    display: block;
+    bottom: 2px;
+    cursor: pointer;
+    z-index: 9;
+    background: #fff;
+    padding: 20px 40px 20px 0;
+}
+.attachment-icon{
+    position: absolute;
+    top: 2px;
+    left: 0;
+    display: block;
+    bottom: 2px;
+    cursor: pointer;
+    z-index: 9;
+    background: #fff;
+    padding: 20px 0 20px 25px;
+}
+.attachment-icon input{
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.noleftpadding{
+    padding-left: 0 !important;
+}
+.add-chats{
+    background: #467ffd;
+    border: 1px solid #467ffd;
+    color: #fff;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 50%;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.add-chats:hover,.add-chats:focus{
+    background: none;
+    color: #467ffd;
+    text-decoration: none;
+}
+.chat-right ul{
+    max-height: 540px;
+    min-height: 540px;
+    overflow-y: auto;
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    .icons ul li {
+        width: 26px;
+    }
+    .chatbox ul li .name {
+        font-size: 14px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    h1{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 991px){
+    .top-right {
+        width: 100%;
+        margin: 10px 0 0;
+    }
+    .main-body {
+        padding-left: 0;
+    }
+    .noleftpadding{
+        padding-left: 15px !important;
+    }
+}
+@media screen and (max-width: 767px){
+    section {
+        padding: 0 0 20px;
+    }
+    h1{
+        font-size: 25px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+    .clear {
+        height: 0;
+    }
+    h3 {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .clear20{
+        display: none;
+    }
+    .chat-left {
+        border-bottom: 15px solid #ecf5f9;
+    }
+    .chat-left, .chat-right, .user-list  {
+        min-height: auto;
+    }
+}

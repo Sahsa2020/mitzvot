@@ -1,0 +1,53 @@
+.nav-header {
+  color: #2A2937;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 50px 15px 20px;
+}
+.row-eq-height .sidebarblock > div{
+  height: 100%;
+}
+.sidebar{
+  background: #fff;
+  height: 100%;
+  min-height: 1070px;
+  box-shadow: 0 1px 10px 0 #ccc;
+  -webkit-box-shadow: 0 1px 10px 0 #ccc;
+  -moz-box-shadow: 0 1px 10px 0 #ccc;
+}
+.sidebar ul{
+  padding: 0 15px;
+}
+.sidebar ul li a{
+  display: block;
+  padding: 15px 5px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+}
+.sidebar ul li a:hover, .sidebar ul li.active a{
+  background: #467FFD;
+  color: #fff;
+  border-radius: 4px;
+}
+.sidebar ul li a img{
+  display: inline-block;
+  margin-right: 10px;
+}
+.sidebar ul li a img.onhovershow{
+  display: none;
+}
+.sidebar ul li a:hover img, .sidebar ul li.active a img{
+  display: none;
+}
+.sidebar ul li a:hover img.onhovershow, .sidebar ul li.active a img.onhovershow{
+  display: inline-block;
+}
+
+@media screen and (max-width: 991px){
+  .sidebar {
+      background: #fff;
+      height: 100%;
+      min-height: 100%;
+  }
+}

@@ -32,6 +32,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::resource('permissions', 'PermissionsController');
     Route::resource('users', 'UsersController');
     Route::resource('discounts', 'DiscountsController');
+    Route::resource('sponsor', 'SponsorController');
     Route::resource('donates', 'DonatesController');
     Route::post('donates/approve/{id}', 'DonatesController@approve');
     Route::post('donates/unapprove/{id}', 'DonatesController@unapprove');

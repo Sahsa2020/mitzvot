@@ -1,0 +1,211 @@
+section{
+    background: #ecf5f9;
+}
+.main-body{
+    position: relative;
+    padding-left: 20px;
+}
+.main-body h1{
+    color: #333;
+    font-size: 32px;
+    margin: 40px 0;
+}
+.main-body h1 span{
+    background: #467FFD;
+    color: #fff;
+    display: inline-block;
+    font-size: 18px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    position: relative;
+    vertical-align: top;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+.main-body h1 span img{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 20px;
+}
+.main-body .community-btn{
+    margin-right: 5px;
+}
+.table-head{
+    background: #f4f4f4;
+    padding: 10px 20px;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    box-shadow: 0 -1px 5px 0 #e8e8e8;
+    -moz-box-shadow: 0 -1px 5px 0 #e8e8e8;
+    -webkit-box-shadow: 0 -1px 5px 0 #e8e8e8;
+}
+.table-head h3{
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    float: left;
+    padding-top: 10px;
+}
+/* .top-right{
+    float: right;
+    width: 70%;
+} */
+/* .table-box select.form-control {
+    background: #fff url(../images/select-icon.png) no-repeat 95% 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: #999;
+} */
+.searchbox{
+    position: relative;
+}
+.search-btn{
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    color: #9D9D9D;
+    display: block;
+    font-size: 15px;
+    line-height: 30px;
+    border-left: 1px solid #ccc;
+    padding-left: 10px;
+    bottom: 1px;
+    cursor: pointer;
+    z-index: 9;
+}
+.search-btn:hover{
+    color: #467FFD;
+}
+.post-box{
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px 0 #ccc;
+    -moz-box-shadow: 0 3px 10px 0 #ccc;
+    -webkit-box-shadow: 0 3px 10px 0 #ccc;
+}
+.user-img img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.user-name a{
+    color: #467FFD;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+}
+.org-name{
+    color: #eb5775;
+}
+.post-box p{
+    margin: 30px 0 0;
+}
+.image-box{
+    margin: 20px 0;
+}
+.image-box img{
+    width: 100%;
+}
+.image-box ul li{
+    display: inline-block;
+    width: 18%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.image-box ul li:first-child{
+    margin-left: 0;
+}
+.image-box ul li img{
+    width: 100%;
+}
+/* .post-box .buttons{
+    border-top: 1px solid #eee;
+} */
+.download-btns{
+    margin: 30px 0 20px;
+}
+.download-btns ul li{
+    display: inline-block;
+    border-right: 1px solid #eee;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+.download-btns ul li a{
+    display: block;
+}
+.download-btns ul li:last-child{
+    border: none;
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    .icons ul li {
+        width: 26px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    h1{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 991px){
+    .top-right {
+        width: 100%;
+        margin: 10px 0 0;
+    }
+    .top-right .col-md-8{
+        padding: 10px 0;
+    }
+    .main-body .community-btn , .main-body .decline-btn{
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-right: 0;
+        padding: 14px 30px;
+        font-size: 14px;
+    }
+    .main-body {
+        padding-left: 0;
+    }
+    .user-img img {
+        margin: auto;
+    }
+    .user-name{
+        text-align: center;
+        margin: 10px 0;
+    }
+    .image-box img{
+        margin: auto;
+    }
+    .image-box ul li:first-child {
+        margin-left: 10px;
+    }
+    .searchbox {
+        margin: 10px 0;
+    }
+}
+@media screen and (max-width: 767px){
+    section {
+        padding: 0 0 20px;
+    }
+    h1{
+        font-size: 25px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+    .clear {
+        height: 0;
+    }
+    h3 {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .clear20{
+        display: none;
+    }
+}

@@ -7,7 +7,7 @@
                </div> 
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <div class="details">
                 <div class="detail-head">
                     <h1>c-box 1</h1>
@@ -84,24 +84,32 @@
             </div>
         </div>
     </div>
-    <div class="clear"></div>
+    <div class="clear20"></div>
     <div class="container">
         <div class="row">
             <form role="form" #editboxForm = "ngForm" ng-submit="expression" action="{{serverUrl}}/api/v1/sell/postPayNow" method="post">                    
                 <div class="col-md-8">
                     <div class="form">
                         <h2>Personal Details</h2>
+                            <!-- <div class="alert alert-success " [class.hidden] = "successMessage == ''">
+                                <button type="button" class="close" (click) = "successMessage = ''"></button>
+                                <p>{{successMessage}}</p>
+                            </div> -->
+                            <div class="alert alert-danger " [class.hidden] = "input_errorMessage != ''">
+                                <button type="button" class="close" (click) = "input_errorMessage = 'close'"></button>
+                                <p>Please fill all required fields.</p>
+                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group form-group-border">
                                         <label>Name</label>
-                                        <input class='form-control' type="text" name="payer_name" value="" required="true" style="text-align: left;">
+                                        <input class='form-control' type="text" name="payer_name" value="" required="true" style="text-align: left;" [(ngModel)]="payer_name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-group-border">
                                         <label>City</label>
-                                        <input class=' form-control' type="text" name="payer_city" value="" style="text-align: left;" required="true">
+                                        <input class=' form-control' type="text" name="payer_city" value="" style="text-align: left;" required="true" [(ngModel)]="payer_city">
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +117,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group form-group-border">
                                         <label>Email</label>
-                                        <input class='form-control' type="email" name="payer_email" value="" style="text-align: left;" required="true">
+                                        <input class='form-control' type="email" name="payer_email" value="" style="text-align: left;" required="true" [(ngModel)]="payer_email">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -123,7 +131,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-border">
                                         <label>Your Country</label>
-                                        <input class='form-control' type="text" name="payer_country" value="" style="text-align: left;" required="true">
+                                        <input class='form-control' type="text" name="payer_country" value="" style="text-align: left;" required="true" [(ngModel)]="payer_country">
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +139,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group form-group-border">
                                         <label>Your State</label>
-                                        <input class='form-control' type="text" name="payer_state" value="" style="text-align: left;" required="true">
+                                        <input class='form-control' type="text" name="payer_state" value="" style="text-align: left;" required="true" [(ngModel)]="payer_state">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -145,7 +153,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-border">
                                         <label>Address</label>
-                                        <input class='form-control' type="text" name="payer_address" value="" style="text-align: left;" required="true">
+                                        <input class='form-control' type="text" name="payer_address" value="" style="text-align: left;" required="true" [(ngModel)]="payer_address">
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +161,7 @@
                                 <div class='col-md-12'>
                                     <div class="form-group form-group-border">
                                         <label>Comment : </label>                                    
-                                        <textarea class='form-control' name="payer_comment" value="" style="text-align: left;" ></textarea>
+                                        <textarea class='form-control' name="payer_comment" value="" style="text-align: left;" [(ngModel)]="payer_comment"></textarea>
                                     </div>                                
                                 </div>
                             </div>
@@ -175,10 +183,13 @@
                                 Discount Infomation
                                 <i class="fa fa-spinner fa-spin fa-fw" *ngIf = "isLoadingDiscountPercent"></i>
                             </span> -->
-                            <div class="form-group" hidden>
+                            <div class="form-group" >
                                 <label class="col-md-5 control-label">Discount Code : </label>
                                 <div class='col-md-5'>
-                                    <input class='form-control' type="text" name="discount_code" value="" style="text-align: left;" (blur) = "refreshDiscount();" id = "sell_board_discount_code">
+                                    <!-- <input class='form-control' type="text" name="discount_code" value="" style="text-align: left;" (blur) = "refreshDiscount();" id = "sell_board_discount_code"> -->
+                                    <div class="form-group form-group-border">
+                                        <input class='form-control' type="text" name="discount_code" value="" style="text-align: left;" (blur) = "refreshDiscount();" id = "sell_board_discount_code" [(ngModel)]="discount_code">
+                                    </div>
                                 </div>
                                 </div>
                                 <div class="form-group">
@@ -187,7 +198,7 @@
                                     <label class='form-control' style="text-align: left;">{{discountPercent}}%</label>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" hidden>
                                 <div class="col-md-12">
                                     <div class="form-group form-group-border">
                                         <label>Card Number</label>
@@ -195,7 +206,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" hidden>
                                 <div class="col-md-6">
                                     <div class="form-group form-group-border">
                                         <label>Expiry Date</label>
@@ -209,7 +220,6 @@
                                     </div>
                                 </div>
                             </div>
-
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -237,7 +247,7 @@
                                 </ul>
                             <!-- </form>                         -->
                         </div>
-                        <div class="file-upload">
+                        <div class="file-upload" hidden>
                             <div class="form-group">
                                 <div class="row">
                                 <div class="col-sm-9">
@@ -282,19 +292,22 @@
                         <!-- <form> -->
                             <h3>Choose Payment Method</h3>
                             <div class="method-block">
-                                <div class="col-md-6 noleftpadding">
-                                    <div class="pay-method selected">
+                                <!-- <div class="col-md-6 noleftpadding">
+                                    <div class="pay-method ">
                                         <img src="assets/img/visa.png" class="img-responsive" alt="Visa">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-6 norightpadding">
-                                    <div class="pay-method">
+                                    <div class="pay-method selected">
                                         <img src="assets/img/paypal.png" class="img-responsive" alt="Paypal">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="community-btn">processed secure payment</button> 
+                                <button type="submit" class="community-btn" (click)="inputValidated();" >processed secure payment</button>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" (click)="is_selected_checkout=false;" class="community-btn">Cancel</button>
                             </div>
                         <!-- </form> -->
                     </div>
@@ -304,5 +317,3 @@
         <div class="clear20"></div>
     </div>
 </section>
-
-<app-footer></app-footer>

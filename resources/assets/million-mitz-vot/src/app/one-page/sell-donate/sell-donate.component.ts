@@ -32,6 +32,7 @@ export class SellDonateComponent implements OnInit {
     public USER_SIGNED_INFO = USER_SIGNED_INFO;
     public searchString: string = "";
     public searchFilter: string = "name";
+    public searchCategory: number = 0; 
     public curPage:number = 1;
     public totalCount:number = 0;
     public itemsPerPage:number = 5;
@@ -43,6 +44,8 @@ export class SellDonateComponent implements OnInit {
       {id: 3, name: "city"}     
     ];
     selectedValue = null;
+
+    public donateCounts: number[] = [];
     
 
     constructor(public lang: LanguageService, public router: Router, private authenticateService: AuthenticateService, public appState: StateService, public generalService: GeneralService, public onePageService:OnePageService, public route:ActivatedRoute, public profileService:ProfileService) {
@@ -63,7 +66,8 @@ export class SellDonateComponent implements OnInit {
          this.appState.closeLoading();
        });
 
-       this.refreshDonate({page: this.curPage});
+      this.refreshDonate({page: this.curPage});
+      this.getDonatesbyCategory();
     }
     ngOnInit() {
       if (!jQuery.fancybox) {
@@ -174,6 +178,7 @@ export class SellDonateComponent implements OnInit {
    }
 
    showPayDlg_(index){
+    // console.log(this.profileService.donates[index], index, this.profileService.donates);
     this.selDonate = this.profileService.donates[index];
     this.buy_count = this.profileService.donates[index].quantity;
     this.quantities.push(this.profileService.donates[index].quantity);
@@ -205,13 +210,38 @@ export class SellDonateComponent implements OnInit {
    }
 
    search(){
-     this.searchFilter = this.selectedValue.name;
+     if (this.selectedValue) {
+      this.searchFilter = this.selectedValue.name;
+     }
+     this.searchCategory = 0;
      this.refreshDonate({page: this.curPage});
+   }
+
+   searchByCatergory(index) {
+    if (this.selectedValue) {
+      this.searchFilter = this.selectedValue.name;
+     }
+     this.searchCategory = index;
+     console.log(this.searchFilter, this.searchCategory, this.searchString);
+     this.refreshDonate({page:this.curPage});
+   }
+
+   getDonatesbyCategory() {
+      for (var index=1; index <6; index++ ) {
+        this.appState.setLoading('Loading ...');
+        this.profileService.getAllDonates((this.curPage - 1)*this.itemsPerPage, this.itemsPerPage, this.searchString, this.searchFilter, index).subscribe(
+         result => {
+           if(result != true)
+             this.appState.errorMessage = 'Donates Load Error';
+           this.donateCounts.push(this.profileService.donate_count);
+           this.appState.closeLoading();
+         });
+      }
    }
 
    refreshDonate(event){
      this.appState.setLoading('Loading ...');
-     this.profileService.getAllDonates((event.page - 1)*this.itemsPerPage, this.itemsPerPage, this.searchString, this.searchFilter).subscribe(
+     this.profileService.getAllDonates((event.page - 1)*this.itemsPerPage, this.itemsPerPage, this.searchString, this.searchFilter, this.searchCategory).subscribe(
       result => {
         if(result != true)
           this.appState.errorMessage = 'Donates Load Error';

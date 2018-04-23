@@ -4,7 +4,7 @@ import { LanguageService } from '../../../language.service';
 import { StateService } from '../../../state.service';
 import { GeneralService } from '../../../general.service';
 import { OnePageService } from '../../one-page.service';
-import { ProfileService } from '../profile.service';
+import { ProfileService, DONATE_CATEGORY, DONATE_CATEGORY_INDEX} from '../profile.service';
 
 import { Donate } from '../../../model/donate.type';
 
@@ -20,6 +20,8 @@ export class MyDonateComponent implements OnInit {
   public successMessage = "";
   public model:Donate;
   public temp_image_origin: any;
+  public DONATE_CATEGORY: any = DONATE_CATEGORY;
+  public DONATE_CATEGORY_INDEX :any= DONATE_CATEGORY_INDEX;
   constructor(public lang: LanguageService, public router: Router, public appState: StateService, public generalService: GeneralService, public onePageService:OnePageService, public profileService: ProfileService, public elementRef: ElementRef) {
     this.model = new Donate();
     this.appState.setLoading('Loading ...');
@@ -35,18 +37,18 @@ export class MyDonateComponent implements OnInit {
        else
          this.appState.errorMessage = 'Donate Load Error';
        this.appState.closeLoading();
-     });
+     });     
   }
 
   ngOnInit() {
-    jQuery('#cropper').cropper({
-      aspectRatio: 1,
-      minContainerWidth: 400,
-      minContainerHeight: 400,
-      ready: function (e) {
-        jQuery('#cropper').cropper('crop');
-      }
-    });
+    // jQuery('#cropper').cropper({
+    //   aspectRatio: 1,
+    //   minContainerWidth: 400,
+    //   minContainerHeight: 400,
+    //   ready: function (e) {
+    //     jQuery('#cropper').cropper('crop');
+    //   }
+    // });
   }
   saveDonate(contactForm){
     // var imageFile = jQuery(this.elementRef.nativeElement).find('.imageFile')[0];

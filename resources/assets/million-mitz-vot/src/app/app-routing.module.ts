@@ -6,6 +6,8 @@ import { Guard } from './guard';
 import { AuthenticateService } from './authenticate.service';
 // import { OnePageRoutes } from './one-page/one-page.routing';
 import { SponsorComponent, SponsorListComponent, FaqComponent} from './one-page';
+import { MainComponent, ChatComponent, EditProfileComponent, FriendComponent, GuestMemberComponent, MyOrgMemberComponent, NotificationComponent, PictureComponent, OrganizationComponent, PersonalAccountComponent } from './one-page/personal-account';
+
 
 const routes: Routes = [
   {
@@ -17,13 +19,7 @@ const routes: Routes = [
       { path: 'about_us', component: AboutComponent},
       { path: 'director_board', component: DirectorBoardComponent },
       { path: 'score',      component: ScoreBoardComponent },
-      { path: 'sell', 
-        component: SellBoardComponent,
-        children: [
-          { path: 'checkout',      component: CheckoutComponent },
-        ]
-      },
-      { path: 'checkout',      component: CheckoutComponent },
+      { path: 'sell',       component: SellBoardComponent, },
       { path: 'selldonate',      component: SellDonateComponent },
       { path: 'donate',      component: DonateComponent },
       { path: 'contact',      component: ContactUsComponent },
@@ -42,7 +38,24 @@ const routes: Routes = [
           { path: 'members',      component: MyMemberComponent },
           { path: 'sounds',      component: MySoundComponent },
           { path: 'changePassword',      component: ChangePasswordComponent },
-          { path: 'donate',      component: MyDonateComponent }
+          // { path: 'donate',      component: MyDonateComponent }
+        ],
+        canActivate: [ AuthenticateService ]
+      },
+      {path: 'profile/donate',     component: MyDonateComponent},      
+      {
+        path: 'personal-account',
+        component: PersonalAccountComponent,
+        children: [
+          { path: '',      component: MainComponent, },
+          { path: 'chat',      component: ChatComponent },
+          { path: 'edit-profile',      component: EditProfileComponent },
+          { path: 'friends',      component: FriendComponent },
+          { path: 'notifications',      component: NotificationComponent },
+          { path: 'organizations',      component: OrganizationComponent },
+          { path: 'org-member-guest',      component: GuestMemberComponent },
+          { path: 'org-member-myorg',      component: MyOrgMemberComponent },
+          { path: 'picture',      component: PictureComponent },
         ],
         canActivate: [ AuthenticateService ]
       },

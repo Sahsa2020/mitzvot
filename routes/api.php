@@ -72,7 +72,7 @@ $api->version('v1', function ($api) {
         $api->group(['middleware' => ['auth'], 'prefix' => 'donate'], function($api) {
             $api->post('/',		'SellController@saveDonate');
             $api->post('/approve',		'SellController@approveDonate');
-            $api->get('/',		'SellController@getCurrentDonate');
+            $api->get('/',		'SellController@getCurrentDonate'); 
         });
 
         $api->group(['middleware' => ['auth'], 'prefix' => 'sound'], function($api) {

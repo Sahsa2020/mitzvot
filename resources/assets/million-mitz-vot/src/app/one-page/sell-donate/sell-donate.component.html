@@ -43,12 +43,12 @@
                                 <span style="    font-size: 15px;">Quantity: </span>
                                 <input type="number" [(ngModel)] = "donate.quantity" style = " width: calc(100% - 60px);margin-left: 3px;" (blur) = "checkQuantity(donate);">
                             </div>
-                            <a (click)="showPayDlg_(donate.id);" class="community-btn" >Donate</a>                            
+                            <a (click)="showPayDlg_(i);" class="community-btn" >Donate</a>
                         </div>
                     </div>
                 </div>
                 <div class="clear20"></div>
-            </div>          
+            </div>
             <div class="clear20"></div>
             <div class="pagination-block text-center">
                 <pagination class=""
@@ -71,19 +71,14 @@
             <div class="category">
                 <h3>Category</h3>
                 <ul>
-                    <li><a href="#">Hospital <span class="count">14</span></a></li>
-                    <li><a href="#">School <span class="count">23</span></a></li>
-                    <li><a href="#">Food Bank <span class="count">38</span></a></li>
-                    <li><a href="#">Torah Learning <span class="count">11</span></a></li>
-                    <li><a href="#">Family Services <span class="count">25</span></a></li>
-                    <li><a href="#">Hospital <span class="count">14</span></a></li>
-                    <li><a href="#">School <span class="count">23</span></a></li>
-                    <li><a href="#">Food Bank <span class="count">38</span></a></li>
-                    <li><a href="#">Torah Learning <span class="count">11</span></a></li>
-                    <li><a href="#">Family Services <span class="count">25</span></a></li>
+                    <li><a (click)="searchByCatergory('1');">Hospital <span class="count">{{donateCounts[0]}}</span></a></li>
+                    <li><a (click)="searchByCatergory('2');">School <span class="count">{{donateCounts[1]}}</span></a></li>
+                    <li><a (click)="searchByCatergory('3');">Food Bank <span class="count">{{donateCounts[2]}}</span></a></li>
+                    <li><a (click)="searchByCatergory('4');">Torah Learning <span class="count">{{donateCounts[3]}}</span></a></li>
+                    <li><a (click)="searchByCatergory('5');">Family Services <span class="count">{{donateCounts[4]}}</span></a></li>
                 </ul>
             </div>
-            <div class="featured">
+            <!-- <div class="featured">
                 <h3>Featured Organizations</h3>
                 <ul>
                     <li>
@@ -147,7 +142,7 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

@@ -177,7 +177,6 @@ class SellController extends PaypalPaymentController
 
       $redirectUrl = $response->links[1]->href;
       return redirect( $redirectUrl );
-
     }
 
     /**
@@ -421,6 +420,8 @@ class SellController extends PaypalPaymentController
       $donate->commitment = $input['commitment'];
       $donate->donate_count = $input['donate_count'];
       $donate->description = $input['description'];
+      $donate->category = $input['category'];
+
 
       if (!is_null($request->file('pictureFile'))){
         $file = $request->file('pictureFile');
@@ -503,7 +504,7 @@ class SellController extends PaypalPaymentController
     * @return Array for JSON Response
     */
     public function getAllDonates(Request $request){
-        $data = $request->only(['start', 'length', 'search', 'filter']);
+        $data = $request->only(['start', 'length', 'search', 'filter', 'category']);
         $validator = Validator::make($data, [
             'start' => 'required|numeric',
             'length' => 'required|numeric',
@@ -517,11 +518,13 @@ class SellController extends PaypalPaymentController
         $res['count'] = Donate::where('donate_count', '>', 'exist_count')
                           ->where('del_flg', '<>', config('constants.ITEM_IS_DELETE'))
                           ->where($data['filter'], 'LIKE', '%'.$data['search'].'%')
+                          ->where('category', '=', $data['category'])
                           ->count();
 
         $donates = Donate::where('donate_count', '>', 'exist_count')
                           ->where('del_flg', '<>', config('constants.ITEM_IS_DELETE'))
                           ->where($data['filter'], 'LIKE', '%'.$data['search'].'%')
+                          ->where('category', '=', $data['category'])
                           ->orderBy('updated_at', 'desc')
                           ->offset($data['start'])
                           ->take($data['length'])

@@ -32,6 +32,7 @@ export class DonateComponent implements OnInit {
     public USER_SIGNED_INFO = USER_SIGNED_INFO;
     public searchString: string = "";
     public searchFilter: string = "name";
+    public searchCategory: number = 0;
     public curPage:number = 1;
     public totalCount:number = 0;
     public itemsPerPage:number = 5;
@@ -181,7 +182,7 @@ export class DonateComponent implements OnInit {
 
    refreshDonate(event){
      this.appState.setLoading('Loading ...');
-     this.profileService.getAllDonates((event.page - 1)*this.itemsPerPage, this.itemsPerPage, this.searchString, this.searchFilter).subscribe(
+     this.profileService.getAllDonates((event.page - 1)*this.itemsPerPage, this.itemsPerPage, this.searchString, this.searchFilter, this.searchCategory).subscribe(
       result => {
         if(result != true)
           this.appState.errorMessage = 'Donates Load Error';

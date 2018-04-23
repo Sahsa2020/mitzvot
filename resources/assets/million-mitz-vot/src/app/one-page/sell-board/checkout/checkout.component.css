@@ -258,8 +258,9 @@ margin: 0;
 
 
 
-
-
+.h_50 {
+    height: 50px;
+}
 
 @media screen and (min-width: 768px) and (max-width: 991px){
     .banner-txt h1 {
@@ -275,5 +276,4 @@ margin: 0;
 @media screen and ( max-width: 991px ){
 .logo-upload {margin-bottom: 20px;}
 }
-
 

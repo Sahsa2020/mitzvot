@@ -1,11 +1,87 @@
 @extends('layouts.backend')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             @include('admin.sidebar')
 
-            <div class="col-md-9">
+            <div class="col-md-10">
+                <div class="main-body">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <h1><span><img src="/assets/images/admin/menu-icon6-white.png" class="img-responsive" alt="Icon"></span> 
+                            Approve Donates</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-8 row">
+                        <div class="row row-eq-height">
+                            @foreach($donates as $donate)
+                            <div class="col-md-6">
+                                <div class="organization">
+                                    <div class="image">
+                                        <img src="{{$donate->picture}}" class="img-responsive" alt="image">
+                                        <div class="small-img">
+                                            <ul>
+                                                <li class="donate-img">
+                                                    <a href="#">
+                                                        <img src="/assets/img/donate-logo.png" class="img-responsive" alt="donate-logo">
+                                                    </a>
+                                                </li>
+                                                <li class="envelope-img">
+                                                    <a href="#">
+                                                        <img src="/assets/img/envelope.png" class="img-responsive" alt="envelope-logo">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="org-details">
+                                        <h2>$donate->name</h2>
+                                        <p>$donate->description</p>
+                                        <div class="download-btns">
+                                            <ul>
+                                                <li><a href="#"><img src="/assets/images/admin/doc-icon.png" class="img-responsive" alt="image"></a></li>
+                                                <li><a href="#"><img src="/assets/images/admin/pdf-icon.png" class="img-responsive" alt="image"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                            {!! Form::open([
+                                                'method'=>'POST',
+                                                'url' => ['/admin/donates/approve', $donate->id],
+                                                'style' => 'display:inline'
+                                            ]) !!}
+                                                {!! Form::submit('Approve', ['class' => 'community-btn donates']) !!}
+                                            {!! Form::close() !!}
+                                            {!! Form::open([
+                                                'method'=>'POST',
+                                                'url' => ['/admin/donates/unapprove', $donate->id],
+                                                'style' => 'display:inline'
+                                            ]) !!}
+                                                {!! Form::submit('Decline', ['class' => 'decline-btn']) !!}
+                                            {!! Form::close() !!}
+                                        <!-- <a href="#" class="community-btn donates">approve</a>
+                                        <a href="#" class="decline-btn">decline</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="pagination"> {!! $donates->render() !!} </div>
+                    <div class="col-md-4 hidden-xs hidden-sm"></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+@endsection
+
+
+
+<!-- <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-heading">Donations</div>
                     <div class="panel-body">
@@ -50,7 +126,4 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-@endsection
+            </div> -->

@@ -1,0 +1,53 @@
+.sidebar{
+    padding: 0 20px;
+    margin-bottom: 5px;
+}
+.side-nav ul{
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-right: 0;
+    margin: 30px 0 0;
+    padding: 20px 0;
+}
+.side-nav ul:last-child{
+    margin: 0 0 20px;
+    border: none;
+}
+.side-nav ul li a{
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 0;
+    vertical-align: top;
+    line-height: 18px;
+}
+.side-nav ul li a:hover, .side-nav ul li.active a{
+    color: #467FFD;
+}
+.side-nav ul li img{
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+}
+.side-nav ul li a img,.side-nav ul li a img{
+    display: inline-block;
+    margin-right: 10px;
+}
+.side-nav ul li a img.onhovershow{
+    display: none;
+}
+.side-nav ul li a:hover img, .side-nav ul li.active a img{
+    display: none;
+}
+.side-nav ul li a:hover img.onhovershow, .side-nav ul li.active a img.onhovershow{
+    display: inline-block;
+}
+@media screen and ( max-width: 991px ){
+    .sidebar {
+        max-width: 100%;
+    }
+    .sidebar-inner {
+        width: 100%;
+        padding-right: 0;
+    }
+}

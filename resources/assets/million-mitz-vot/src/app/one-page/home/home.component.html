@@ -1,484 +1,485 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 banner">
-            <div class="row video-holder">
-            <!-- <img src="images/homebanner.png" class="img-responsive" alt="banner"> -->
-            <!--  <video width="320" height="240" controls autoplay loop poster="data:images/homebanner.png">
-                <source src="images/Mountain_Scenery_at_Dusk_Free_Footage.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-                </video> -->
-            <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
-                poster="images/homebanner.png" data-setup="{}">
-                <source src="images/Mountain_Scenery_at_Dusk_Free_Footage.mp4" type='video/mp4'>
-                <source src="Mountain_Scenery_at_Dusk_Free_Footage.webm" type='video/webm'>
-                <p class="vjs-no-js">
-                    To view this video please enable JavaScript, and consider upgrading to a web browser that
-                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                </p>
-            </video>
-            <div class="banner-txt">
-                <!-- <img src="images/play-icon.png" class="img-responsive"  alt="icon"> -->
-                <h1>Make World Better</h1>
-                <p>Inspiring the Jewish people through the acts of charity</p>
-                <a href="{{SERVER_URL}}/logout" class="community-btn">join the community</a>
-            </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="row">
-            <div class="mitzvot-boxes blue">
-                <div class="inner-div">
-                    <h2> +{{generalService.daily_total}} </h2>
-                    <p>{{tr("DAILY_MITZVOTS")}}</p>
-                    <a [routerLink]="['/score']">{{tr("VIEW_MORE")}}</a>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="row">
-            <div class="mitzvot-boxes yellow">
-                <div class="inner-div">
-                    <h2>+{{generalService.life_total}}</h2>
-                    <p>{{tr("LIFETIME_MITZVOTS")}}</p>
-                    <a [routerLink]="['/score']">{{tr("VIEW_MORE")}}</a>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="row">
-            <div class="mitzvot-boxes pink">
-                <div class="inner-div" >
-                    <h2>+{{generalService.cbox_total}}</h2>
-                    <p>{{tr("TOTAL_BOXES")}}</p>
-                    <a [routerLink]="['/score']">{{tr("VIEW_MORE")}}</a>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="second-section">
-    <div class="container">
         <div class="row">
-        <div class="col-xs-12 hidden-lg hidden-sm">
-            <img src="assets/img/img1-mobile.png" class="img-responsive img-mobile" alt="image">
+            <div class="col-md-12 banner">
+                <div class="row video-holder">
+                <!-- <img src="images/homebanner.png" class="img-responsive" alt="banner"> -->
+                <!--  <video width="320" height="240" controls autoplay loop poster="data:images/homebanner.png">
+                    <source src="images/Mountain_Scenery_at_Dusk_Free_Footage.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                    </video> -->
+                <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+                    poster="images/homebanner.png" data-setup="{}">
+                    <source src="images/Mountain_Scenery_at_Dusk_Free_Footage.mp4" type='video/mp4'>
+                    <source src="Mountain_Scenery_at_Dusk_Free_Footage.webm" type='video/webm'>
+                    <p class="vjs-no-js">
+                        To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                    </p>
+                </video>
+                <div class="banner-txt">
+                    <!-- <img src="images/play-icon.png" class="img-responsive"  alt="icon"> -->
+                    <h1>Make World Better</h1>
+                    <p>Inspiring the Jewish people through the acts of charity</p>
+                    <a href="{{SERVER_URL}}/logout" class="community-btn">join the community</a>
+                </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6 col-xs-12">
-            <h3>The Modern, Easy way to <span>Mitzvot</span></h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-        </div>
-        <div class="col-md-6 hidden-xs">
-            <img src="assets/img/img1.png" class="img-responsive" alt="image">
-        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                <div class="mitzvot-boxes blue">
+                    <div class="inner-div">
+                        <h2> +{{generalService.daily_total}} </h2>
+                        <p>{{tr("DAILY_MITZVOTS")}}</p>
+                        <a [routerLink]="['/score']">{{tr("VIEW_MORE")}}</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                <div class="mitzvot-boxes yellow">
+                    <div class="inner-div">
+                        <h2>+{{generalService.life_total}}</h2>
+                        <p>{{tr("LIFETIME_MITZVOTS")}}</p>
+                        <a [routerLink]="['/score']">{{tr("VIEW_MORE")}}</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                <div class="mitzvot-boxes pink">
+                    <div class="inner-div" >
+                        <h2>+{{generalService.cbox_total}}</h2>
+                        <p>{{tr("TOTAL_BOXES")}}</p>
+                        <a [routerLink]="['/score']">{{tr("VIEW_MORE")}}</a>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="third-section hidden-xs">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-            <img src="assets/img/img2.png" class="img-responsive" alt="image">
+    <div class="second-section">
+        <div class="container">
+            <div class="row">
+            <div class="col-xs-12 hidden-lg hidden-sm">
+                <img src="assets/img/img1-mobile.png" class="img-responsive img-mobile" alt="image">
             </div>
-            <div class="col-md-7">
-            <h3>Our Box</h3>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
+            <div class="col-md-6 col-xs-12">
+                <h3>The Modern, Easy way to <span>Mitzvot</span></h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
+            </div>
+            <div class="col-md-6 hidden-xs">
+                <img src="assets/img/img1.png" class="img-responsive" alt="image">
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="third-section hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                <img src="assets/img/img2.png" class="img-responsive" alt="image">
+                </div>
+                <div class="col-md-7">
+                <h3>Our Box</h3>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul>
+                            <li>
+                            <div class="image">
+                                <img src="assets/img/icon1.png" class="img-responsive" alt="icon">
+                            </div>
+                            <div class="text">
+                                <h4>Daily Count</h4>
+                                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                            </div>
+                            </li>
+                            <li>
+                            <div class="image">
+                                <img src="assets/img/icon2.png" class="img-responsive" alt="icon">
+                            </div>
+                            <div class="text">
+                                <h4>Communal Effort</h4>
+                                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                            </div>
+                            </li>
+                            <li>
+                            <div class="image">
+                                <img src="assets/img/icon3.png" class="img-responsive" alt="icon">
+                            </div>
+                            <div class="text">
+                                <h4>Easy Charity</h4>
+                                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                            </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li>
+                            <div class="image">
+                                <img src="assets/img/icon4.png" class="img-responsive" alt="icon">
+                            </div>
+                            <div class="text">
+                                <h4>Daily Count</h4>
+                                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                            </div>
+                            </li>
+                            <li>
+                            <div class="image">
+                                <img src="assets/img/icon5.png" class="img-responsive" alt="icon">
+                            </div>
+                            <div class="text">
+                                <h4>Communal Effort</h4>
+                                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                            </div>
+                            </li>
+                            <li>
+                            <div class="image">
+                                <img src="assets/img/icon6.png" class="img-responsive" alt="icon">
+                            </div>
+                            <div class="text">
+                                <h4>Easy Charity</h4>
+                                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                            </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fourth-section">
+        <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <ul>
-                        <li>
-                        <div class="image">
-                            <img src="assets/img/icon1.png" class="img-responsive" alt="icon">
-                        </div>
-                        <div class="text">
-                            <h4>Daily Count</h4>
-                            <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                        </div>
-                        </li>
-                        <li>
-                        <div class="image">
-                            <img src="assets/img/icon2.png" class="img-responsive" alt="icon">
-                        </div>
-                        <div class="text">
-                            <h4>Communal Effort</h4>
-                            <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                        </div>
-                        </li>
-                        <li>
-                        <div class="image">
-                            <img src="assets/img/icon3.png" class="img-responsive" alt="icon">
-                        </div>
+                <h3>How is it work?</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book Lorem Ipsum.</p>
+                <ul class="hidden-xs">
+                    <li>
+                        <img src="assets/img/tick.png" class="img-responsive" alt="tick">
                         <div class="text">
                             <h4>Easy Charity</h4>
-                            <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                         </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <ul>
-                        <li>
-                        <div class="image">
-                            <img src="assets/img/icon4.png" class="img-responsive" alt="icon">
-                        </div>
-                        <div class="text">
-                            <h4>Daily Count</h4>
-                            <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                        </div>
-                        </li>
-                        <li>
-                        <div class="image">
-                            <img src="assets/img/icon5.png" class="img-responsive" alt="icon">
-                        </div>
-                        <div class="text">
-                            <h4>Communal Effort</h4>
-                            <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                        </div>
-                        </li>
-                        <li>
-                        <div class="image">
-                            <img src="assets/img/icon6.png" class="img-responsive" alt="icon">
-                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/img/tick.png" class="img-responsive" alt="tick">
                         <div class="text">
                             <h4>Easy Charity</h4>
-                            <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                         </div>
-                        </li>
-                    </ul>
+                    </li>
+                    <li>
+                        <img src="assets/img/tick.png" class="img-responsive" alt="tick">
+                        <div class="text">
+                            <h4>Easy Charity</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/img/tick.png" class="img-responsive" alt="tick">
+                        <div class="text">
+                            <h4>Easy Charity</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </li>
+                </ul>
                 </div>
-            </div>
+                <div class="col-md-6 left-block">
+                <ul>
+                    <li>
+                        <div class="each-block">
+                            <div class="image">
+                            <img src="assets/img/user1.png" class="img-responsive" alt="user-img">
+                            </div>
+                            <div class="text">
+                            <h4>Rochel Holzkenner <span><i class="fa fa-users" aria-hidden="true"></i> Organization Name</span></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="each-block">
+                            <div class="image">
+                            <img src="assets/img/user-img.jpg" class="img-responsive" alt="user-img">
+                            </div>
+                            <div class="text">
+                            <h4>Michel Kiwanuka</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="each-block">
+                            <div class="image">
+                            <img src="assets/img/user3.png" class="img-responsive" alt="user-img">
+                            </div>
+                            <div class="text">
+                            <h4>Rochel Holzkenner <span><i class="fa fa-users" aria-hidden="true"></i> Organization Name</span></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="each-block">
+                            <div class="image">
+                            <img src="assets/img/user4.png" class="img-responsive" alt="user-img">
+                            </div>
+                            <div class="text">
+                            <h4>Michel Kiwanuka</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="each-block">
+                            <div class="image">
+                            <img src="assets/img/user-img.jpg" class="img-responsive" alt="user-img">
+                            </div>
+                            <div class="text">
+                            <h4>Michel Kiwanuka</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="each-block">
+                            <div class="image">
+                            <img src="assets/img/user-img.jpg" class="img-responsive" alt="user-img">
+                            </div>
+                            <div class="text">
+                            <h4>Michel Kiwanuka</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="scroll-div">
+                    <a href="#"><img src="assets/img/arrow-up.png" class="img-responsive" alt="arrow-up"></a>
+                    <a href="#"><img src="assets/img/arrow-down.png" class="img-responsive" alt="arrow-down"></a>
+                </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="fourth-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-            <h3>How is it work?</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book Lorem Ipsum.</p>
-            <ul class="hidden-xs">
-                <li>
-                    <img src="assets/img/tick.png" class="img-responsive" alt="tick">
-                    <div class="text">
-                        <h4>Easy Charity</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="assets/img/tick.png" class="img-responsive" alt="tick">
-                    <div class="text">
-                        <h4>Easy Charity</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="assets/img/tick.png" class="img-responsive" alt="tick">
-                    <div class="text">
-                        <h4>Easy Charity</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="assets/img/tick.png" class="img-responsive" alt="tick">
-                    <div class="text">
-                        <h4>Easy Charity</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                </li>
-            </ul>
+    <div class="fifth-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Meet our <br> worldwide<span> Family</span></h3>
+                </div>
             </div>
-            <div class="col-md-6 left-block">
-            <ul>
-                <li>
-                    <div class="each-block">
-                        <div class="image">
-                        <img src="assets/img/user1.png" class="img-responsive" alt="user-img">
-                        </div>
-                        <div class="text">
-                        <h4>Rochel Holzkenner <span><i class="fa fa-users" aria-hidden="true"></i> Organization Name</span></h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="each-block">
-                        <div class="image">
-                        <img src="assets/img/user-img.jpg" class="img-responsive" alt="user-img">
-                        </div>
-                        <div class="text">
-                        <h4>Michel Kiwanuka</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            <div class="clear"></div>
+    
+            <div class="our-client">
+                <div class="col-md-4 col-sm-6 col-xs-6"  *ngFor="let child of generalService.allPersons[category]">
+                    <div class="our-family" >
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <img src="{{child.image_url}}" class="img-responsive" alt="image">
+                            <div class="details">
+                                <h3>{{child.name}}</h3>
+                                <p>{{child.address}}, {{child.country}}</p>
+                            </div>
+                            <div class="mitznumber">
+                                <span>+{{child.deposit_count}}</span>
+                                <span>mitzvots</span>
+                            </div>
                         </div>
                     </div>
-                </li>
-                <li>
-                    <div class="each-block">
-                        <div class="image">
-                        <img src="assets/img/user3.png" class="img-responsive" alt="user-img">
-                        </div>
-                        <div class="text">
-                        <h4>Rochel Holzkenner <span><i class="fa fa-users" aria-hidden="true"></i> Organization Name</span></h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="each-block">
-                        <div class="image">
-                        <img src="assets/img/user4.png" class="img-responsive" alt="user-img">
-                        </div>
-                        <div class="text">
-                        <h4>Michel Kiwanuka</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <div class="clear"></div>                
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="our-family join-comm">
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg-blur.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <h4>Become a part of our family</h4>
+                            <a href="{{SERVER_URL}}/logout" class="community-btn">join the community</a>
                         </div>
                     </div>
-                </li>
-                <li>
-                    <div class="each-block">
-                        <div class="image">
-                        <img src="assets/img/user-img.jpg" class="img-responsive" alt="user-img">
-                        </div>
-                        <div class="text">
-                        <h4>Michel Kiwanuka</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="each-block">
-                        <div class="image">
-                        <img src="assets/img/user-img.jpg" class="img-responsive" alt="user-img">
-                        </div>
-                        <div class="text">
-                        <h4>Michel Kiwanuka</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="scroll-div">
-                <a href="#"><img src="assets/img/arrow-up.png" class="img-responsive" alt="arrow-up"></a>
-                <a href="#"><img src="assets/img/arrow-down.png" class="img-responsive" alt="arrow-down"></a>
+                </div>
             </div>
+            <!-- <div class="our-client">
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="our-family">
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <img src="assets/img/family1.jpg" class="img-responsive" alt="image">
+                            <div class="details">
+                                <h3>Michael Kiwanuka</h3>
+                                <p>520 ne 8t ave, United States</p>
+                            </div>
+                            <div class="mitznumber">
+                                <span>+19</span>
+                                <span>mitzvots</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="our-family">
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <img src="assets/img/family2.png" class="img-responsive" alt="image">
+                            <div class="details">
+                                <h3>Michael Kiwanuka</h3>
+                                <p>520 ne 8t ave, United States</p>
+                            </div>
+                            <div class="mitznumber">
+                                <span>+19</span>
+                                <span>mitzvots</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="our-family">
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <img src="assets/img/family1.jpg" class="img-responsive" alt="image">
+                            <div class="details">
+                                <h3>Michael Kiwanuka</h3>
+                                <p>520 ne 8t ave, United States</p>
+                            </div>
+                            <div class="mitznumber">
+                                <span>+19</span>
+                                <span>mitzvots</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="our-family">
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <img src="assets/img/family1.jpg" class="img-responsive" alt="image">
+                            <div class="details">
+                                <h3>Michael Kiwanuka</h3>
+                                <p>520 ne 8t ave, United States</p>
+                            </div>
+                            <div class="mitznumber">
+                                <span>+19</span>
+                                <span>mitzvots</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="our-family">
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <img src="assets/img/family2.png" class="img-responsive" alt="image">
+                            <div class="details">
+                                <h3>Michael Kiwanuka</h3>
+                                <p>520 ne 8t ave, United States</p>
+                            </div>
+                            <div class="mitznumber">
+                                <span>+19</span>
+                                <span>mitzvots</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="our-family">
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <img src="assets/img/family1.jpg" class="img-responsive" alt="image">
+                            <div class="details">
+                                <h3>Michael Kiwanuka</h3>
+                                <p>520 ne 8t ave, United States</p>
+                            </div>
+                            <div class="mitznumber">
+                                <span>+19</span>
+                                <span>mitzvots</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="our-family">
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <img src="assets/img/family1.jpg" class="img-responsive" alt="image">
+                            <div class="details">
+                                <h3>Michael Kiwanuka</h3>
+                                <p>520 ne 8t ave, United States</p>
+                            </div>
+                            <div class="mitznumber">
+                                <span>+19</span>
+                                <span>mitzvots</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="our-family">
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <img src="assets/img/family2.png" class="img-responsive" alt="image">
+                            <div class="details">
+                                <h3>Michael Kiwanuka</h3>
+                                <p>520 ne 8t ave, United States</p>
+                            </div>
+                            <div class="mitznumber">
+                                <span>+19</span>
+                                <span>mitzvots</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <div class="our-family join-comm">
+                        <div class="dotted-bg"><img src="assets/img/dotted-bg-blur.jpg" class="img-responsive" alt="image"></div>
+                        <div class="family-box">
+                            <h4>Become a part of our family</h4>
+                            <a href="#" class="community-btn">join the community</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="sixth-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <h3><span>Organizations</span> that Help Us</h3>
+                <ul>
+                    <li>
+                        <img src="assets/img/org-logo1.png" class="img-responsive" alt="organization logo">
+                    </li>
+                    <li>
+                        <img src="assets/img/org-logo2.png" class="img-responsive" alt="organization logo">
+                    </li>
+                    <li>
+                        <img src="assets/img/org-logo3.png" class="img-responsive" alt="organization logo">
+                    </li>
+                    <li>
+                        <img src="assets/img/org-logo4.png" class="img-responsive" alt="organization logo">
+                    </li>
+                    <li>
+                        <img src="assets/img/org-logo5.png" class="img-responsive" alt="organization logo">
+                    </li>
+                    <li>
+                        <img src="assets/img/org-logo6.png" class="img-responsive" alt="organization logo">
+                    </li>
+                    <li>
+                        <img src="assets/img/org-logo7.png" class="img-responsive" alt="organization logo">
+                    </li>
+                </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="fifth-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Meet our <br> worldwide<span> Family</span></h3>
-            </div>
-        </div>
-        <div class="clear"></div>
-
-        <div class="our-client">
-            <div class="col-md-4 col-sm-6 col-xs-6"  *ngFor="let child of generalService.allPersons[category]">
-                <div class="our-family" >
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <img src="{{child.image_url}}" class="img-responsive" alt="image">
-                        <div class="details">
-                            <h3>{{child.name}}</h3>
-                            <p>{{child.address}}, {{child.country}}</p>
-                        </div>
-                        <div class="mitznumber">
-                            <span>+{{child.deposit_count}}</span>
-                            <span>mitzvots</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="clear"></div>                
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <div class="our-family join-comm">
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg-blur.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <h4>Become a part of our family</h4>
-                        <a href="{{SERVER_URL}}/logout" class="community-btn">join the community</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="our-client">
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <div class="our-family">
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <img src="assets/img/family1.jpg" class="img-responsive" alt="image">
-                        <div class="details">
-                            <h3>Michael Kiwanuka</h3>
-                            <p>520 ne 8t ave, United States</p>
-                        </div>
-                        <div class="mitznumber">
-                            <span>+19</span>
-                            <span>mitzvots</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <div class="our-family">
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <img src="assets/img/family2.png" class="img-responsive" alt="image">
-                        <div class="details">
-                            <h3>Michael Kiwanuka</h3>
-                            <p>520 ne 8t ave, United States</p>
-                        </div>
-                        <div class="mitznumber">
-                            <span>+19</span>
-                            <span>mitzvots</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <div class="our-family">
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <img src="assets/img/family1.jpg" class="img-responsive" alt="image">
-                        <div class="details">
-                            <h3>Michael Kiwanuka</h3>
-                            <p>520 ne 8t ave, United States</p>
-                        </div>
-                        <div class="mitznumber">
-                            <span>+19</span>
-                            <span>mitzvots</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <div class="our-family">
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <img src="assets/img/family1.jpg" class="img-responsive" alt="image">
-                        <div class="details">
-                            <h3>Michael Kiwanuka</h3>
-                            <p>520 ne 8t ave, United States</p>
-                        </div>
-                        <div class="mitznumber">
-                            <span>+19</span>
-                            <span>mitzvots</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <div class="our-family">
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <img src="assets/img/family2.png" class="img-responsive" alt="image">
-                        <div class="details">
-                            <h3>Michael Kiwanuka</h3>
-                            <p>520 ne 8t ave, United States</p>
-                        </div>
-                        <div class="mitznumber">
-                            <span>+19</span>
-                            <span>mitzvots</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <div class="our-family">
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <img src="assets/img/family1.jpg" class="img-responsive" alt="image">
-                        <div class="details">
-                            <h3>Michael Kiwanuka</h3>
-                            <p>520 ne 8t ave, United States</p>
-                        </div>
-                        <div class="mitznumber">
-                            <span>+19</span>
-                            <span>mitzvots</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <div class="our-family">
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <img src="assets/img/family1.jpg" class="img-responsive" alt="image">
-                        <div class="details">
-                            <h3>Michael Kiwanuka</h3>
-                            <p>520 ne 8t ave, United States</p>
-                        </div>
-                        <div class="mitznumber">
-                            <span>+19</span>
-                            <span>mitzvots</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <div class="our-family">
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <img src="assets/img/family2.png" class="img-responsive" alt="image">
-                        <div class="details">
-                            <h3>Michael Kiwanuka</h3>
-                            <p>520 ne 8t ave, United States</p>
-                        </div>
-                        <div class="mitznumber">
-                            <span>+19</span>
-                            <span>mitzvots</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <div class="our-family join-comm">
-                    <div class="dotted-bg"><img src="assets/img/dotted-bg-blur.jpg" class="img-responsive" alt="image"></div>
-                    <div class="family-box">
-                        <h4>Become a part of our family</h4>
-                        <a href="#" class="community-btn">join the community</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    </div>
-</div>
-<div class="sixth-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-            <h3><span>Organizations</span> that Help Us</h3>
-            <ul>
-                <li>
-                    <img src="assets/img/org-logo1.png" class="img-responsive" alt="organization logo">
-                </li>
-                <li>
-                    <img src="assets/img/org-logo2.png" class="img-responsive" alt="organization logo">
-                </li>
-                <li>
-                    <img src="assets/img/org-logo3.png" class="img-responsive" alt="organization logo">
-                </li>
-                <li>
-                    <img src="assets/img/org-logo4.png" class="img-responsive" alt="organization logo">
-                </li>
-                <li>
-                    <img src="assets/img/org-logo5.png" class="img-responsive" alt="organization logo">
-                </li>
-                <li>
-                    <img src="assets/img/org-logo6.png" class="img-responsive" alt="organization logo">
-                </li>
-                <li>
-                    <img src="assets/img/org-logo7.png" class="img-responsive" alt="organization logo">
-                </li>
-            </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<app-footer></app-footer>
-<script src="http://vjs.zencdn.net/6.4.0/video.js"></script>
+    <app-footer></app-footer>
+    <script src="http://vjs.zencdn.net/6.4.0/video.js"></script>
+    

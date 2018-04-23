@@ -21,6 +21,16 @@ import { CheckoutComponent } from './one-page/sell-board/checkout/checkout.compo
 import { SponsorComponent } from './one-page/sponsor/sponsor.component';
 import { SponsorListComponent } from './one-page/sponsor/sponsor-list/sponsor-list.component';
 import { FaqComponent } from './one-page/faq/faq.component';
+import { PersonalAccountComponent } from './one-page/personal-account/personal-account.component';
+import { ChatComponent } from './one-page/personal-account/chat/chat.component';
+import { EditProfileComponent } from './one-page/personal-account/edit-profile/edit-profile.component';
+import { FriendComponent } from './one-page/personal-account/friend/friend.component';
+import { NotificationComponent } from './one-page/personal-account/notification/notification.component';
+import { OrganizationComponent } from './one-page/personal-account/organization/organization.component';
+import { GuestMemberComponent } from './one-page/personal-account/guest-member/guest-member.component';
+import { PictureComponent } from './one-page/personal-account/picture/picture.component';
+import { MyOrgMemberComponent } from './one-page/personal-account/my-org-member/my-org-member.component';
+import { MainComponent } from './one-page/personal-account/main/main.component';
 
 
 @NgModule({
@@ -61,7 +71,17 @@ import { FaqComponent } from './one-page/faq/faq.component';
     CheckoutComponent,
     SponsorComponent,
     SponsorListComponent,
-    FaqComponent
+    FaqComponent,
+    PersonalAccountComponent,
+    ChatComponent,
+    EditProfileComponent,
+    FriendComponent,
+    NotificationComponent,
+    OrganizationComponent,
+    GuestMemberComponent,
+    PictureComponent,
+    MyOrgMemberComponent,
+    MainComponent
   ],
   providers: [
     AuthenticateService,

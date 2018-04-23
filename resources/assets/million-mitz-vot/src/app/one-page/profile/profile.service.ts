@@ -11,6 +11,24 @@ import { StateService } from '../../state.service';
 import { GeneralService } from '../../general.service';
 import { LanguageService } from '../../language.service';
 import { Router } from '@angular/router';
+
+export const DONATE_CATEGORY = {
+  HOSPITAL: "Hospital",
+  SCHOOL: "School",
+  FOOD_BANK: "Food Bank",
+  TORAH_LEARNING: "Torah Learning",
+  FAMILY_SERVICES: "Family Services",
+};
+
+export const DONATE_CATEGORY_INDEX = {
+  HOSPITAL: "1",
+  SCHOOL: "2",
+  FOOD_BANK: "3",
+  TORAH_LEARNING: "4",
+  FAMILY_SERVICES: "5",
+};
+
+
 @Injectable()
 export class ProfileService {
   public serverUrl: string = environment.serverUrl;
@@ -287,10 +305,10 @@ export class ProfileService {
               return false;
         }, error=>{return false;});
   }
-  getAllDonates(start:number, length: number, search: string, filter: string):Observable<boolean> {
+  getAllDonates(start:number, length: number, search: string, filter: string, category: number):Observable<boolean> {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.authService.get('/api/v1/all_donates?start=' + start + '&length=' + length + '&search=' + search + '&filter=' + filter)
+    return this.authService.get('/api/v1/all_donates?start=' + start + '&length=' + length + '&category=' + category + '&search=' + search + '&filter=' + filter)
         .map((res: any) => {
             if (res.success == true) {
               if (res.data != null) {
