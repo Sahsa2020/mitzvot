@@ -8,7 +8,6 @@ import { AuthenticateService } from './authenticate.service';
 import { SponsorComponent, SponsorListComponent, FaqComponent} from './one-page';
 import { MainComponent, ChatComponent, EditProfileComponent, FriendComponent, GuestMemberComponent, MyOrgMemberComponent, NotificationComponent, PictureComponent, OrganizationComponent, PersonalAccountComponent } from './one-page/personal-account';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -30,7 +29,7 @@ const routes: Routes = [
       { path: 'sponsor/list',      component: SponsorListComponent },
       { path: 'faq',      component: FaqComponent },
       {
-        path: 'profile',
+        path: 'profile_org',
         component: ProfileComponent,
         children: [
           { path: '',      component: MainInfoComponent, },
@@ -42,7 +41,21 @@ const routes: Routes = [
         ],
         canActivate: [ AuthenticateService ]
       },
-      {path: 'profile/donate',     component: MyDonateComponent},      
+      {
+        path: 'profile',
+        component: PersonalAccountComponent,
+        children: [
+          { path: '',      component: MainComponent, },
+          { path: 'friends',      component: FriendComponent },
+          { path: 'edit-profile',      component: EditProfileComponent },
+          // { path: 'members',      component: MyMemberComponent },
+          // { path: 'sounds',      component: MySoundComponent },
+          // { path: 'changePassword',      component: ChangePasswordComponent },
+          // { path: 'donate',      component: MyDonateComponent }
+        ],
+        canActivate: [ AuthenticateService ]
+      },
+      {path: 'profile/donate',     component: MyDonateComponent},
       {
         path: 'personal-account',
         component: PersonalAccountComponent,

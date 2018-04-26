@@ -1,0 +1,407 @@
+header{
+    box-shadow: 0 5px 10px 0 #ccc;
+    -webkit-box-shadow: 0 5px 10px 0 #ccc;
+    -moz-box-shadow: 0 5px 10px 0 #ccc;
+    background: #fff;
+}
+body{
+    background: #EEF5F9;
+}
+.myprofile img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.myprofile h1{
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+span.org-name {
+    display: block;
+    color: #FB6180;
+    margin: 5px 0;
+}
+.clear50{
+    clear: both;
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+}
+.timeline{
+    margin-left: 20px;
+}
+.post-box{
+    background: #fff;
+    padding: 15px 15px 0;
+    box-shadow: 0 3px 10px 0 #ccc;
+    -moz-box-shadow: 0 3px 10px 0 #ccc;
+    -webkit-box-shadow: 0 3px 10px 0 #ccc;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    border-radius: 3px;
+    margin-bottom: 25px;
+}
+.post-box.each-box{
+    padding: 0;
+    text-align: center;
+    height: 100%;
+}
+.each-box .top-head{
+    background: #f5f5f5;
+    padding: 25px 0 55px;
+    position: relative;
+}
+.each-box p{
+    color: #999;
+    font-size: 13px;
+}
+.each-box .notif li{
+    background: #467FFD;
+    margin: 0 2px;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    position: relative;
+    border-radius: 50%;
+}
+.each-box .notif li:last-child{
+    background: #FB6180;
+}
+.each-box .notif li:hover{
+    background: #333;
+}
+.each-box .notif li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.each-box .notif li a img{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.members .row{
+    margin-bottom: 25px;
+}
+.top-body ul li{
+    display: inline-block;
+    margin: 5px 2px;
+}
+.top-body ul li strong{
+    color: #2A2937;
+    font-weight: normal;
+}
+.user-img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50% !important;
+}
+.user-img{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 90%;
+}
+.top-body{
+    padding: 0 5px;
+}
+.top-body h3{
+    color: #2A2937;
+    font-size: 16px;
+    margin: 30px 0 5px;
+}
+.banner{
+    position: relative;
+}
+.banner-txt{
+    position: absolute;
+    color: #fff;
+    transform: translate(-50%,-50%);
+    left: 15%;
+    top: 35%;
+    text-transform: uppercase;
+}
+.banner img{
+    width: 100%;
+}
+.banner-txt h1, .banner-txt h2{
+    font-weight: bold;
+    background: #FF9E01;
+    margin: 2px 0;
+    text-align: center;
+    display: inline-block;
+    padding: 5px 20px;
+    vertical-align: top;
+}
+.banner-txt h1{
+    font-size: 26px;
+}
+.banner-txt h2{
+    font-size: 38px;
+}
+.profile-tab{
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    vertical-align: top;
+    padding: 10px 0;
+}
+.profile-pic{
+    box-shadow: 0 3px 10px 0 #ccc;
+    -moz-box-shadow: 0 3px 10px 0 #ccc;
+    -webkit-box-shadow: 0 3px 10px 0 #ccc;
+    border-radius: 5px;
+    position: absolute;
+    left: 20px;
+    top: -90px;
+    width: 170px;
+    height: 136px;
+    background: #fff;
+    display: inline-block;
+}
+.profile-pic img{
+    height: 100%;
+    margin: auto;
+    border-radius: 5px;
+}
+.profile-details h3{
+    color: #2A2937;
+    font-size: 28px;
+    margin: 0;
+}
+.profile-details h4{
+    color: #467FFD;
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+.profile-tab .decline-btn, .profile-tab .community-btn{
+    text-transform: capitalize;
+    padding: 14px 25px;
+    margin: 0 0 0 5px;
+    line-height: 20px;
+}
+.decline-btn img{
+    display: inline-block;
+    vertical-align: top;
+}
+.top-band{
+    color: #2A2937;
+    font-weight: bold;
+    padding: 15px 0;
+}
+.top-band span{
+    color: #467FFD;
+}
+.top-right select{
+    background: #fff url(/assets/images/select-icon.png) no-repeat 95% 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #eee;
+    box-shadow: none;
+    color: #999;
+    font-weight: normal;
+}
+.top-band .searchbox{
+    position: relative;
+}
+.top-band .search-btn{
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    color: #999;
+    display: block;
+    font-size: 15px;
+    line-height: 30px;
+    border-left: 1px solid #eee;
+    padding-left: 10px;
+    bottom: 2px;
+    cursor: pointer;
+    z-index: 9;
+    background: #fff;
+}
+.top-band .search-btn:hover{
+    color: #467FFD;
+}
+.form-control{
+    border-radius: 2px;
+    border: 1px solid #eee;
+    box-shadow: none;
+    color: #999;
+    font-weight: normal;
+}
+.pagination-block{
+    padding-right: 20px;
+}
+.pagination>li>a, .pagination>li>span{
+    color: #666;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #467ffd;
+    border-color: #467ffd;
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    color: #467ffd;
+}
+.pagination>li:first-child>a, .pagination>li:first-child>span, .pagination>li:last-child>a, .pagination>li:last-child>span{
+    border-radius: 0;
+}
+.pagination>li {
+    display: inline-block;
+    margin: 0 1px;
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    .profile-tab .decline-btn, .profile-tab .community-btn {
+        padding: 10px 12px;
+    }
+    .top-tab ul li {
+        padding: 0 10px 15px;
+    }
+    .banner-txt {
+        left: 20%;
+    }
+    .profile-pic {
+        top: -70px;
+        width: 145px;
+        height: 125px;
+    }
+    .profile-details h3 {
+        font-size: 24px;
+    }
+    .yourmitzvot h2 {
+        font-size: 14px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .profile-pic {
+        left: 10px;
+        top: -70px;
+        width: 130px;
+        height: 115px;
+    }
+    .profile-tab .decline-btn, .profile-tab .community-btn {
+        padding: 8px 14px;
+    }
+    .decline-btn img {
+        width: 16px;
+    }
+    .profile-details h3 {
+        font-size: 20px;
+    }
+    .profile-details h4 {
+        font-size: 12px;
+    }
+    .banner-txt h1 {
+        font-size: 20px;
+    }
+    .banner-txt h2 {
+        font-size: 30px;
+    }
+}
+@media screen and ( max-width: 991px ){
+    .main-body{
+        margin: 0 15px;
+    }
+    .top-right {
+        width: 100%;
+    }
+    .top-right .col-md-7{
+        padding: 0; 
+    }
+    .noleftpadding{
+        padding: 0 !important;
+    }
+    .members .row {
+        margin-bottom: 0;
+    }
+    .top-band{
+        text-align: center;
+    }
+    .top-right select {
+        margin: 10px 0;
+    }
+}
+@media screen and ( max-width: 767px ){
+    .user-img img {
+        margin: auto;
+    }
+    .user-name{
+        text-align: center;
+    }
+    .profile-tab .decline-btn, .profile-tab .community-btn {
+        padding: 7px 14px;
+        font-size: 10px;
+        margin: 5px 0;
+    }
+    .profile-tab .text-right{
+        text-align: center;
+    }
+    .post-box .commentbox, .comment-section {
+        margin: 0;
+    }
+    .profile-pic {
+        position: relative;
+        width: 110px;
+        height: 90px;
+        top: 0;
+        left: 0;
+    }
+    .banner-txt {
+        left: 18%;
+        top: 50%;
+    }
+    .banner-txt h1, .banner-txt h2 {
+        padding: 4px 10px;
+    }
+    .banner-txt h1 {
+        font-size: 20px;
+    }
+    .banner-txt h2 {
+        font-size: 28px;
+    }
+    .profile-details{
+        text-align: center;
+        margin: 10px 0;
+    }
+    .profile-details h3 {
+        font-size: 16px;
+    }
+    .profile-details h4 {
+        font-size: 10px;
+    }
+}
+@media screen and ( max-width: 480px ){
+    .profile-pic {
+        position: relative;
+        width: 95px;
+        height: 75px;
+        top: 0;
+        left: 0;
+    }
+    .banner-txt {
+        left: 18%;
+        top: 50%;
+    }
+    .banner-txt h1, .banner-txt h2 {
+        padding: 4px 10px;
+    }
+    .banner-txt h1 {
+        font-size: 10px;
+    }
+    .banner-txt h2 {
+        font-size: 14px;
+    }
+    .profile-details{
+        text-align: center;
+        margin: 10px 0;
+    }
+    .profile-details h3 {
+        font-size: 16px;
+    }
+    .profile-details h4 {
+        font-size: 10px;
+    }
+}

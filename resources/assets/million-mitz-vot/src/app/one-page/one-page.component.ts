@@ -8,11 +8,13 @@ import { environment } from '../../environments';
 
 declare var jQuery:any;
 declare var document:any;
+
 @Component({
   selector: 'app-one-page',
   templateUrl: 'one-page.component.html',
   styleUrls: ['one-page.component.css']
 })
+
 export class OnePageComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   scrollMoved(event) {

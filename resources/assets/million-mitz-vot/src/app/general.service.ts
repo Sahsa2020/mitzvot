@@ -163,4 +163,15 @@ export class GeneralService {
                 return false;
           });
   }
+
+  getFriends(search:String) {
+    return this.authService.get('/api/v1/profile/friends?search=' + search)
+    .map((res: any) => {
+        if (res.success == true) {
+            return res.data;
+        } else {
+          return [];
+        }
+    });
+  }
 }

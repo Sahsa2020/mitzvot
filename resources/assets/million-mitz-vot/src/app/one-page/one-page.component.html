@@ -55,14 +55,16 @@
                           <a [routerLink]="['#']" class="relative"><img src="assets/img/notification-icon.png" class="img-respons" alt="notification"> <span class="badge">3</span></a>
                       </li> -->
                       <li class="nav-dropdown">
-                            <a class="account-btn" [routerLink]="['/personal-account']" ><img src="{{authenticate.currentUser?.image_url}}" class="img-responsive" alt="User"> {{ authenticate.currentUser?.name }}  <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <!-- <a class="account-btn" [routerLink]="['#']" ><img src="{{authenticate.currentUser?.image_url}}" class="img-responsive" alt="User"> {{ authenticate.currentUser?.name }}  <i class="fa fa-angle-down" aria-hidden="true"></i></a> -->
+                            <img src="{{authenticate.currentUser?.image_url}}" class="img-responsive" alt="User"> {{ authenticate.currentUser?.name }}  <i class="fa fa-angle-down" aria-hidden="true"></i>
                             <div class="dropdown-menu" >
                                 <div class="drop-head">
                                     <span> YOUR ACCOUNT</span>
                                     <a class="close-btn">X</a>
                                 </div>
                                 <ul class="drop-body">
-                                    <li class="menu-li"><a [routerLink]="['/profile/']">{{tr('EDIT_PROFILE')}}</a></li>
+                                    <li class="menu-li"><a [routerLink]="['/profile/']">My Account</a></li>
+                                    <li class="menu-li"><a [routerLink]="['/profile_org/']">{{tr('EDIT_PROFILE')}}</a></li>
                                     <li class="menu-li">
                                         <a href="{{SERVER_URL}}/messages">Chat History</a>
                                         <span class="badge badge-danger" style="position: absolute; left: auto; bottom: 10px; top: auto; right: 5px;" [class.hidden] = "general.unread_messages == 0">{{general.unread_messages}}</span>
@@ -72,10 +74,10 @@
                                           {{tr('REPORT')}}
                                         </a>
                                     </li>
-                                    <li class="menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/boxes']">{{tr('BOXES')}}</a></li>
-                                    <li class="menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/sounds']">My Box Sounds</a></li>
-                                    <li class="menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.INDIVIDUAL && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile/members']">{{tr('MEMBERS')}}</a></li>
-                                    <li class="menu-li"><a [routerLink]="['/profile/changePassword']">{{tr('CHANGE_PASSWORD')}}</a></li>
+                                    <li class="menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile_org/boxes']">{{tr('BOXES')}}</a></li>
+                                    <li class="menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile_org/sounds']">My Box Sounds</a></li>
+                                    <li class="menu-li" *ngIf="authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN && authenticate.currentUser.role != USER_TYPE.INDIVIDUAL && authenticate.currentUser.role != USER_TYPE.MEMBER"><a [routerLink]="['/profile_org/members']">{{tr('MEMBERS')}}</a></li>
+                                    <li class="menu-li"><a [routerLink]="['/profile_org/changePassword']">{{tr('CHANGE_PASSWORD')}}</a></li>
                                     <li class="menu-li"><a href="{{SERVER_URL}}/logout">{{tr('SIGN_OUT')}}</a></li>
                                 </ul>
                             </div>

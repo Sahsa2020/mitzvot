@@ -24,10 +24,12 @@ class ScoreController extends BaseController
     */
     public function getScore(Request $request){
         $data = $request->only(['sort_item','sort_rule', 'search', 'start', 'length', 'filter']);
+
         $validator = Validator::make($data, [
           'start'       => 'required|numeric',
           'length'      => 'required|numeric'
         ]);
+
         if ($validator->fails()) {
           $res["success"] = false;
           $res["message"] = "The data is not correct.";

@@ -21,6 +21,7 @@ $api->version('v1', function ($api) {
         $api->get('/getScore', 'ScoreController@getScore');
         $api->get('/sendWeeklyEmail', 'JobController@sendMailToMembersWeekly');
         $api->get('/getDiscountPercent', 'SellController@getDiscountPercent');
+
         $api->group(['middleware' => ['auth'], 'prefix' => 'profile'], function($api) {
             $api->get('/', 		'ProfileController@Find');
             $api->get('/getUserAmount', 'ProfileController@getUserAmountInBox');
@@ -31,7 +32,9 @@ $api->version('v1', function ($api) {
             $api->post('/updatePassword',		'ProfileController@updatePassword');
             $api->get('/donateMoney',		'ProfileController@donateForBoxAmount');
             $api->post('/updateProfileImage', 'ProfileController@updateProfileImage');
+            $api->get('/friends',        'FriendController@getFriends');
         });
+
         $api->get('/donateMoneyDone',		'ProfileController@payDone');
         $api->get('/donateMoneyCancel',		'ProfileController@payCancel');
         $api->group(['middleware' => ['auth'], 'prefix' => 'boxes'], function($api) {
@@ -123,6 +126,10 @@ $api->version('v1', function ($api) {
             $api->delete('/{id}', [
                 'uses' => 'PostController@deleteExisting',
                 'as' => 'api.v1.posts.deleteExisting.delete'
+            ]);
+            $api->get('show/{show_id}', [
+                'uses' => 'PostController@getPostsBy',
+                'as' => 'api.v1.posts.getPostsBy.get'
             ]);
             /*
              * Route groups for comments

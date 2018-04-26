@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LanguageService } from '../../language.service';
+import { StateService } from '../../state.service';
+import { GeneralService } from '../../general.service';
+import { AuthenticateService, USER_SIGNED_INFO, USER_TYPE } from '../../authenticate.service';
+import { environment } from '../../../environments';
 
 @Component({
   selector: 'app-personal-account',
@@ -7,7 +13,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalAccountComponent implements OnInit {
 
-  constructor() { }
+  public SERVER_URL: string = environment.serverUrl;
+  constructor(public lang: LanguageService, public general: GeneralService, public router: Router, public appState: StateService, public authenticate: AuthenticateService) {
+    this.authenticate.validateToken();
+  }
 
   ngOnInit() {
   }

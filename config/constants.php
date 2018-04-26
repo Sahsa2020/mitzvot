@@ -45,4 +45,10 @@ return [
   'BOX_SHIP_DONE' => 2,
 
   'WEEKLY_MAIL_IGNORE' => 1,
+
+  'POST_SEE_ALL_PEOPLE' => 1,
+  'POST_SEE_MY_FRIENDS' => 2,
+  'POST_SEE_ONLY_ME' => 3,
+  
+  'SHARE_IN_SOCIAL' => 1,
 ];
