@@ -23,6 +23,15 @@ class FriendController extends BaseController
     {
       $search = $request->input('search');
 
+      // $dCountTable = DB::raw("(
+      //     SELECT users.id as user_id, sum(cbox_boxes.d_count) as d_count, roles.name as role FROM users
+      //     join role_user on (role_user.user_id = users.id)
+      //     join roles on (roles.id = role_user.role_id)
+      //     LEFT JOIN cbox_boxes ON (cbox_boxes.user_id = users.id and cbox_boxes.del_flg <> " . config('constants.ITEM_IS_DELETE') .")
+      //     GROUP BY users.id
+      //     ) as user_d_counts
+      // ");
+
       $allFriends = Friend::
                           where('friends.user_id', '=', Auth::user()->id)
                           ->join('users', function($join) {
@@ -32,6 +41,7 @@ class FriendController extends BaseController
                           ->leftjoin('cbox_boxes', function($join) {
                               $join->on('friends.friend_id', '=', 'cbox_boxes.user_id');
                           })
+                          // ->leftjoin($dCountTable, 'users.id', '=', 'user_d_counts.user_id')
                           // ->select(DB::raw('sum(cbox_boxes.d_count) as deposit_count'))
                           // ->where('cbox_boxes.user_id', 'friends.friend_id')
                           // ->orderByDesc('friends.created_at')
