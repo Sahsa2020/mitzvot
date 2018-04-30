@@ -370,28 +370,28 @@
         <div class="yourmitzvot">
             <h2>Your Mitzvot</h2>
             <div class="progress-bar-block">
-                <span>Today <span class="progress-count">{{ authenticate.currentUser.daily_count }}/{{ authenticate.currentUser.goal_daily }}</span></span>
+                <span>Today <span class="progress-count">{{ authenticate.currentUser?.daily_count }}/{{ authenticate.currentUser?.goal_daily }}</span></span>
                 <div class="progress">
-                  <div class="progress-bar today-bar" role="progressbar" [ngStyle]="{width: authenticate.currentUser.daily_count/authenticate.currentUser.goal_daily + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar today-bar" role="progressbar" [ngStyle]="{width: authenticate.currentUser?.daily_count/authenticate.currentUser?.goal_daily + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
             <div class="progress-bar-block">
-                <span>This Week <span class="progress-count">{{ authenticate.currentUser.weekly_count }}/{{ authenticate.currentUser.goal_weekly }}</span></span>
+                <span>This Week <span class="progress-count">{{ authenticate.currentUser?.weekly_count }}/{{ authenticate.currentUser?.goal_weekly }}</span></span>
                 <div class="progress">
-                  <div class="progress-bar thisweek-bar" role="progressbar" [ngStyle]="{width: authenticate.currentUser.weekly_count/authenticate.currentUser.goal_weekly + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar thisweek-bar" role="progressbar" [ngStyle]="{width: authenticate.currentUser?.weekly_count/authenticate.currentUser?.goal_weekly + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
             <div class="progress-bar-block">
-                <span>This Month <span class="progress-count">{{authenticate.currentUser.monthly_count}}/{{authenticate.currentUser.monthly_count}}</span></span>
+                <span>This Month <span class="progress-count">{{authenticate.currentUser?.monthly_count}}/{{authenticate.currentUser?.monthly_count}}</span></span>
                 <div class="progress">
-                  <div class="progress-bar thismonth-bar" role="progressbar" [ngStyle]="{width: authenticate.currentUser.monthly_count/authenticate.currentUser.goal_monthly + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar thismonth-bar" role="progressbar" [ngStyle]="{width: authenticate.currentUser?.monthly_count/authenticate.currentUser?.goal_monthly + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
         </div>
         <div class="yourmitzvot">
             <h2>Your C - Box</h2>
             <div class="total">
-                <span>Total<span class="dotted-border"></span><span class="cbox-count">${{authenticate.currentUser.deposit_money}}</span></span>
+                <span>Total<span class="dotted-border"></span><span class="cbox-count">${{authenticate.currentUser?.deposit_money}}</span></span>
             </div>
         </div>
         <a href="#" class="community-btn">send now</a>

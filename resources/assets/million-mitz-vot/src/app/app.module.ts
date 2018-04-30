@@ -33,6 +33,7 @@ import { MyOrgMemberComponent } from './one-page/personal-account/my-org-member/
 import { MainComponent } from './one-page/personal-account/main/main.component';
 
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -81,7 +82,7 @@ import { MainComponent } from './one-page/personal-account/main/main.component';
     GuestMemberComponent,
     PictureComponent,
     MyOrgMemberComponent,
-    MainComponent
+    MainComponent,    
   ],
   providers: [
     AuthenticateService,

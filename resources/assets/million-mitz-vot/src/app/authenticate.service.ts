@@ -56,9 +56,10 @@ export class AuthenticateService {
       this.isValidating = true;
       this.get('/api/v1/profile').subscribe(
         (res: any) => {
-            console.log(res);
+            // console.log(res);
             if(res.success){
-                this.currentUser = res.data;
+                this.currentUser = res.data;    
+                console.log(this.currentUser);            
             }
             this.isValidating = false;
         },
@@ -71,6 +72,8 @@ export class AuthenticateService {
         }
       );
     }
+
+    
 
     reset(email: string):Observable<boolean> {
       return this.post('/api/v1/sendPasswordToken', JSON.stringify({email: email})).map((response: any) => {
@@ -147,4 +150,6 @@ export class AuthenticateService {
         };
         return httpOptions;
     }
+
+
 }
