@@ -19,5 +19,8 @@
     "html-webpack-plugin": "^2.29.0",
     "webpack-dev-server": "~2.9.3",
     "webpack": "~3.8.1"
+  },
+  "dependencies": {
+    "yarn": "^1.6.0"
   }
 }
