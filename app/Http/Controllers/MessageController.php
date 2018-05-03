@@ -124,7 +124,21 @@ class MessageController extends Controller
         }
         //dd($users);
 
-        return view('messages.home', compact('users'));
+        // $conversations = Talk::getMessagesByUserId($id);
+        $conversations = Talk::getMessagesByUserId($users[0]->id);
+
+        $user = '';
+        $messages = [];
+        if(!$conversations) {
+            $user = User::find($id);
+        } else {
+            $user = $conversations->withUser;
+            $messages = $conversations->messages;
+        }
+
+        // return view('messages.conversations', compact('messages', 'user', 'id'));
+
+        return view('messages.home', compact('users', 'messages'));
     }
 
     public function ajaxSendMessage(Request $request)

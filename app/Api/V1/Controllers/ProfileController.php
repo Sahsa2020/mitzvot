@@ -27,7 +27,7 @@ class ProfileController extends BaseController
     */
     public function Find(Request $request){
         $dataArray = Auth::user()->toArray();
-
+        
         unset($dataArray['activation_token']);
         unset($dataArray['password_token']);
         unset($dataArray['del_flg']);
