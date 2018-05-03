@@ -116,6 +116,14 @@ $api->version('v1', function ($api) {
                 'uses' => 'PostController@getAll',
                 'as' => 'api.v1.posts.getAll.get'
             ]);
+            $api->get('/getFriendsPosts', [
+                'uses' => 'PostController@getFriendsPosts',
+                'as' => 'api.v1.posts.getFriendsPosts.get'
+            ]);
+            $api->get('/getMyPosts', [
+                'uses' => 'PostController@getMyPosts',
+                'as' => 'api.v1.posts.getMyPosts.get'
+            ]);
             $api->post('/', [
                 'uses' => 'PostController@postNew',
                 'as' => 'api.v1.posts.postNew.post'

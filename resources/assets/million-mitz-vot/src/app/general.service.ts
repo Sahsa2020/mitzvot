@@ -183,6 +183,50 @@ export class GeneralService {
         }
     });
   }
+  
+  createNewPost(content:String) {
+    return this.authService.post('/api/v1/posts', {content: content})
+    .map((res: any) => {
+        if (res.status == true) {
+            return res.data;
+        } else {
+          return null;
+        }
+    });
+  }
+
+  createNewComment(comment: String, postId: any) {
+    return this.authService.post('/api/v1/posts/' + postId + "/comments", {comment: comment})
+    .map((res: any) => {
+        if (res.status == true) {
+            return res.comment;
+        } else {
+          return null;
+        }
+    });
+  }
+
+  likePost(postId: any) {
+    return this.authService.post('/api/v1/posts/' + postId + "/likes", {})
+    .map((res: any) => {
+        if (res.status == true) {
+            return res;
+        } else {
+          return null;
+        }
+    });
+  }
+
+  getAllPosts(subUrl) {
+    return this.authService.get('/api/v1/posts' + subUrl)
+    .map((res: any) => {
+        if (res.status == true) {
+            return res.posts;
+        } else {
+          return [];
+        }
+    });
+  }
 
   updatePersonalDetails(params) {
     return this.authService.postFormData('/api/v1/profile/updatePersonalDetails?', "name=" + params.name + 
@@ -259,6 +303,5 @@ export class GeneralService {
           return [];
     });
   }
-
 
 }

@@ -42,10 +42,10 @@ function prettifyDate(\DateTime $date) {
  */
 function hashEncode($key) {
     /** @noinspection SpellCheckingInspection */
-    $hashId = new Hashids(env('APP_KEY', "millionMitzVot"), 8,
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
+    // $hashId = new Hashids(env('APP_KEY', "millionMitzVot"), 8,
+    //     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
 
-    return $hashId->encode($key);
+    return $key;
 }
 
 /**
@@ -56,12 +56,13 @@ function hashEncode($key) {
  */
 function hashDecode($hash) {
     /** @noinspection SpellCheckingInspection */
-    $hashId = new Hashids(env('APP_KEY', "millionMitzVot"), 8,
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
+    // $hashId = new Hashids(env('APP_KEY', "millionMitzVot"), 8,
+    //     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
 
-    $decodedIds = $hashId->decode($hash);
+    // $decodedIds = $hashId->decode($hash);
 
-    return array_key_exists(0, $decodedIds) ? $decodedIds[0] : $decodedIds;
+    // return array_key_exists(0, $decodedIds) ? $decodedIds[0] : $decodedIds;
+    return $hash;
 }
 /**
  * Get xor text

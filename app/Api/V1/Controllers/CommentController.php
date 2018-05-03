@@ -100,7 +100,6 @@ class CommentController extends BaseController
              * First check that post is exist or not
              */
             $post = Post::findOrFail(hashDecode($postId));
-
             /*
              * Make a new comment on that post
              */
