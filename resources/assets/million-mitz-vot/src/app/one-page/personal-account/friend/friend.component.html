@@ -1,0 +1,94 @@
+
+<div class="col-md-9">
+  <div class="main-body">
+      <div class="post-box top-band">
+          <div class="col-md-4">
+              You have <span>{{ friends.length }} friends</span>
+          </div>
+          <div class="col-md-8">
+              <div class="top-right">
+                  <div class="col-md-5">
+                      <!-- <div class="row">
+                          <select class="form-control">
+                              <option value="">Sort By</option>
+                              <option>Price: Low to High</option>
+                          </select>
+                      </div> -->
+                  </div>
+                  <div class="col-md-7">
+                      <div class="searchbox">
+                          <input type="text" class="form-control" placeholder="Search Member" [(ngModel)]="searchString"  (keyup.enter)="search();">
+                          <span class="search-btn">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- row-eq-height -->
+      <div class="members">
+          <div class="row" >
+              <div class="col-md-3" *ngFor = "let friend of friends" [class.selected] = "current_item == i">
+                  <div class="post-box each-box">
+                      <div class="top-head">
+                          <span>#{{ friend.device_id }}</span>
+                          <div class="user-img">
+                              <img src="{{SERVER_URL}}/{{friend.image_url}}" class="img-responsive" alt="Image">
+                          </div>
+                      </div>
+                      <div class="top-body" style="padding-top: 20px;">
+                          <h3 >{{ friend.name }}</h3>
+                          <p>{{ friend.city }}</p>
+                          <ul>
+                              <li>
+                                  <strong>+16</strong>
+                                  <p>Daily</p>
+                              </li>
+                              <li>
+                                  <strong>+76</strong>
+                                  <p>Weekly</p>
+                              </li>
+                              <li>
+                                  <strong>+894</strong>
+                                  <p>Monthly</p>
+                              </li>
+                          </ul>
+                          <!-- <ul class="notif">
+                              <li><a href="#"><img src="/assets/img/user-icon.png" class="img-responsive" alt="Image"></a></li>
+                              <li><a href="#"><img src="/assets/img/bell-white.png" class="img-responsive" alt="Image"></a></li>
+                          </ul> -->
+                      </div>
+                  </div>
+              </div>         
+          </div>
+
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="pagination-block text-center">
+                    <div class="paging_bootstrap_number" style="text-align:right;">
+                    <pagination class=""
+                                [(ngModel)]="curPage"
+                                [totalItems]="totalCount"
+                                [itemsPerPage]="itemsPerPage"
+                                [maxSize]="100"
+                                previousText="&lsaquo;"
+                                nextText="&rsaquo;"
+                                (pageChanged)="refreshTable($event)">
+                    </pagination>
+                    </div>
+                      <!-- <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item"><a class="page-link" href="#">&lt; Prev</a></li>
+                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#">Next ></a></li>
+                        </ul>
+                      </nav> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

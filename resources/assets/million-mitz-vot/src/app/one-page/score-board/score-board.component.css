@@ -190,7 +190,7 @@ button.btn.search-filter{
   background: #FFE599;
 } */
 tr.table-row.selected td{
-  background: #D7E1F5;
+  /* background: #D7E1F5; */
 }
 /* .table-hover>tbody>tr:hover, .table-hover>tbody>tr:hover>td {
     background: #FFF5B9!important;
@@ -378,18 +378,19 @@ span.org-name {
   background: #fff;
 }
 .table-head{
-  background: #f4f4f4;
-  padding: 20px;
+  /* background: #f4f4f4; */
+  padding: 5px;
   display: inline-block;
   width: 100%;
 }
 .table-head h3{
   color: #467FFD;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   margin: 0;
   display: inline-block;
   padding-top: 10px;
+  padding-left: 15px;
 }
 .top-right{
   float: right;
@@ -608,6 +609,7 @@ footer .community-btn{
       margin: 0 0 10px;
       width: 100%;
       text-align: center;
+      padding-left: 10px;
   }
   .top-right {
       width: 100%;
@@ -632,3 +634,13 @@ footer .community-btn{
 .table-text {
   color: #E09200;
 }
+
+@media (min-width: 992px) {
+  .noleftpadding {
+      width: 20%;
+  }
+  .col-md-6 {
+    width: 55%;
+  }
+}
+

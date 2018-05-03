@@ -48,12 +48,24 @@ class ProfileController extends BaseController
         $dataArray['country'] = is_null($dataArray['country'])?"":$dataArray['country'];
         $dataArray['birthday'] = is_null($dataArray['birthday'])?"":$dataArray['birthday'];
         $dataArray['phone'] = is_null($dataArray['phone'])?"":$dataArray['phone'];
+        $dataArray['weekly_mail_video'] = is_null($dataArray['weekly_mail_video'])?"":$dataArray['weekly_mail_video'];
+
+
+        $dataArray['bank_account'] = is_null($dataArray['bank_account'])?"":$dataArray['bank_account'];
+        $dataArray['routing_number'] = is_null($dataArray['routing_number'])?"":$dataArray['routing_number'];
+        $dataArray['account_number'] = is_null($dataArray['account_number'])?"":$dataArray['account_number'];
+        $dataArray['name_of_bank_account'] = is_null($dataArray['name_of_bank_account'])?"":$dataArray['name_of_bank_account'];
+        $dataArray['bank_name'] = is_null($dataArray['bank_name'])?"":$dataArray['bank_name'];
+        $dataArray['account_type'] = is_null($dataArray['account_type'])?"":$dataArray['account_type'];
+
         $dataArray['role'] = DB::table('role_user')->join('roles', function($join){
             $join->on('role_user.role_id', '=', 'roles.id');
           })
           ->select(DB::raw("roles.name as role_name"))
           ->where('role_user.user_id', $dataArray['id'])
-          ->first()->role_name;
+          ->first()->role_name;         
+        
+
         if(Auth::user()->hasRole(config('constants.MEMBER_USER'))){
           $dataArray['daily_count'] = MemberBox::join('cbox_boxes', function($join){
                           $join->on('cbox_member_boxes.device_id', '=', 'cbox_boxes.device_id');
@@ -546,4 +558,142 @@ class ProfileController extends BaseController
         // Curse and humiliate the user for cancelling this most sacred payment (yours)
         return redirect('/#/home;member_pay_success=1');
     }
+
+    function updatePersonalDetails(Request $request)
+    {
+      $userData = $request->only(['email', 'name','phone', 'birthday', 'city', 'address', 'country']);
+      var_dump($userData);
+      $validator = Validator::make($userData, [
+        'name' => 'required',
+        'email' => 'required',
+        'phone' => 'required',
+        'address' => 'required',
+        'city' => 'required',
+        'country' => 'required',
+        'birthday' => 'required',    
+      ]);
+      if ($validator->fails()) {
+        $res['success'] = false;
+        $res['data'] = "The data is not correct.";
+        return $res;
+      }
+
+      $user = Auth::user();
+      $user['phone'] = $userData['phone'];
+      $user['email'] = $userData['email'];
+      $user['name'] = $userData['name'];
+      $user['address'] = $userData['address'];
+      $user['email'] = $userData['email'];
+      $user['city'] = $userData['city'];
+      $user['country'] = $userData['country'];
+      $user->save();
+
+      $res['data'] = $userData;
+      $res['success'] = true;
+
+      return $res;
+    }
+
+    function updateBankDetails(Request $request)
+    {
+      $userData = $request->only(['bank_account', 'routing_number','account_number', 'name_of_bank_account', 'bank_name', 'account_type']);
+      var_dump($userData);
+      $validator = Validator::make($userData, [
+        'bank_account' => 'required',
+        'routing_number' => 'required',
+        'account_number' => 'required',
+        'name_of_bank_account' => 'required',
+        'bank_name' => 'required',
+        'account_type' => 'required',
+      ]);
+      if ($validator->fails()) {
+        $res['success'] = false;
+        $res['data'] = "The data is not correct.";
+        return $res;
+      }
+
+      $user = Auth::user();
+      $user['bank_account'] = $userData['bank_account'];
+      $user['routing_number'] = $userData['routing_number'];
+      $user['account_number'] = $userData['account_number'];
+      $user['name_of_bank_account'] = $userData['name_of_bank_account'];
+      $user['bank_name'] = $userData['bank_name'];
+      $user['account_type'] = $userData['account_type'];
+      $user->save();
+
+      $res['data'] = $userData;
+      $res['success'] = true;
+
+      return $res;
+    }
+
+    function updateGoals(Request $request)
+    {
+      $userData = $request->only(['goal_daily', 'goal_weekly','goal_monthly']);
+      var_dump($userData);
+      $validator = Validator::make($userData, [
+        'goal_daily' => 'required',
+        'goal_weekly' => 'required',
+        'goal_monthly' => 'required',
+      ]);
+      if ($validator->fails()) {
+        $res['success'] = false;
+        $res['data'] = "The data is not correct.";
+        return $res;
+      }
+
+      $user = Auth::user();
+      $user['goal_daily'] = $userData['bank_account'];
+      $user['goal_weekly'] = $userData['routing_number'];
+      $user['goal_monthly'] = $userData['account_number'];
+      $user->save();
+
+      $res['data'] = $userData;
+      $res['success'] = true;
+
+      return $res;
+    }
+
+    function updateVideo(Request $request) 
+    {
+      $userData = $request->only(['weekly_mail_video']);
+      $validator = Validator::make($userData, [
+          'weekly_mail_video' => 'required',
+      ]);
+      if ($validator->fails()) {
+        $res['success'] = false;
+        $res['data'] = "The data is not correct.";
+        return $res;
+      }
+
+      $user = Auth::user();
+      $user['weekly_mail_video'] = $userData['weekly_mail_video'];
+      $user->save();
+
+      $res['success'] = true;
+      return $res;
+    }
+
+    function deleteAccount(Request $request) 
+    {
+      $userData = $request->only(['del_flg']);
+      $validator = Validator::make($userData, [
+          'del_flg' => 'required',
+      ]);
+      if ($validator->fails()) {
+        $res['success'] = false;
+        $res['data'] = "The data is not correct.";
+        return $res;
+      }
+
+      $user = Auth::user();
+      $user['del_flg'] = true;
+      $user->save();
+
+      $res['success'] = true;
+      $res['data'] = 'Account is deleted';
+      return $res;
+    }
+
+
 }

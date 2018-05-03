@@ -47,10 +47,15 @@ class FriendController extends BaseController
                           // ->orderByDesc('friends.created_at')
                           ->select('image_url', 'name', 'city', 'device_id')
                           ->get();
+
+
+      // if ($allFriends['image_url'] == "") {
+      //   $allFriends['image_url'] ="/assets/global/img/default_avatar.jpg";
+      // }
+
+      // $allFriends['image_url'] = is_null($allFriends['image_url'])?"":$allFriends['image_url'];
       // $friends = $allFriends;
       // $friends['temp'] = 'temp';
-
-      
       // $daily_count = Friend::where('friends.user_id', '=', Auth::user()->id)
       //                     ->join('users', function($join) {
       //                         $join->on('friends.friend_id', '=', 'users.id');
@@ -58,7 +63,6 @@ class FriendController extends BaseController
       //                     ->select(DB::raw('sum(cbox_boxes.d_count) as deposit_count'))
       //                     ->where('cbox_boxes.user_id', 'friends.friend_id')
       //                     ->first()->deposit_count;
-      
       
       $res['success'] = true;
       $res['data'] = $allFriends;

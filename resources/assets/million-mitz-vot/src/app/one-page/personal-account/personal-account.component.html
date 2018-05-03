@@ -18,23 +18,30 @@
                                         My account
                                     </a>
                                 </li>
+                                <li>
+                                    <a [routerLink]="['/profile/edit-profile']">
+                                        <img src="/assets/personal-account/img/menu-icon7-dark.png" class="img-responsive" alt="menu-icon"> 
+                                        <img src="/assets/personal-account/img/menu-icon7.png" class="img-responsive onhovershow" alt="menu-icon">
+                                        Edit Profile
+                                    </a>
+                                </li>
                                 <!-- <li>
                                     <a href="#"><img src="images/menu-icon2.png" class="img-responsive" alt="menu-icon"> Good Deeds</a>
                                 </li> -->
+                                <li>
+                                    <a [routerLink]="['/profile/friends']">
+                                        <img src="/assets/personal-account/img/menu-icon4-dark.png" class="img-responsive" alt="menu-icon">
+                                        <img src="/assets/personal-account/img/menu-icon4.png" class="img-responsive onhovershow" alt="menu-icon">
+                                        My friends
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="#">
                                         <img src="/assets/personal-account/img/menu-icon3-dark.png" class="img-responsive" alt="menu-icon"> 
                                         <img src="/assets/personal-account/img/menu-icon3.png" class="img-responsive onhovershow" alt="menu-icon">
                                         Gallery
                                     </a>
-                                </li>
-                                <li>
-                                    <a [routerLink]="['/profile/friends']">
-                                        <img src="/assets/personal-account/img/menu-icon4-dark.png" class="img-responsive" alt="menu-icon"> 
-                                        <img src="/assets/personal-account/img/menu-icon4.png" class="img-responsive onhovershow" alt="menu-icon">
-                                        My friends
-                                    </a>
-                                </li>
+                                </li>                                
                                 <li>
                                     <a href="{{SERVER_URL}}/messages">
                                         <img src="/assets/personal-account/img/menu-icon9-dark.png" class="img-responsive" alt="menu-icon"> 
@@ -49,14 +56,7 @@
                                     <a href="#"><img src="images/menu-icon6.png" class="img-responsive" alt="menu-icon"> My boxies</a>
                                 </li> -->
                             </ul>
-                            <ul>
-                                <li>
-                                    <a [routerLink]="['/profile/edit-profile']">
-                                        <img src="/assets/personal-account/img/menu-icon7-dark.png" class="img-responsive" alt="menu-icon"> 
-                                        <img src="/assets/personal-account/img/menu-icon7.png" class="img-responsive onhovershow" alt="menu-icon">
-                                        Edit Profile
-                                    </a>
-                                </li>
+                            <ul>                                
                                 <li>
                                     <a [routerLink]="['/profile_org/boxes']">
                                         <!-- <img src="/assets/personal-account/img/menu-icon9-dark.png" class="img-responsive" alt="menu-icon">  -->
@@ -78,13 +78,13 @@
                                         Payment History
                                     </a>
                                 </li>
-                                <li>
-                                    <a [routerLink]="['/profile_org/changePassword']">
+                                <!-- <li> -->
+                                    <!-- <a [routerLink]="['/profile_org/changePassword']"> -->
                                         <!-- <img src="/assets/personal-account/img/menu-icon9-dark.png" class="img-responsive" alt="menu-icon"> 
                                         <img src="/assets/personal-account/img/menu-icon9.png" class="img-responsive onhovershow" alt="menu-icon">  -->
-                                        Change Password
-                                    </a>
-                                </li>
+                                        <!-- Change Password -->
+                                    <!-- </a> -->
+                                <!-- </li> -->
                                 <li>
                                     <a href="{{SERVER_URL}}/logout">
                                         <img src="/assets/personal-account/img/menu-icon8-dark.png" class="img-responsive" alt="menu-icon">

@@ -33,6 +33,11 @@ $api->version('v1', function ($api) {
             $api->get('/donateMoney',		'ProfileController@donateForBoxAmount');
             $api->post('/updateProfileImage', 'ProfileController@updateProfileImage');
             $api->get('/friends',        'FriendController@getFriends');
+            $api->post('/updatePersonalDetails',      'ProfileController@updatePersonalDetails');
+            $api->post('/updateBankDetails',           'ProfileController@updateBankDetails');
+            $api->post('/updateGoals',           'ProfileController@updateGoals');
+            $api->post('/deleteAccount',           'ProfileController@deleteAccount');
+            $api->post('/updateVideo',           'ProfileController@updateVideo');
         });
 
         $api->get('/donateMoneyDone',		'ProfileController@payDone');

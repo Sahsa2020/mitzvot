@@ -7,6 +7,15 @@ import { Leader } from './model/leader.type';
 import { Router } from '@angular/router';
 import { AuthenticateService } from './authenticate.service';
 import 'rxjs/add/operator/map'
+
+export const MENU_TITLE = {
+  HOSPITAL: "Hospital",
+  SCHOOL: "School",
+  FOOD_BANK: "Food Bank",
+  TORAH_LEARNING: "Torah Learning",
+  FAMILY_SERVICES: "Family Services",
+};
+
 @Injectable()
 export class GeneralService {
   public serverUrl: string = environment.serverUrl;
@@ -218,4 +227,81 @@ export class GeneralService {
         }
     });
   }
+
+  updatePersonalDetails(params) {
+    return this.authService.postFormData('/api/v1/profile/updatePersonalDetails?', "name=" + params.name + 
+    "&email=" + params.email + "&phone=" + params.phone + "&address=" + params.address + "&city=" + params.city + "&birthday=" + params.birthday + "&country=" + params.country )
+      .map((result: any) =>{
+        if(result.success)
+          // console.log(result.data);
+          return result.data;
+      }, error =>{
+          // console.log(error);
+          return [];
+    });
+  }
+
+  updateBankDetails(params) {
+    return this.authService.postFormData('/api/v1/profile/updateBankDetails?', "bank_account=" + params.bank_account + 
+    "&routing_number=" + params.routing_number + "&account_number=" + params.account_number + "&name_of_bank_account=" + params.name_of_bank_account + "&bank_name=" + params.bank_name + "&account_type=" + params.account_type)
+      .map((result: any) =>{
+        if(result.success)
+          // console.log(result.data);
+          return result.data;
+      }, error =>{
+          // console.log(error);
+          return [];
+    });
+  }
+
+  updateGoals(params) {
+    return this.authService.postFormData('/api/v1/profile/updateGoals?', "goal_daily=" + params.goal_daily + 
+    "&goal_weekly=" + params.goal_weekly + "&goal_monthly=" + params.goal_monthly)
+      .map((result: any) =>{
+        if(result.success)
+          // console.log(result.data);
+          return result.data;
+      }, error =>{
+          // console.log(error);
+          return [];
+    });
+  }
+
+  updatePassword(params) {
+    return this.authService.postFormData('/api/v1/profile/updatePassword?', "cur_password=" + params.cur_password + 
+    "&new_password=" + params.new_password + "&confirm_password=" + params.confirm_password)
+      .map((result: any) =>{
+        if(result.success)
+          // console.log(result.data);
+          return result.data;
+      }, error =>{
+          // console.log(error);
+          return [];
+    });
+  }
+
+  updateVideo(params) {
+    return this.authService.postFormData('/api/v1/profile/updateVideo?', "weekly_mail_video=" + params.weekly_mail_video)
+      .map((result: any) =>{
+        if(result.success)
+          // console.log(result.data);
+          return result.data;
+      }, error =>{
+          // console.log(error);
+          return [];
+    });
+  }
+
+  deleteAccount() {
+    return this.authService.postFormData('/api/v1/profile/deleteAccount?', "del_flg=" + true)
+      .map((result: any) =>{
+        if(result.success)
+          // console.log(result.data);
+          return result.data;
+      }, error =>{
+          // console.log(error);
+          return [];
+    });
+  }
+
 }

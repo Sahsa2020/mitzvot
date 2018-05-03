@@ -6,7 +6,6 @@
   "scripts": {
     "build": "webpack --config="
   },
-
   "devDependencies": {
     "axios": "^0.15.3",
     "bootstrap-sass": "^3.3.7",
@@ -20,5 +19,8 @@
     "html-webpack-plugin": "^2.29.0",
     "webpack-dev-server": "~2.9.3",
     "webpack": "~3.8.1"
+  },
+  "dependencies": {
+    "yarn": "^1.6.0"
   }
 }
