@@ -750,3 +750,13 @@ footer .community-btn{
 section {
     margin-top: 40px;
 }
+
+.post-avatar{
+    padding-top: 0px;
+    padding-bottom: 10px;
+}
+
+.image-avatar-wrapper{
+    width: 75px;
+    padding-left: 10px;
+}

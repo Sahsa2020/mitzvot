@@ -3,73 +3,12 @@
         <div class="main-body">
             <div class="postbox search-post">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Write something...">
-                    <div class="upload">
-                        <input type="file" title="Upload file">
-                        <img src="/assets/img/attachment-icon.png" class="img-responsive" alt="Attachment Icon">
-                    </div>
+                    <textarea class="form-control main-editor" placeholder="Write something..." autofocus></textarea>
                 </div>
                 <!-- post -->
                 <div class="form-group">
-                    <div class="col-sm-3">
-                        <a href="#" class="twitter-btn"><i class="fa fa-twitter" aria-hidden="true"></i></a> 
-                        <div class="sharethis" hidden>
-                            <div class="drop-head">
-                                <span>share this in social?</span>
-                                <a href="#" class="close-btn">X</a>
-                            </div>
-                            <div class="drop-body">
-                                <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox" checked="checked">
-                                      <span class="cr"><i class="cr-icon fa fa-check" aria-hidden="true"></i></span> Yes I do
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox">
-                                      <span class="cr"><i class="cr-icon fa fa-check" aria-hidden="true"></i></span> No, thanks
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="drop-foot">
-                                <span>You can add your socials <a href="#">here</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-9 text-right">
-                        <div class="available-box" >
-                            <a href="#" class="available-btn">
-                                <img src="/assets/img/globe.png" class="img-responsive" alt="Globe Icon">Available to all
-                            </a>
-                            <div class="sharethis" hidden>
-                                <div class="drop-head">
-                                    <span>who will see this?</span>
-                                    <a href="#" class="close-btn">X</a>
-                                </div>
-                                <div class="drop-body">
-                                    <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checked="checked">
-                                          <span class="cr"><i class="cr-icon fa fa-check" aria-hidden="true"></i></span> All People
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox">
-                                          <span class="cr"><i class="cr-icon fa fa-check" aria-hidden="true"></i></span> My Friends
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox">
-                                          <span class="cr"><i class="cr-icon fa fa-check" aria-hidden="true"></i></span> Only Me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <input type="submit" value="Post a mitzvah" class="community-btn">
+                    <div class="col-sm-12 text-right">
+                        <input type="submit" value="Post a mitzvah" class="community-btn" (click)="createPost()">
                     </div>
                 </div>
             </div>
@@ -77,53 +16,38 @@
             <div class="post-box">
                 <div class="top-tab col-sm-7">
                     <ul class="row">
-                        <li>All People</li>
-                        <li>My Friends</li>
-                        <li class="active">My Feed</li>
+                        <li (click)="setTab('ALL')" [class.active]="activeTab =='ALL'">All People</li>
+                        <li (click)="setTab('FRIENDS')" [class.active]="activeTab =='FRIENDS'">My Friends</li>
+                        <li  (click)="setTab('MINE')" [class.active]="activeTab =='MINE'">My Feed</li>
                     </ul>
                 </div>
-                <form class="col-sm-5 text-right" id="search">
+                <!-- <form class="col-sm-5 text-right" id="search">
                     <div class="row">
                         <input type="search" placeholder="Search" title="Search">
                     </div>
-                </form>
+                </form> -->
             </div>
-            <div class="post-box">
+            <div class="post-box" *ngFor="let post of posts">
                 <div class="row">
-                    <div class="col-sm-2">
-                        <div class="user-img">
-                            <img src="/assets/img/user1.png" class="img-responsive" alt="userpic">
+                    <div class="pull-left image-avatar-wrapper">
+                        <div class="user-img post-avatar">
+                            <img [src]="post.posted_by.avatar" class="img-responsive" alt="userpic">
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="row">
                             <div class="user-name">
-                                <a href="#">Rochel Holzkenner</a>
-                                <span class="datetime">Posted 15min ago</span>
+                                <a>{{post.posted_by.name}}</a>
+                                <span class="datetime">{{post.edited_at}}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 text-right">
-                        <div class="org-name">
-                            <i class="fa fa-users" aria-hidden="true"></i>Orgnization Name
-                        </div>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="image-box">
-                            <ul>
-                                <li><img src="/assets/personal-account/img/posts-img1.png" class="img-responsive" alt="image"></li>
-                                <li><img src="/assets/personal-account/img/posts-img2.png" class="img-responsive" alt="image"></li>
-                                <li><img src="/assets/personal-account/img/posts-img3.png" class="img-responsive" alt="image"></li>
-                                <li><img src="/assets/personal-account/img/posts-img4.png" class="img-responsive" alt="image"></li>
-                                <li><img src="/assets/personal-account/img/posts-img5.png" class="img-responsive" alt="image"></li>
-                            </ul>
+                        <div class="simditor">
+                            <div class="simditor-body" [innerHtml]="post.content">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -132,13 +56,13 @@
                         <div class="likes">
                             <ul>
                                 <li class="active">
-                                    <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 39</a>
+                                    <a class="margin-top-15" (click)="likePost(post)"><i class="fa fa-heart" aria-hidden="true"></i> {{post.likes.length}}</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-comment" aria-hidden="true"></i> 0</a>
+                                    <a class="margin-top-15"><i class="fa fa-comment" aria-hidden="true"></i> {{post.comments.length}}</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                                    <a class="margin-top-15"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -146,154 +70,16 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="row commentbox">
-                            <textarea class="form-control" placeholder="Type your comment..."></textarea>
+                        <div class="row commentbox" *ngFor="let comment of post.comments">
+                            <textarea class="form-control" rows="6" disabled style="resize:none;">{{comment.comment}}</textarea>
                             <div class="user-img">
-                                <img src="/assets/img/userpic.png" class="img-responsive" alt="userpic">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="moderation-transparent" hidden>
-                    <div class="content">
-                        <img src="/assets/img/moderation-icon.png" class="img-responsive" alt="moderation icon">
-                        <p>Your poston on moderation and</p>
-                        <span>should be avaliable soon</span>
-                    </div>
-                </div>
-            </div>
-            <div class="clear20"></div>
-            <div class="post-box">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="user-img">
-                            <img src="/assets/img/user1.png" class="img-responsive" alt="userpic">
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="row">
-                            <div class="user-name">
-                                <a href="#">Rochel Holzkenner</a>
-                                <span class="datetime">Posted 15min ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <div class="org-name">
-                            <i class="fa fa-users" aria-hidden="true"></i>Orgnization Name
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="image-box">
-                            <img src="/assets/personal-account/img/posts-img.jpg" class="img-responsive" alt="image">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="likes">
-                            <ul>
-                                <li class="active">
-                                    <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 39</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-comment" aria-hidden="true"></i> 0</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="comment-section row">
-                            <div class="comments">
-                                <div class="user-img">
-                                    <img src="/assets/img/commentor1.png" class="img-responsive" alt="userpic">
-                                </div>
-                                <div class="user-details">
-                                    <span class="user-name">Max Woodstone</span>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                </div>
-                            </div>
-                            <div class="comments">
-                                <div class="user-img">
-                                    <img src="/assets/img/commentor.jpg" class="img-responsive" alt="userpic">
-                                </div>
-                                <div class="user-details">
-                                    <span class="user-name">John Smith</span>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                </div>
+                                <img [src]="comment.commented_by.avatar" class="img-responsive" alt="userpic">
                             </div>
                         </div>
                         <div class="row commentbox">
-                            <textarea class="form-control" placeholder="Type your comment..."></textarea>
+                            <textarea class="form-control" placeholder="Type your comment..." rows="6" (keydown)="commenting($event, post)"></textarea>
                             <div class="user-img">
-                                <img src="/assets/img/userpic.png" class="img-responsive" alt="userpic">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="clear20"></div>
-            <div class="post-box">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="user-img">
-                            <img src="/assets/img/user1.png" class="img-responsive" alt="userpic">
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="row">
-                            <div class="user-name">
-                                <a href="#">Rochel Holzkenner</a>
-                                <span class="datetime">Posted 15min ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <div class="org-name">
-                            <i class="fa fa-users" aria-hidden="true"></i>Orgnization Name
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="download-btns">
-                            <ul>
-                                <li><a href="#"><img src="/assets/personal-account/img/doc-icon.png" class="img-responsive" alt="image"></a></li>
-                                <li><a href="#"><img src="/assets/personal-account/img/pdf-icon.png" class="img-responsive" alt="image"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="likes">
-                            <ul>
-                                <li class="active">
-                                    <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 39</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-comment" aria-hidden="true"></i> 0</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row commentbox">
-                            <textarea class="form-control" placeholder="Type your comment..."></textarea>
-                            <div class="user-img">
-                                <img src="/assets/img/userpic.png" class="img-responsive" alt="userpic">
+                                <img [src]="authenticate.currentUser?.image_url" class="img-responsive" alt="userpic">
                             </div>
                         </div>
                     </div>

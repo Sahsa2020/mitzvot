@@ -36,7 +36,11 @@
         "assets/global/js/cropper.min.js",
         "assets/global/js/jquery.thooClock.js",
         "../node_modules/video.js/dist/video.min.js",
-        "assets/global/js/jquery.vide.min.js"
+        "assets/global/js/jquery.vide.min.js",
+        "assets/global/js/module.min.js",
+        "assets/global/js/hotkeys.min.js",
+        "assets/global/js/uploader.min.js",
+        "assets/global/js/simditor.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

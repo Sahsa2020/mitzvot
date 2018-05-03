@@ -4,6 +4,7 @@ namespace App\Api\V1\Controllers;
 
 use App\Exceptions\HttpBadRequestException;
 use App\Models\Post;
+use App\Models\Friend;
 use App\Models\PostedMedia;
 use Auth;
 use DB;
@@ -26,65 +27,70 @@ class PostController extends BaseController
              * Fetch all posts
              */
             $allPosts = Post::orderByDesc('created_at')->get();
+            $posts = $this->organizePosts($allPosts);
+            $response = [
+                'status' => true,
+                'message' => "All posts are fetched successfully.",
+                'user' => [
+                    'name' => Auth::user()->name,
+                    'avatar' => Auth::user()->image_url ? url('/') . Auth::user()->image_url : null
+                ],
+                'posts' => $posts
+            ];
+            $responseCode = 200;
+        } catch (Exception $exception) {
+            $response = ['status' => false,
+                'error' => "Internal server error",
+                'error_info' => $exception->getMessage()];
+            $responseCode = 500;
+        }
 
+        /** @noinspection PhpUndefinedMethodInspection */
+        return $this->response->array($response)->setStatusCode($responseCode);
+    }
+
+    public function getFriendsPosts(Request $request)
+    {
+        try {
             /*
-             * Organize every post info for response payload
+             * Fetch all posts
              */
-            $posts = [];
-            if (count($allPosts)) {
-                $index = 0;
-                foreach ($allPosts as $post) {
-                    $posts[$index]['id'] = hashEncode($post->id);
-                    $posts[$index]['content'] = $post->content;
-                    /** @noinspection PhpUndefinedMethodInspection */
-                    $posts[$index]['image'] = $post->postedImage() ?
-                        url('/') . $post->postedImage()->media_content_path : null;
-                    /** @noinspection PhpUndefinedMethodInspection */
-                    $posts[$index]['video'] = $post->postedVideo() ?
-                        url('/') . $post->postedVideo()->media_content_path : null;
-                    $posts[$index]['is_hidden'] = $post->is_hidden ? true : false;
-                    $posts[$index]['is_edited'] = $post->is_edited ? true : false;
-                    $posts[$index]['is_approved'] = $post->is_approved ? true : false;
-                    $posts[$index]['posted_by']['id'] = hashEncode($post->postedBy->id);
-                    $posts[$index]['posted_by']['name'] = $post->postedBy->name;
-                    $posts[$index]['posted_by']['avatar'] = strlen(trim($post->postedBy->image_url)) ?
-                        url('/') . $post->postedBy->image_url : null;
-                    $posts[$index]['posted_by']['is_mine'] = $post->postedBy->id == Auth::user()->id ? true : false;
-                    if (count($post->comments)) {
-                        foreach ($post->comments as $key => $comment) {
-                            $posts[$index]['comments'][$key]['id'] = hashEncode($comment->id);
-                            $posts[$index]['comments'][$key]['comment'] = $comment->comment;
-                            $posts[$index]['comments'][$key]['is_edited'] = $comment->is_edited ? true : false;
-                            $posts[$index]['comments'][$key]['commented_by']['id'] =
-                                hashEncode($comment->commentedBy->id);
-                            $posts[$index]['comments'][$key]['commented_by']['name'] = $comment->commentedBy->name;
-                            $posts[$index]['comments'][$key]['commented_by']['avatar'] =
-                                strlen(trim($comment->commentedBy->image_url)) ?
-                                    url('/') . $comment->commentedBy->image_url : null;
-                            $posts[$index]['comments'][$key]['commented_by']['is_mine'] =
-                                $comment->commentedBy->id == Auth::user()->id ? true : false;
-                            $posts[$index]['comments'][$key]['commented_at'] = prettifyDate($comment->created_at);
-                            $posts[$index]['comments'][$key]['edited_at'] = prettifyDate($comment->updated_at);
-                        }
-                    } else $posts[$index]['comments'] = [];
-                    if (count($post->likes)) {
-                        foreach($post->likes as $key => $like) {
-                            $posts[$index]['likes'][$key]['id'] = hashEncode($like->id);
-                            $posts[$index]['likes'][$key]['liked_by']['id'] = hashEncode($like->likedBy->id);
-                            $posts[$index]['likes'][$key]['liked_by']['name'] = $like->likedBy->name;
-                            $posts[$index]['likes'][$key]['liked_by']['avatar'] =
-                                strlen(trim($like->likedBy->image_url)) ? url('/') . $like->likedBy->image_url : null;
-                            $posts[$index]['likes'][$key]['liked_by']['is_mine'] =
-                                $like->likedBy->id == Auth::user()->id ? true : false;
-                            $posts[$index]['likes'][$key]['liked_at'] = $like->liked_at;
-                        }
-                    } else $posts[$index]['likes'] = [];
-                    $posts[$index]['posted_at'] = prettifyDate($post->created_at);
-                    $posts[$index]['edited_at'] = prettifyDate($post->updated_at);
-                    $index++;
-                }
-            }
+            $user = Auth::user();
+            $userID = $user->id;
+            $friendPosts = Post::join('users', function($join) {
+                $join->on('posts.posted_by', '=', 'users.id');
+            })->join('friends', function($join) {
+                $join->on('friends.friend_id', '=', 'users.id');
+            })->where('friends.user_id', '=', $userID)->orderByDesc('posts.created_at')->get();
+            $posts = $this->organizePosts($friendPosts);
+            $response = [
+                'status' => true,
+                'message' => "All posts are fetched successfully.",
+                'user' => [
+                    'name' => Auth::user()->name,
+                    'avatar' => Auth::user()->image_url ? url('/') . Auth::user()->image_url : null
+                ],
+                'posts' => $posts
+            ];
+            $responseCode = 200;
+        } catch (Exception $exception) {
+            $response = ['status' => false,
+                'error' => "Internal server error",
+                'error_info' => $exception->getMessage()];
+            $responseCode = 500;
+        }
 
+        /** @noinspection PhpUndefinedMethodInspection */
+        return $this->response->array($response)->setStatusCode($responseCode);
+    }
+
+    public function getMyPosts(Request $request)
+    {
+        try {
+            $user = Auth::user();
+            $userID = $user->id;
+            $myPosts = Post::where("posts.posted_by", "=", $userID)->orderByDesc('created_at')->get();
+            $posts = $this->organizePosts($myPosts);
             $response = [
                 'status' => true,
                 'message' => "All posts are fetched successfully.",
@@ -533,5 +539,67 @@ class PostController extends BaseController
 
         /** @noinspection PhpUndefinedMethodInspection */
         return $this->response->array($response)->setStatusCode($responseCode);
+    }
+
+    private function organizePosts($allPosts)
+    {
+        /*
+        * Organize every post info for response payload
+        */
+        $posts = [];
+        if (count($allPosts)) {
+            $index = 0;
+            foreach ($allPosts as $post) {
+                $posts[$index]['id'] = hashEncode($post->id);
+                $posts[$index]['content'] = $post->content;
+                /** @noinspection PhpUndefinedMethodInspection */
+                $posts[$index]['image'] = $post->postedImage() ?
+                    url('/') . $post->postedImage()->media_content_path : null;
+                /** @noinspection PhpUndefinedMethodInspection */
+                $posts[$index]['video'] = $post->postedVideo() ?
+                    url('/') . $post->postedVideo()->media_content_path : null;
+                $posts[$index]['is_hidden'] = $post->is_hidden ? true : false;
+                $posts[$index]['is_edited'] = $post->is_edited ? true : false;
+                $posts[$index]['is_approved'] = $post->is_approved ? true : false;
+                $posts[$index]['posted_by']['id'] = hashEncode($post->postedBy->id);
+                $posts[$index]['posted_by']['name'] = $post->postedBy->name;
+                $posts[$index]['posted_by']['avatar'] = strlen(trim($post->postedBy->image_url)) ?
+                    url('/') . $post->postedBy->image_url : null;
+                $posts[$index]['posted_by']['is_mine'] = $post->postedBy->id == Auth::user()->id ? true : false;
+                if (count($post->comments)) {
+                    foreach ($post->comments as $key => $comment) {
+                        $posts[$index]['comments'][$key]['id'] = hashEncode($comment->id);
+                        $posts[$index]['comments'][$key]['comment'] = $comment->comment;
+                        $posts[$index]['comments'][$key]['is_edited'] = $comment->is_edited ? true : false;
+                        $posts[$index]['comments'][$key]['commented_by']['id'] =
+                            hashEncode($comment->commentedBy->id);
+                        $posts[$index]['comments'][$key]['commented_by']['name'] = $comment->commentedBy->name;
+                        $posts[$index]['comments'][$key]['commented_by']['avatar'] =
+                            strlen(trim($comment->commentedBy->image_url)) ?
+                                url('/') . $comment->commentedBy->image_url : null;
+                        $posts[$index]['comments'][$key]['commented_by']['is_mine'] =
+                            $comment->commentedBy->id == Auth::user()->id ? true : false;
+                        $posts[$index]['comments'][$key]['commented_at'] = prettifyDate($comment->created_at);
+                        $posts[$index]['comments'][$key]['edited_at'] = prettifyDate($comment->updated_at);
+                    }
+                } else $posts[$index]['comments'] = [];
+                if (count($post->likes)) {
+                    foreach($post->likes as $key => $like) {
+                        $posts[$index]['likes'][$key]['id'] = hashEncode($like->id);
+                        $posts[$index]['likes'][$key]['liked_by']['id'] = hashEncode($like->likedBy->id);
+                        $posts[$index]['likes'][$key]['liked_by']['name'] = $like->likedBy->name;
+                        $posts[$index]['likes'][$key]['liked_by']['avatar'] =
+                            strlen(trim($like->likedBy->image_url)) ? url('/') . $like->likedBy->image_url : null;
+                        $posts[$index]['likes'][$key]['liked_by']['is_mine'] =
+                            $like->likedBy->id == Auth::user()->id ? true : false;
+                        $posts[$index]['likes'][$key]['liked_at'] = $like->liked_at;
+                    }
+                } else $posts[$index]['likes'] = [];
+                $posts[$index]['posted_at'] = prettifyDate($post->created_at);
+                $posts[$index]['edited_at'] = prettifyDate($post->updated_at);
+                $index++;
+            }
+        }
+        return $posts;
     }
 }

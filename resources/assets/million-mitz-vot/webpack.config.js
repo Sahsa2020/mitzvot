@@ -884,7 +884,11 @@ module.exports = {
         "src/assets/global/js/cropper.min.js",
         "src/assets/global/js/jquery.thooClock.js",
         "node_modules/video.js/dist/video.min.js",
-        "src/assets/global/js/jquery.vide.min.js"
+        "src/assets/global/js/jquery.vide.min.js",
+        "src/assets/global/js/module.min.js",
+        "src/assets/global/js/hotkeys.min.js",
+        "src/assets/global/js/uploader.min.js",
+        "src/assets/global/js/simditor.min.js"
       ]
     }),
     new InsertConcatAssetsWebpackPlugin([
