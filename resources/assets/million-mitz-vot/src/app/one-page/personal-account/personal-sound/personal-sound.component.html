@@ -1,0 +1,133 @@
+<div class="col-md-9">
+  <div class="row">
+      <div class="main-body">
+          <h2><span><i class="fa fa-star" aria-hidden="true"></i></span> My Sound Boxes </h2>
+          <div class="table-box">
+              <div class="table-head" style="background:#eef5f9">
+                  <h3>My Sound Boxes</h3>
+              </div>
+              <div class="table-responsive">
+                  <!-- <table class="table table-striped table-bordered table-advance table-hover"> -->
+                      <table class="table">
+                      <thead>
+                          <tr>
+                              <th style="text-align: center;">#</th>
+                              <th  class="min-width-name">
+                                  Name
+                                  <i class="fa font-gray pull-right"></i>
+                              </th>
+                              <th class="hidden-xs " >
+                                  File
+                                  <i class="fa font-gray pull-right"></i>
+                              </th>
+                              <th class="hidden-xs" >
+                                  Actions
+                                  <i class="fa font-gray pull-right" ></i>
+                              </th>                              
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let item of sounds; let i = index;" class="table-row">
+                              <td class="text-right" style="text-align: center;">{{i + 1}}</td>
+                              <td class="text-center">{{item.name}}</td>
+                              <td class="highlight">
+                                <!-- <div class="success" *ngIf = " i < 5"></div> -->
+                                <a style="margin-left: 15px;" [href]="item.file_url" target="_blank">Preview</a>
+                              </td>
+                              <td class="hidden-xs">
+                                <button type="button" class="btn red" (click)="sound_id = item.id; remove_sound_dialog.show();">Remove</button>
+                              </td>
+                          </tr>
+                          <tr *ngIf = "sounds.length == 0">
+                            <td colspan="4">
+                              You have no sounds now.
+                            </td>
+                          </tr>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                          <td colspan="8">
+                              <div class="paging_bootstrap_number" style="text-align:right;">
+                              <!-- <pagination class=""
+                                          [(ngModel)]="curPage"
+                                          [totalItems]="totalCount"
+                                          [itemsPerPage]="itemsPerPage"
+                                          [maxSize]="100"
+                                          previousText="&lsaquo;"
+                                          nextText="&rsaquo;"
+                                          (pageChanged)="refreshTable($event)">
+                              </pagination> -->
+                              </div>
+                          </td>
+                      </tr>
+                      </tfoot>
+                  </table>
+              </div>
+              <!-- <div class="pagination-block text-right">
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">&lt; Prev</a></li>
+                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next ></a></li>
+                    </ul>
+                  </nav>
+              </div> -->
+              <div class="row">
+                <h2 class="margin-top-40 text-center">Add new box sound</h2>
+                <form class="form-horizontal" role="form" #soundForm="ngForm" >
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <fieldset>
+                          <div class="form-group">
+                            <div class="col-md-6">
+                                <div class="fileinput fileinput-new" data-provides="fileinput" style="float: left;">
+                                    <span class="btn green btn-file">
+                                        <span class="fileinput-new"> Upload Sound </span>
+                                        <span class="fileinput-exists"> Upload Sound </span>
+                                        <input accept="Audio/*" class="imageFile sound" name="file" type="file" required (change)="onSubmit(soundForm);"> </span>
+                                    <span class="fileinput-filename"> </span> &nbsp;
+                                    <!--<a class="close fileinput-exists" data-dismiss="fileinput" href="javascript:;"> </a>-->
+                                </div>
+                                <!--<button type="submit" class="btn btn-primary green pull-right" style="margin-left: 20px; margin-right: 30px;">Upload Sounds</button>-->
+                            </div>
+                          </div>
+                          <div class="alert alert-success " [class.hidden] = "successMessage == ''">
+                            <button type="button" class="close" (click) = "successMessage = ''"></button>
+                            <p>{{successMessage}}</p>
+                          </div>
+                          <div class="alert alert-danger " [class.hidden] = "errorMessage == ''">
+                            <button type="button" class="close" (click) = "errorMessage = ''"></button>
+                            <p>{{errorMessage}}</p>
+                          </div>
+                          <!--<div class="form-group">
+                            
+                          </div>-->
+                        </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>     
+  </div>
+</div>
+
+<div bsModal #remove_sound_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Remove Sound" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="remove_sound_dialog.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3><i class="fa fa-warning"></i>Remove</h3>
+      </div>
+      <div class="modal-body">
+        <p>{{tr("DELETE_MESSAGE")}}</p>
+        <button class="btn btn-primary red" (click)="removeSound();remove_sound_dialog.hide();">Remove</button>
+        <button class="btn green" (click)="remove_sound_dialog.hide();">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,3 +8,6 @@ export * from './organization';
 export * from './picture';
 export * from './personal-account.component';
 export * from './main';
+export * from './personal-box';
+export * from './personal-sound';
+export * from './personal-report';

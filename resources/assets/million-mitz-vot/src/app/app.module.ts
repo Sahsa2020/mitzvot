@@ -31,6 +31,9 @@ import { GuestMemberComponent } from './one-page/personal-account/guest-member/g
 import { PictureComponent } from './one-page/personal-account/picture/picture.component';
 import { MyOrgMemberComponent } from './one-page/personal-account/my-org-member/my-org-member.component';
 import { MainComponent } from './one-page/personal-account/main/main.component';
+import { PersonalBoxComponent } from './one-page/personal-account/personal-box/personal-box.component';
+import { PersonalSoundComponent } from './one-page/personal-account/personal-sound/personal-sound.component';
+import { PersonalReportComponent } from './one-page/personal-account/personal-report/personal-report.component';
 
 
 
@@ -82,7 +85,10 @@ import { MainComponent } from './one-page/personal-account/main/main.component';
     GuestMemberComponent,
     PictureComponent,
     MyOrgMemberComponent,
-    MainComponent,    
+    MainComponent,
+    PersonalBoxComponent,
+    PersonalSoundComponent,
+    PersonalReportComponent,    
   ],
   providers: [
     AuthenticateService,
