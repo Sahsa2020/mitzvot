@@ -6,7 +6,7 @@ import { Guard } from './guard';
 import { AuthenticateService } from './authenticate.service';
 // import { OnePageRoutes } from './one-page/one-page.routing';
 import { SponsorComponent, SponsorListComponent, FaqComponent} from './one-page';
-import { MainComponent, PersonalBoxComponent, PersonalSoundComponent, ChatComponent, EditProfileComponent, FriendComponent, PersonalReportComponent,
+import { MainComponent, PersonalBoxComponent, PersonalSoundComponent, ChatComponent, EditProfileComponent, FriendComponent, PersonalReportComponent, PersonalUserComponent,
   GuestMemberComponent, MyOrgMemberComponent, NotificationComponent, PictureComponent, OrganizationComponent, PersonalAccountComponent } from './one-page/personal-account';
 
 const routes: Routes = [
@@ -53,8 +53,7 @@ const routes: Routes = [
           { path: 'report',      component: PersonalReportComponent },
           { path: 'members',      component: MyOrgMemberComponent },
           { path: 'sounds',      component: PersonalSoundComponent },
-          // { path: 'changePassword',      component: ChangePasswordComponent },
-          // { path: 'donate',      component: MyDonateComponent }
+          { path: 'users',      component: PersonalUserComponent },
         ],
         canActivate: [ AuthenticateService ]
       },

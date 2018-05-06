@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LanguageService } from '../../../language.service';
 import { StateService } from '../../../state.service';
 import { GeneralService } from '../../../general.service';
 import { AuthenticateService, USER_SIGNED_INFO, USER_TYPE } from '../../../authenticate.service';
 import { environment } from '../../../../environments';
+import { ProfileService } from '../../';
+
 
 @Component({
   selector: 'app-friend',
@@ -12,6 +14,8 @@ import { environment } from '../../../../environments';
   styleUrls: ['./friend.component.css']
 })
 export class FriendComponent implements OnInit {
+  @ViewChild('add_box_dialog') add_box_dialog: any;
+  @ViewChild('edit_box_dialog') edit_box_dialog: any;
   public friends = [];
   public current_item: number = 0;
   public curPage:number = 1;
@@ -19,8 +23,9 @@ export class FriendComponent implements OnInit {
   public SERVER_URL: string = environment.serverUrl;
   public searchString: string = "";
   public totalCount:number = 0;
+  public friend_id:number = 0;
   
-  constructor(public lang: LanguageService, public general: GeneralService, public router: Router, public appState: StateService, public authenticate: AuthenticateService) {
+  constructor(public lang: LanguageService, public profileService:ProfileService, public general: GeneralService, public router: Router, public appState: StateService, public authenticate: AuthenticateService) {
     // this.authenticate.validateToken();
 
     this.appState.setLoading('Loading....');
@@ -75,6 +80,20 @@ export class FriendComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  deleteFriend(){
+    if(this.friend_id < 0)
+      return;
+    console.log(this.friend_id);
+    // this.appState.setLoading(this.tr("LOADING_TEXT"));
+    this.profileService.deleteFriend(this.friend_id).subscribe(
+     result => {
+       this.appState.closeLoading();
+       if (result) {
+          this.search();
+       }
+     });
   }
 
 }

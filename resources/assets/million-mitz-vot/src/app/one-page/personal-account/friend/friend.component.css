@@ -405,3 +405,13 @@ span.org-name {
         font-size: 10px;
     }
 }
+
+.close-btn {
+    /* color: #6d6d6d; */
+    font-size: 15px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    text-decoration: none;
+    color: #76A6F3
+}

@@ -376,7 +376,7 @@
                 <div class="top-bar">
                     <div class="col-md-3 col-xs-3">
                         <div class="user-icon">
-                            <img src="/assets/img/user3.png" class="img-responsive" alt="user-img">
+                            <img src="$admin[0]->image_url"  class="img-responsive" onerror="this.src='assets/global/img/default_avatar.jpg'" alt="user-img">
                         </div>
                     </div>
                     <div class="col-md-9 col-xs-9">

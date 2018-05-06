@@ -124,8 +124,10 @@ class MessageController extends Controller
         }
         //dd($users);
 
-        // $conversations = Talk::getMessagesByUserId($id);
-        $conversations = Talk::getMessagesByUserId($users[0]->id);
+
+        //
+        $id = $users[0]->id;
+        $conversations = Talk::getMessagesByUserId($id);
 
         $user = '';
         $messages = [];
@@ -198,7 +200,7 @@ class MessageController extends Controller
                 $message->from($requester->email, $requester->name);
             });
         }
-        return view('messages.customer_support', compact('ticket'));
+        return view('messages.customer_support', compact('ticket', 'admins'));
     }
 
     public function newMessage(Request $request){

@@ -34,6 +34,7 @@ import { MainComponent } from './one-page/personal-account/main/main.component';
 import { PersonalBoxComponent } from './one-page/personal-account/personal-box/personal-box.component';
 import { PersonalSoundComponent } from './one-page/personal-account/personal-sound/personal-sound.component';
 import { PersonalReportComponent } from './one-page/personal-account/personal-report/personal-report.component';
+import { PersonalUserComponent } from './one-page/personal-account/personal-user/personal-user.component';
 
 
 
@@ -88,7 +89,8 @@ import { PersonalReportComponent } from './one-page/personal-account/personal-re
     MainComponent,
     PersonalBoxComponent,
     PersonalSoundComponent,
-    PersonalReportComponent,    
+    PersonalReportComponent,
+    PersonalUserComponent,    
   ],
   providers: [
     AuthenticateService,

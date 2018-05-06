@@ -1,0 +1,134 @@
+<div class="col-md-9">
+    <div class="row">
+        <div class="main-body">
+            <h2><span><i class="fa fa-star" aria-hidden="true"></i></span> Select your friends </h2>
+            <div class="table-box">
+                <div class="table-head" style="background:#eef5f9">
+                    <div class="top-right ">
+                        <div class="portlet-title" >
+                            <!-- <div class="btn-group pull-right" dropdown>
+                                <button type="button" class="btn btn-primary search-filter" dropdownToggle>
+                                Search Filter <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu search-filters" *dropdownMenu role="menu" aria-labelledby="split-button">
+                                <li role="menuitem">
+                                    <a class="dropdown-item" (click) = "searchFilter = 'name'">
+                                    <i class = "fa fa-check green" [class.transparent] = "searchFilter != 'name'" ></i>
+                                    Name
+                                    </a>
+                                </li>
+                                <li role="menuitem">
+                                    <a class="dropdown-item" (click) = "searchFilter = 'country'">
+                                    <i class = "fa fa-check green" [class.transparent] = "searchFilter != 'country'" ></i>
+                                    Country
+                                    </a>
+                                </li>
+                                <li role="menuitem">
+                                    <a class="dropdown-item" (click) = "searchFilter = 'school'">
+                                    <i class = "fa fa-check green" [class.transparent] = "searchFilter != 'school'" ></i>
+                                    School / Organization
+                                    </a>
+                                </li>
+                                </ul>
+                            </div> -->
+                            <div class="">
+                                <div class="searchbox">
+                                    <input type="text" class="form-control" placeholder="Search Member" [(ngModel)]="searchString"  (keyup.enter)="search();">
+                                    <span class="search-btn">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- <div class="caption pull-right search-area">
+                                <i class="fa fa-search" style="margin-top: 10px;"></i>
+                                <input class="form-control" [(ngModel)]="searchString" placeholder="Search" (keyup.enter)="search();" style="border: none;">
+                            </div> -->
+                        </div>
+                        <!-- <div class="col-md-5">
+                            <div class="row">
+                                <select class="form-control">
+                                    <option value="">Sort By</option>
+                                    <option>Price: Low to High</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="searchbox">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <span class="search-btn">
+                                <i class="fa fa-search" aria-hidden="true"></i></span>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <!-- <table class="table table-striped table-bordered table-advance table-hover"> -->
+                        <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">#</th>
+                                <th  class="min-width-name">
+                                    Name
+                                    <i class="fa font-gray pull-right"></i>
+                                </th>
+                                <th class="hidden-xs" >
+                                    Organization
+                                    <i class="fa font-gray pull-right"></i>
+                                </th>
+                                <th class="hidden-xs" >
+                                    Actions
+                                    <i class="fa font-gray pull-right" ></i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of profileService.users; let i = index;" class="table-row" [class.selected] = "current_item == i">
+                                <td class="text-right" style="text-align: center;">{{i + 1 + (curPage - 1) * 10}}</td>
+                                <td class="text-center">{{ user.name }}</td>
+                                <td class="text-center">{{ user.school }}</td>
+                                <td class="hidden-xs">
+                                  <button type="button" class="btn red" (click)="user_id=user.id;remove_sound_dialog.show();">Add</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="8">
+                                <div class="paging_bootstrap_number" style="text-align:right;">
+                                <pagination class=""
+                                            [(ngModel)]="curPage"
+                                            [totalItems]="totalCount"
+                                            [itemsPerPage]="itemsPerPage"
+                                            [maxSize]="100"
+                                            previousText="&lsaquo;"
+                                            nextText="&rsaquo;"
+                                            (pageChanged)="refreshTable($event)">
+                                </pagination>
+                                </div>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <div bsModal #remove_sound_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Remove Sound" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" (click)="remove_sound_dialog.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h3><i class="fa"></i>Please add a friend</h3>
+        </div>
+        <div class="modal-body">
+          <!-- <p>{{tr("DELETE_MESSAGE")}}</p> -->
+          <button class="btn btn-primary red" (click)="addFriend();remove_sound_dialog.hide();">Ok</button>
+          <button class="btn green" (click)="remove_sound_dialog.hide();">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>

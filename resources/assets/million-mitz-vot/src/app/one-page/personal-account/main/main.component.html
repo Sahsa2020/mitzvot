@@ -107,7 +107,7 @@
                     <label>Organization: </label>
                 </div>
                 <div class="col-sm-6">
-                    <label>Organization Name</label>
+                    <label>{{ authenticate.currentUser?.school }}</label>
                 </div>
             </div>
             <div class="row">
@@ -131,7 +131,7 @@
                     <label>Daily mitzvots: </label>
                 </div>
                 <div class="col-sm-6">
-                    <label>{{ authenticate.currentUser?.goal_daily }}</label>
+                    <label>{{ authenticate.currentUser?.daily_count }}</label>
                 </div>
             </div>
             <div class="row">
@@ -139,7 +139,7 @@
                     <label>Lifetime mitzvots: </label>
                 </div>
                 <div class="col-sm-6">
-                    <label>145</label>
+                    <label>{{ authenticate.currentUser?.deposit_count }}</label>
                 </div>
             </div>
             <div class="row">
@@ -147,7 +147,7 @@
                     <label>Box Count: </label>
                 </div>
                 <div class="col-sm-6">
-                    <label>$56</label>
+                    <label>{{ authenticate.currentUser?.box_count }}</label>
                 </div>
             </div>
         </div>
@@ -180,7 +180,8 @@
                 <span>Total<span class="dotted-border"></span><span class="cbox-count">${{authenticate.currentUser?.deposit_money}}</span></span>
             </div>
         </div>
-        <a href="#" class="community-btn">send now</a>
+        <a class="community-btn" *ngIf = "authenticate.currentUser != null && authenticate.currentUser.deposit_money > 0 && authenticate.currentUser.role == USER_TYPE.INDIVIDUAL" [routerLink]="['/donate/']">send now</a>
+        <a class="community-btn" *ngIf = "authenticate.currentUser != null && authenticate.currentUser.deposit_money > 0 && authenticate.currentUser.role == USER_TYPE.MEMBER" href ="/profile/donateMoney?amount={{authService.currentUser.deposit_money}}">send now</a>
     </div>
     <div class="right-bar">
         <div class="yourmitzvot friends">

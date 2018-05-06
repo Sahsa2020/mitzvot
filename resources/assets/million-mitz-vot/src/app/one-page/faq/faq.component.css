@@ -80,16 +80,32 @@
 .faq h2 span.minus{
     display: none;
 }
-.faq .answer{
+/* .faq .answer{
     display: none;
+} */
+.faq .answer{
+    display: inline;
 }
 .faq.active .answer{
     display: block;
 }
-.faq.active span.plus{
+.faq .answer{
+    display: block;
+}
+/* .faq.active span.plus{
     display: none;
+} */
+
+/* .faq.active span.plus{
+    display: inline-block;
 }
 .faq.active h2 span.minus{
+    display: inline-block;
+} */
+.faq.active span.plus{
+    display: inline-block;
+}
+.faq h2 span.minus{
     display: inline-block;
 }
 .faq.active h2{  

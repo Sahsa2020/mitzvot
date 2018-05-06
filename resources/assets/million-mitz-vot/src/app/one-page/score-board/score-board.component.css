@@ -180,7 +180,7 @@ button.btn.search-filter{
   color: white;
   border: none;
   border-radius: 5px !important;
-  padding: 10px 22px;
+  padding: 8px 22px;
 }
 .leader-tile{
   width: 100%;
@@ -204,6 +204,13 @@ tr.table-row.selected td{
   border-radius: 5px !important; 
   margin-right: 10px;    
   padding: 3px 12px !important;
+}
+.search-area-custom {
+  /* border: 1px solid #ddd;  */
+  border: 1px; 
+  border-radius: 5px !important; 
+  margin-right: 10px;    
+  /* padding: 3px 12px !important; */
 }
 .min-width-name{
   min-width: 200px;
@@ -237,6 +244,10 @@ tr.table-row.selected td{
   .search-area{
     margin-top: 10px;
     margin-right: 0px;
+  }
+  .search-area-custom{
+    margin-top: 10px;
+    margin-right: 10px;
   }
   .min-width-name{
     min-width: 100px;
@@ -494,12 +505,21 @@ td img{
   width: 100%;
   background: #fff;
   margin-top: 115px;
+
+  width: 300px;
+  /* position: fixed; */
+  left: auto;
+  right: 0px;
+  /* top: 60px; */
+  height: 100%;
+  /* background: #ebebeb; */
+  box-shadow: -1px 2px 6px #aaa;
 }
 .leaders .head{
   background: #467FFD;
   color: #fff;
   font-size: 18px;
-  padding: 15px;
+  padding: 10px;
   font-weight: bold;
 }
 .leaders .head img{
@@ -533,7 +553,7 @@ td img{
 .leader-block ul li img{
   width: 45px;
   height: 45px;
-  border-radius: 50%;
+  border-radius: 50% !important;
 }
 .star-block{
   position: relative;
@@ -571,6 +591,7 @@ footer .community-btn{
 }
 .noleftpadding{
   padding-left: 0 !important;
+  width:300px;
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px){
@@ -619,17 +640,23 @@ footer .community-btn{
   }
   .searchbox {
       margin: 10px 0;
+      border-radius: 5px !important;
   }
   .leaders {
       margin: 20px 0;
   }
   .noleftpadding{
       padding: 0 !important;
+      width: 300px;
   }
   .main-body{
-      padding: 0 15px;
+      /* padding: 0 15px; */
+      max-width: calc(100% - 640px);
+      background: #fff;
+      border: 1px solid #eee;
   }
 }
+
 
 .table-text {
   color: #E09200;
@@ -637,10 +664,16 @@ footer .community-btn{
 
 @media (min-width: 992px) {
   .noleftpadding {
-      width: 20%;
+      /* width: 20%; */
+      width: 300px;
   }
   .col-md-6 {
-    width: 55%;
+    /* width: calc(100% - 640px - 20px); */
+    width: calc(100% - 610px);
   }
 }
 
+.searchbox{
+  position: relative;
+  border-radius: 5px !important;  
+}

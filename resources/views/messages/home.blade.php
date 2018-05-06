@@ -37,8 +37,8 @@
                     <div class="sidebar">
                         <div class="sidebar-inner">
                             <div class="myprofile">
-                                <img src="{{$user->image_url}}" class="img-responsive" alt="Image">
-                                <h1>{{ $user->name }}</h1>
+                                <img src="{{ auth()->user()->image_url }}" class="img-responsive" alt="Image">
+                                <h1>{{ auth()->user()->name }}</h1>
                                 <span class="org-name"><i class="fa fa-users" aria-hidden="true"></i> Organization Name</span>
                             </div>
                             <div class="side-nav">
@@ -103,7 +103,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="main-body">
-                        <div class="col-md-10">
+                        <div class="">
                             <div class="row">
                                 <div class="chatbox">
                                     <div class="row-eq-height">
@@ -129,99 +129,73 @@
                                                             </li>
                                                             @endforeach
                                                         </ul>
-                                                        <a href="#" class="add-chats">+</a>
+                                                        <!-- <a href="#" class="add-chats">+</a> -->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="row">
-                                                <div class="chat-right">
-                                                    <ul>
-                                                        <li>
-                                                            <div class="col-md-2">
-                                                                <div class="image">
-                                                                    <img src="/assets/img/user3.png" class="img-responsive" alt="user-image">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-10 noleftpadding">
-                                                                <div class="chat-text">
-                                                                    <div class="name">
-                                                                        Margarita Brinker
-                                                                        <span class="time">4 hours ago</span>
+                                                <div class="chat-history chat-right">
+                                                    <ul id="talkMessages">
+                                                        @foreach($messages as $message)
+                                                            @if($message->sender->id == auth()->user()->id)
+                                                                <li >
+                                                                    <div class="col-md-2">
+                                                                        <div class="image">
+                                                                            <!-- <img src="{{ auth()->user()->image_url }}" class="img-responsive" alt="user-image"> -->
+                                                                            <img src="" class="img-responsive" alt="user-image" onerror="this.src='assets/global/img/default_avatar.jpg'">
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="text">
-                                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                                                                    <div class="col-md-10 noleftpadding">
+                                                                        <div class="chat-text">
+                                                                            <div class="name">
+                                                                                {{ auth()->user()->name }}
+                                                                                <span class="time">{{ $message->humans_time }}</span>
+                                                                            </div>
+                                                                            <div class="text">
+                                                                                <p>{{ $message->message }}</p>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="col-md-2">
-                                                                <div class="image">
-                                                                    <img src="/assets/img/user1.png" class="img-responsive" alt="user-image">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-10 noleftpadding">
-                                                                <div class="chat-text">
-                                                                    <div class="name">
-                                                                        Margarita Brinker
-                                                                        <span class="time">4 hours ago</span>
+                                                                </li>
+                                                            @else
+                                                                <li id="message-{{$message->id}}">
+                                                                    <div class="col-md-2">
+                                                                        <div class="image">
+                                                                            <img src="$users[0]->image_url" class="img-responsive" alt="user-image" onerror="this.src='assets/global/img/default_avatar.jpg'">
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="text">
-                                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                                                        <p>Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                                                                        <p>Lorem Ipsum is simply dummy text.</p>
+                                                                    <div class="col-md-10 noleftpadding">
+                                                                        <div class="chat-text">
+                                                                            <div class="name">
+                                                                                {{ $users[0]->name }}
+                                                                                <span class="time">{{ $message->humans_time }}</span>
+                                                                            </div>
+                                                                            <div class="text">
+                                                                                <p>{{ $message->message }}</p>                                                                                
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="col-md-2">
-                                                                <div class="image">
-                                                                    <img src="/assets/img/user3.png" class="img-responsive" alt="user-image">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-10 noleftpadding">
-                                                                <div class="chat-text">
-                                                                    <div class="name">
-                                                                        Margarita Brinker
-                                                                        <span class="time">4 hours ago</span>
-                                                                    </div>
-                                                                    <div class="text">
-                                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="col-md-2">
-                                                                <div class="image">
-                                                                    <img src="/assets/img/user3.png" class="img-responsive" alt="user-image">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-10 noleftpadding">
-                                                                <div class="chat-text">
-                                                                    <div class="name">
-                                                                        Margarita Brinker
-                                                                        <span class="time">4 hours ago</span>
-                                                                    </div>
-                                                                    <div class="text">
-                                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
+                                                                </li>
+                                                            @endif
+                                                        @endforeach                                                       
                                                     </ul>
                                                     <div class="chatsent">
-                                                        <textarea class="form-control" placeholder="Write here..."></textarea>
-                                                        <span class="attachment-icon">
-                                                            <input type="file">
-                                                            <img src="/assets/img/attachment-icon.png" class="img-responsive" alt="chat-sent-icon">
-                                                        </span>
-                                                        <span class="chat-sent-btn">
-                                                            <img src="/assets/images/chat-sent-icon.png" class="img-responsive" alt="chat-sent-icon">
-                                                        </span>
+                                                        <form action="" method="post" id="talkSendMessage">
+                                                            <textarea class="form-control" name="message-data" placeholder="Write here..." onkeydown = "checkEnter(event);"></textarea>
+                                                            <span class="attachment-icon">
+                                                                <input type="file">
+                                                                <img src="/assets/img/attachment-icon.png" class="img-responsive" alt="chat-sent-icon">
+                                                            </span>
+                                                            <span class="chat-sent-btn">
+                                                                <button style="background:none; padding:0; border:none;" type="submit">
+                                                                    <img src="/assets/images/chat-sent-icon.png" class="img-responsive" alt="chat-sent-icon">
+                                                                </button>
+                                                            </span>
+                                                            <!-- <input type="hidden" name="_id" value="{{@request()->route('id')}}"/> -->
+                                                            <input type="hidden" name="_id" value="{{ $users[0]->id }}"/>
+                                                        </form>                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -296,6 +270,88 @@
     </footer> -->
     <!-- Footer End -->
   </div>
-  <div class="clear50"></div>
+  <!-- <div class="clear50"></div> -->
 </body>
+
+<script>
+          var __baseUrl = "{{url('/')}}"
+      </script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js'></script>
+
+
+
+        <script src="{{asset('chat/js/talk.js')}}"></script>
+
+    <script>
+        var show = function(data) {
+            alert(data.sender.name + " - '" + data.message + "'");
+        }
+
+        var msgshow = function(data) {
+            // var html = '<li id="message-' + data.id + '">' +
+            // '<div class="message-data">' +
+            // '<span class="message-data-name"> <a href="#" class="talkDeleteMessage" data-message-id="' + data.id + '" title="Delete Messag"><i class="fa fa-close" style="margin-right: 3px;"></i></a>' + data.sender.name + '</span>' +
+            // '<span class="message-data-time">1 Second ago</span>' +
+            // '</div>' +
+            // '<div class="message my-message">' + data.message +
+            // '</div>' +
+            // '</li>';
+
+            var html = 
+            '<li id="message-' + data.id + '">' +
+                '<div class="col-md-2">' +
+                    '<div class="image">' +
+                        '<img src="' + {{ auth()->user()->image_url }} + '"' + 'class="img-responsive" alt="user-image">' +
+                    '</div>' +
+                '</div>' +
+                '<div class="col-md-10 noleftpadding">' + 
+                    '<div class="chat-text">' + 
+                        '<div class="name">' +
+                            data.sender.name +
+                            '<span class="time">1 Second ago</span>' +
+                        '</div>' +
+                        '<div class="text">' +
+                            '<p>' + data.message + '</p>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</li>';
+
+            $('#talkMessages').append(html);
+            setTimeout(function(){
+                $('.chat-history').scrollTop($('.chat-history')[0].scrollHeight);
+            }, 100);
+        }
+        
+        function checkEnter(event){
+            if( (event.keyCode == 10 || event.keyCode == 13) && !event.shiftKey ){
+                $('form#talkSendMessage').submit();
+                event.preventDefault();
+            }
+        }
+
+        //
+        {{ $id = $users[0]->id }}
+        function readMessages(){
+            $.ajax({
+                method: "POST",
+                url: "/message/{{$id}}",
+                data: {}
+            })
+            .done(function( msg ) {
+                console.log("Done");
+                setTimeout(readMessages, 5000);
+            });
+        }
+        document.addEventListener( 'DOMContentLoaded', function () {
+            setTimeout(function(){
+                $('.chat-history').scrollTop($('.chat-history')[0].scrollHeight);
+            }, 100);
+            readMessages();
+        }, false );
+    </script>
+    {!! talk_live(['user'=>["id"=>auth()->user()->id, 'callback'=>['msgshow']]]) !!}
+
 @endsection

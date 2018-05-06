@@ -18,6 +18,8 @@ export class MainComponent implements OnInit {
   public posts: any[] = [];
   public SERVER_URL: string = environment.serverUrl;
   public activeTab: string = 'ALL';
+  public USER_SIGNED_INFO: any = USER_SIGNED_INFO;
+  public USER_TYPE = USER_TYPE;  
   constructor(public lang: LanguageService, public general: GeneralService, public router: Router, public appState: StateService, public authenticate: AuthenticateService) {
     this.authenticate.validateToken();
 

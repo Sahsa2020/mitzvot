@@ -5,6 +5,7 @@ import { environment } from '../../../environments';
 import { RegisterUser } from '../../model/user_register.type';
 import { Box } from '../../model/box.type';
 import { Member } from '../../model/member.type';
+import { User } from '../../model/user_friend.type';
 import { Donate } from '../../model/donate.type';
 import { AuthenticateService } from '../../authenticate.service';
 import { StateService } from '../../state.service';
@@ -38,6 +39,8 @@ export class ProfileService {
   public myDonate:Donate;
   public donates:Donate[];
   public donate_count:number = 0;
+  public users:User[];
+  public total_user_count:number = 0;
   initToken(){
   }
   constructor(private http: HttpClient, private router: Router, private authService: AuthenticateService, private general: GeneralService, private stateService: StateService, private languageService: LanguageService) {
@@ -328,4 +331,43 @@ export class ProfileService {
             }
         }, error=>{return false;});
   }
+  getUsers(start:number, length: number, sort_item: string, sort_rule: boolean, search: string, filter: string):Observable<boolean> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.authService.get('/api/v1/profile/users?start=' + start + '&length=' + length + '&search=' + search)
+        .map((res: any) => {
+            if (res.success == true) {
+              this.users = res.data;
+              this.total_user_count = res.total_user_count;
+              return true;
+            } else {
+              return false;
+            }
+        }, error=>{return false;});
+  }
+
+  addFriend (user_id:number):Observable<any> {
+    return this.authService.postFormData('/api/v1/profile/friends/add?', "friend_id=" + user_id)
+    .map((result: any) =>{
+      if(result.success)
+        // console.log(result.data);
+        return result.data;
+    }, error =>{
+        // console.log(error);
+        return [];
+  });
+  }
+
+  deleteFriend (friend_id:number):Observable<any> {
+    return this.authService.get('/api/v1/profile/friends/delete?' + "friend_id=" + friend_id)
+    .map((result: any) =>{
+      if(result.success)
+        // console.log(result.data);
+        return result;
+    }, error =>{
+        // console.log(error);
+        return [];
+  });
+  }
+
 }

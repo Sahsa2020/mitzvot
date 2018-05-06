@@ -126,7 +126,7 @@
                                                 @if (Auth::guest())
                                                     Sign In/Up
                                                 @else
-                                                <a  class="account-btn"><img src="{{$user->image_url}}" class="img-responsive" alt="User"> {{$user->name}} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <a  class="account-btn"><img src="{{Auth::user()->image_url}}" class="img-responsive" alt="User"> {{$user->name}} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 @endif
                                             </a>
                                             <ul class="dropdown-menu">

@@ -2,20 +2,20 @@
 <div class="col-md-9">
   <div class="main-body">
       <div class="post-box top-band">
-          <div class="col-md-4">
+          <div class="col-md-5">
               You have <span>{{ friends.length }} friends</span>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-6">
               <div class="top-right">
-                  <div class="col-md-5">
-                      <!-- <div class="row">
+                  <!-- <div class="col-md-5">
+                      <div class="row">
                           <select class="form-control">
                               <option value="">Sort By</option>
                               <option>Price: Low to High</option>
                           </select>
-                      </div> -->
-                  </div>
-                  <div class="col-md-7">
+                      </div>
+                  </div> -->
+                  <div class="col-md-10">
                       <div class="searchbox">
                           <input type="text" class="form-control" placeholder="Search Member" [(ngModel)]="searchString"  (keyup.enter)="search();">
                           <span class="search-btn">
@@ -23,6 +23,9 @@
                           </span>
                       </div>
                   </div>
+                <div class="">
+                    <a [routerLink]="['/profile/users']"><img src="/assets/img/add-icon.png" class="img-responsive" alt="Add Icon" title="Add User" width="30px" height="30px"></a>
+                </div>
               </div>
           </div>
       </div>
@@ -32,6 +35,7 @@
               <div class="col-md-3" *ngFor = "let friend of friends" [class.selected] = "current_item == i">
                   <div class="post-box each-box">
                       <div class="top-head">
+                        <a (click)="friend_id = friend.friend_id; remove_sound_dialog.show();" class="close-btn">X</a>
                           <span>#{{ friend.device_id }}</span>
                           <div class="user-img">
                               <img src="{{SERVER_URL}}/{{friend.image_url}}" class="img-responsive" alt="Image">
@@ -92,3 +96,22 @@
       </div>
   </div>
 </div>
+
+
+<div bsModal #remove_sound_dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Remove Sound" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" (click)="remove_sound_dialog.hide()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h3><i class="fa"></i>Are you sure you want to remove this friend?</h3>
+            </div>
+            <div class="modal-body">
+              <!-- <p>{{tr("DELETE_MESSAGE")}}</p> -->
+              <button class="btn btn-primary red" (click)="deleteFriend(); remove_sound_dialog.hide();">Ok</button>
+              <button class="btn green" (click)="remove_sound_dialog.hide();">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>

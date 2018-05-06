@@ -7,7 +7,7 @@
                         <div class="myprofile">
                             <img src="{{authenticate.currentUser?.image_url}}" class="img-responsive" alt="Image">
                             <h1>{{ authenticate.currentUser?.name }}</h1>
-                            <span class="org-name"><i class="fa fa-users" aria-hidden="true"></i> Organization Name</span>
+                            <span class="org-name"><i class="fa fa-users" aria-hidden="true"></i>{{ authenticate.currentUser?.school}}</span>
                         </div>
                         <div class="side-nav">
                             <ul>

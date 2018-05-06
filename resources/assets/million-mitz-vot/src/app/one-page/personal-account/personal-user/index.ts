@@ -1,0 +1,1 @@
+export * from './personal-user.component';

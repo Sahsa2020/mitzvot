@@ -26,10 +26,7 @@
                     </li>
                 @endif
             @endforeach
-
-
         </ul>
-
     </div> <!-- end chat-history -->
 <script>
     function readMessages(){

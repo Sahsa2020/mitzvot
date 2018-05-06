@@ -16,9 +16,18 @@
       <div class="row">
           <div class="col-md-1 hidden-sm hidden-xs"></div>
           <div class="col-md-10">
-              <div class="faq active">
-                  <h2>What the difference between Mitz and Mitzvot? <span class="plus">+</span><span class="minus">-</span></h2>
-                  <div class="answer">
+              <div class="faq" *ngFor="let item of ask_answer_list; let i = index;">
+                  <h2 (click)="onClickAsk(i+1);"> {{ item.ask }}
+                      <span class="plus" *ngIf="answer_state && (ask_state == (i+1))">+</span>
+                      <span class="minus" *ngIf="!answer_state && (ask_state == (i+1))">-</span>
+                  </h2>
+                  <div class="answer" *ngIf="!answer_state && (ask_state == (i+1))">
+                      <p>{{ item.answer }}</p>
+                  </div>
+              </div>
+              <!-- <div class="faq">
+                  <h2 (click)="onClickAsk();">How can put money in C - Box? <span class="plus">+</span><span class="minus">-</span></h2>
+                  <div class="answer" *ngIf="!answer_state && (ask_state == 2)">
                       <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
                       ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
                       amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
@@ -26,8 +35,8 @@
                   </div>
               </div>
               <div class="faq">
-                  <h2>How can put money in C - Box? <span class="plus">+</span><span class="minus">-</span></h2>
-                  <div class="answer">
+                  <h2 (click)="onClickAsk();">What the difference between Mitz and Mitzvot? <span class="plus">+</span><span class="minus">-</span></h2>
+                  <div class="answer" *ngIf="!answer_state && (ask_state == 3)">
                       <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
                       ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
                       amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
@@ -35,23 +44,14 @@
                   </div>
               </div>
               <div class="faq">
-                  <h2>What the difference between Mitz and Mitzvot? <span class="plus">+</span><span class="minus">-</span></h2>
-                  <div class="answer">
+                  <h2 (click)="onClickAsk();">How can put money in C - Box? <span class="plus">+</span><span class="minus">-</span></h2>
+                  <div class="answer" *ngIf="!answer_state && (ask_state == 4)">
                       <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
                       ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
                       amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
                       odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
                   </div>
-              </div>
-              <div class="faq">
-                  <h2>How can put money in C - Box? <span class="plus">+</span><span class="minus">-</span></h2>
-                  <div class="answer">
-                      <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                      ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                      amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                      odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-                  </div>
-              </div>
+              </div> -->
           </div>
           <div class="col-md-1 hidden-sm hidden-xs"></div>
       </div>

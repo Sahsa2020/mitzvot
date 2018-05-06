@@ -11,3 +11,4 @@ export * from './main';
 export * from './personal-box';
 export * from './personal-sound';
 export * from './personal-report';
+export * from './personal-user';

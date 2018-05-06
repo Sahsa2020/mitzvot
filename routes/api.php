@@ -31,14 +31,20 @@ $api->version('v1', function ($api) {
             $api->get('/unreadMessages',		'ProfileController@unReadMessages');
             $api->post('/updatePassword',		'ProfileController@updatePassword');
             $api->get('/donateMoney',		'ProfileController@donateForBoxAmount');
-            $api->post('/updateProfileImage', 'ProfileController@updateProfileImage');
-            $api->get('/friends',        'FriendController@getFriends');
+            $api->post('/updateProfileImage', 'ProfileController@updateProfileImage');            
             $api->post('/updatePersonalDetails',      'ProfileController@updatePersonalDetails');
             $api->post('/updateBankDetails',           'ProfileController@updateBankDetails');
             $api->post('/updateGoals',           'ProfileController@updateGoals');
             $api->post('/deleteAccount',           'ProfileController@deleteAccount');
             $api->post('/updateVideo',           'ProfileController@updateVideo');
+
+            $api->get('/friends',        'FriendController@getFriends');
+            $api->get('/users',        'UserController@getAll');
+            $api->post('/friends/add',        'FriendController@addFriend');
+            $api->get('/friends/delete',        'FriendController@Remove');
+
         });
+
 
         $api->get('/donateMoneyDone',		'ProfileController@payDone');
         $api->get('/donateMoneyCancel',		'ProfileController@payCancel');
