@@ -117,7 +117,7 @@ $api->version('v1', function ($api) {
         /*
          * Route groups for posts
          */
-        $api->group(['middleware' => [env('APP_ENV') == 'local' ? 'tier5.auth' : 'auth'], 'prefix' => 'posts'], function ($api) {
+        $api->group(['middleware' => ['auth'], 'prefix' => 'posts'], function ($api) {
             $api->get('/', [
                 'uses' => 'PostController@getAll',
                 'as' => 'api.v1.posts.getAll.get'
@@ -202,7 +202,7 @@ $api->version('v1', function ($api) {
 /*
  * Test route for development: Test auto post and social share
  */
-Route::group(['middleware' => 'tier5.auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::post('/v1/post-auto', function() {
         return \App\Helpers\AutoPostGoodDeed::post(100);
     });
