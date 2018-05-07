@@ -41,14 +41,14 @@ export class MyDonateComponent implements OnInit {
   }
 
   ngOnInit() {
-    // jQuery('#cropper').cropper({
-    //   aspectRatio: 1,
-    //   minContainerWidth: 400,
-    //   minContainerHeight: 400,
-    //   ready: function (e) {
-    //     jQuery('#cropper').cropper('crop');
-    //   }
-    // });
+    jQuery('#cropper').cropper({
+      aspectRatio: 1,
+      minContainerWidth: 400,
+      minContainerHeight: 400,
+      ready: function (e) {
+        jQuery('#cropper').cropper('crop');
+      }
+    });
   }
   saveDonate(contactForm){
     // var imageFile = jQuery(this.elementRef.nativeElement).find('.imageFile')[0];

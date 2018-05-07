@@ -63,7 +63,7 @@ class ProfileController extends BaseController
           })
           ->select(DB::raw("roles.name as role_name"))
           ->where('role_user.user_id', $dataArray['id'])
-          ->first()->role_name;         
+          ->first()->role_name;
         
 
         if(Auth::user()->hasRole(config('constants.MEMBER_USER'))){
