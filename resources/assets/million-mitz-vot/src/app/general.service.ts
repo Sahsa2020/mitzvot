@@ -234,7 +234,7 @@ export class GeneralService {
       .map((result: any) =>{
         if(result.success)
           // console.log(result.data);
-          return result.data;
+          return result;
       }, error =>{
           // console.log(error);
           return [];
@@ -246,8 +246,9 @@ export class GeneralService {
     "&routing_number=" + params.routing_number + "&account_number=" + params.account_number + "&name_of_bank_account=" + params.name_of_bank_account + "&bank_name=" + params.bank_name + "&account_type=" + params.account_type)
       .map((result: any) =>{
         if(result.success)
-          // console.log(result.data);
-          return result.data;
+          return result;
+        else
+          return result;
       }, error =>{
           // console.log(error);
           return [];
@@ -259,8 +260,9 @@ export class GeneralService {
     "&goal_weekly=" + params.goal_weekly + "&goal_monthly=" + params.goal_monthly)
       .map((result: any) =>{
         if(result.success)
-          // console.log(result.data);
-          return result.data;
+          return result;
+        else
+          return result;
       }, error =>{
           // console.log(error);
           return [];
@@ -272,8 +274,9 @@ export class GeneralService {
     "&new_password=" + params.new_password + "&confirm_password=" + params.confirm_password)
       .map((result: any) =>{
         if(result.success)
-          // console.log(result.data);
-          return result.data;
+          return result;
+        else 
+          return result;
       }, error =>{
           // console.log(error);
           return [];

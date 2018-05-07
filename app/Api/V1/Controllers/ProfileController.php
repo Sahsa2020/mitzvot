@@ -562,7 +562,6 @@ class ProfileController extends BaseController
     function updatePersonalDetails(Request $request)
     {
       $userData = $request->only(['email', 'name','phone', 'birthday', 'city', 'address', 'country']);
-      var_dump($userData);
       $validator = Validator::make($userData, [
         'name' => 'required',
         'email' => 'required',
@@ -597,7 +596,6 @@ class ProfileController extends BaseController
     function updateBankDetails(Request $request)
     {
       $userData = $request->only(['bank_account', 'routing_number','account_number', 'name_of_bank_account', 'bank_name', 'account_type']);
-      var_dump($userData);
       $validator = Validator::make($userData, [
         'bank_account' => 'required',
         'routing_number' => 'required',
@@ -630,7 +628,6 @@ class ProfileController extends BaseController
     function updateGoals(Request $request)
     {
       $userData = $request->only(['goal_daily', 'goal_weekly','goal_monthly']);
-      var_dump($userData);
       $validator = Validator::make($userData, [
         'goal_daily' => 'required',
         'goal_weekly' => 'required',
@@ -643,9 +640,9 @@ class ProfileController extends BaseController
       }
 
       $user = Auth::user();
-      $user['goal_daily'] = $userData['bank_account'];
-      $user['goal_weekly'] = $userData['routing_number'];
-      $user['goal_monthly'] = $userData['account_number'];
+      $user['goal_daily'] = $userData['goal_daily'];
+      $user['goal_weekly'] = $userData['goal_weekly'];
+      $user['goal_monthly'] = $userData['goal_monthly'];
       $user->save();
 
       $res['data'] = $userData;

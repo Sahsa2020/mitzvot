@@ -66,6 +66,8 @@ export class EditProfileComponent implements OnInit {
 
   public image_data:any = null;
   public successMessage: string = "";
+  public USER_SIGNED_INFO: any = USER_SIGNED_INFO;
+  public USER_TYPE: any = USER_TYPE;
   constructor(public lang: LanguageService, public profileService:ProfileService, public general: GeneralService, public router: Router, public appState: StateService, public authenticate: AuthenticateService, ) {
     this.authenticate.validateToken();
     if(this.authenticate.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN){
@@ -184,37 +186,115 @@ export class EditProfileComponent implements OnInit {
     return file;
 };
 
-  onUpdatePersonal() {
-    console.log(this.personal);
-    this.general.updatePersonalDetails(this.personal).subscribe(
-      res => {
-        console.log(res);
-      },
-      error =>{
-      }
-    );
+  onUpdatePersonal(profileForm) {
+
+    // console.log(this.personal);
+    // this.general.updatePersonalDetails(this.personal).subscribe(
+    //   res => {
+    //     console.log(res);
+    //   },
+    //   error =>{
+    //   }
+    // );
+
+    this.model.birthday = jQuery('#input-birthday').val();
+    if(!profileForm.form.valid || this.model.birthday == "")
+    {
+      this.appState.errorMessage = this.tr("FILL_ALL_REQUIRE_FIELDS");
+      return;
+    }
+    // this.model.image = this.image_data;
+    // if(this.image_data != null && this.image_data.src != this.model.image_origin){
+    //   this.model.image_origin = this.temp_image_origin;
+    // }
+    this.appState.setLoading('Loading...');
+    this.general.updatePersonalDetails(this.model).subscribe(
+     (result: any) => {
+       if(result.success)
+       {
+        //  this.successMessage = this.tr("SUCCESS_MESSAGE");
+        this.successMessage = 'Updated Successfully';        
+        //  this.model.image_url = result.data.image_url;
+         this.authenticate.validateToken();
+       }
+       else
+       {
+         this.appState.errorMessage = 'Updated Failed';//"Please check your email and password again.";
+       }
+       this.appState.closeLoading();
+    });
   }
 
-  onUpdateGoals() {
-    console.log(this.personal);
-    this.general.updateGoals(this.personal).subscribe(
-      res => {
-        console.log(res);
-      },
-      error =>{
-      }
-    );
+  onUpdateGoals(profileForm) {
+    // console.log(this.personal);
+    // this.general.updateGoals(this.personal).subscribe(
+    //   res => {
+    //     console.log(res);
+    //   },
+    //   error =>{
+    //   }
+    // );
+
+    
+    if(!profileForm.form.valid)
+    {
+      this.appState.errorMessage = this.tr("FILL_ALL_REQUIRE_FIELDS");
+      return;
+    }
+    
+    this.appState.setLoading('Loading...');
+    this.general.updateGoals(this.model).subscribe(
+      (result: any) => {
+        if(result.success)
+        {
+        //  this.successMessage = this.tr("SUCCESS_MESSAGE");
+        this.successMessage = 'Updated Successfully';
+        //  this.model.image_url = result.data.image_url;
+          this.authenticate.validateToken();
+        }
+        else
+        {
+          this.appState.errorMessage = 'Updated Failed';//"Please check your email and password again.";
+        }
+        this.appState.closeLoading();
+    });
   }
 
-  onChangePassword() {
-    console.log(this.personal);
+  onChangePassword(profileForm) {
+
+    if(!profileForm.form.valid)
+    {
+      this.appState.errorMessage = this.tr("FILL_ALL_REQUIRE_FIELDS");
+      return;
+    }
+    
+    // this.appState.setLoading('Loading...');
+
+    // console.log(this.personal);
+    // this.general.updatePassword(this.personal).subscribe(
+    //   res => {
+    //     console.log(res);
+    //   },
+    //   error =>{
+    //   }
+    // );
+
+    this.appState.setLoading('Loading...');
     this.general.updatePassword(this.personal).subscribe(
-      res => {
-        console.log(res);
-      },
-      error =>{
-      }
-    );
+      (result: any) => {
+        if(result.success)
+        {
+        //  this.successMessage = this.tr("SUCCESS_MESSAGE");
+        this.successMessage = 'Updated Successfully';
+        //  this.model.image_url = result.data.image_url;
+          this.authenticate.validateToken();
+        }
+        else
+        {
+          this.appState.errorMessage = 'Updated Failed';//"Please check your email and password again.";
+        }
+        this.appState.closeLoading();
+    });
   }
 
   onUpdateVideo() {
@@ -228,15 +308,40 @@ export class EditProfileComponent implements OnInit {
     );
   }
 
-  onUpdateBank() {
-    console.log(this.personal);
-    this.general.updateBankDetails(this.personal).subscribe(
-      res => {
-        console.log(res);
-      },
-      error =>{
-      }
-    );
+  onUpdateBank(profileForm) {
+    // console.log(this.personal);
+    // this.general.updateBankDetails(this.personal).subscribe(
+    //   res => {
+    //     console.log(res);
+    //   },
+    //   error =>{
+    //   }
+    // );
+
+    console.log(profileForm);
+
+    if(!profileForm.form.valid)
+    {
+      this.appState.errorMessage = this.tr("FILL_ALL_REQUIRE_FIELDS");
+      return;
+    }
+   
+    this.appState.setLoading('Loading...');
+    this.general.updateBankDetails(this.model).subscribe(
+     (result: any) => {
+       if(result.success)
+       {
+        //  this.successMessage = this.tr("SUCCESS_MESSAGE");
+        this.successMessage = 'Updated Successfully';
+        //  this.model.image_url = result.data.image_url;
+         this.authenticate.validateToken();
+       }
+       else
+       {
+         this.appState.errorMessage = 'Updated Failed';//"Please check your email and password again.";
+       }
+       this.appState.closeLoading();
+    });
   }
 
   onDeleteAccount() {
@@ -247,6 +352,39 @@ export class EditProfileComponent implements OnInit {
       error =>{
       }
     );
+  }
+
+  updateProfile(profileForm){
+    this.model.birthday = jQuery('#input-birthday').val();
+    if(!profileForm.form.valid || this.model.birthday == "")
+    {
+      this.appState.errorMessage = this.tr("FILL_ALL_REQUIRE_FIELDS");
+      return;
+    }
+    // this.model.image = this.image_data;
+    // if(this.image_data != null && this.image_data.src != this.model.image_origin){
+    //   this.model.image_origin = this.temp_image_origin;
+    // }
+    this.appState.setLoading(this.tr("LOADING_TEXT"));
+    this.profileService.updateProfile(this.model).subscribe(
+     (result: any) => {
+       if(result.success)
+       {
+         this.successMessage = this.tr("SUCCESS_MESSAGE");
+         this.model.image_url = result.data.image_url;
+         this.authenticate.validateToken();
+       }
+       else
+       {
+         this.appState.errorMessage = this.tr("UPDATE_FAILED");//"Please check your email and password again.";
+       }
+       this.appState.closeLoading();
+     });
+  }
+
+  tr(tran: string): string
+  {
+    return this.lang.tr("profile." + tran);
   }
 
 }
