@@ -275,7 +275,7 @@ export class GeneralService {
       .map((result: any) =>{
         if(result.success)
           return result;
-        else 
+        else
           return result;
       }, error =>{
           // console.log(error);

@@ -24,20 +24,20 @@
                                             <ul>
                                                 <li class="donate-img">
                                                     <a href="#">
-                                                        <img src="/assets/img/donate-logo.png" class="img-responsive" alt="donate-logo">
+                                                        <!-- <img src="/assets/img/donate-logo.png" class="img-responsive" alt="donate-logo"> -->
                                                     </a>
                                                 </li>
                                                 <li class="envelope-img">
                                                     <a href="#">
-                                                        <img src="/assets/img/envelope.png" class="img-responsive" alt="envelope-logo">
+                                                        <!-- <img src="/assets/img/envelope.png" class="img-responsive" alt="envelope-logo"> -->
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="org-details">
-                                        <h2>$donate->name</h2>
-                                        <p>$donate->description</p>
+                                        <h2>{{ $donate->name }}</h2>
+                                        <p>{{ $donate->description }}</p>
                                         <div class="download-btns">
                                             <ul>
                                                 <li><a href="#"><img src="/assets/images/admin/doc-icon.png" class="img-responsive" alt="image"></a></li>
