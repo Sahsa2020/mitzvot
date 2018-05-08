@@ -227,14 +227,13 @@ export class ProfileService {
 
   saveDonate(donate:Donate):Observable<boolean> {
     this.initToken();
-    let headers = new Headers();
     let data = new FormData();
     for(var key in donate){
       if(key == "picture")
         continue;
       data.append(key, donate[key]);
     }
-    return this.authService.postFormData('/api/v1/donate', data)
+    return this.http.post(this.serverUrl + '/api/v1/donate', data)
         .map((res: any) => {
           if (res.success == true) {
             return true;
