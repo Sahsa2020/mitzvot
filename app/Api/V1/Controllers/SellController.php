@@ -405,7 +405,7 @@ class SellController extends PaypalPaymentController
     * @return Array for JSON Response
     */
     public function saveDonate(Request $request){
-      // $data = $request->only(['name', 'city', 'country', 'commitment', 'donate_count', 'exist_count'])
+      // $data = $request->only(['name', 'city', 'country', 'commitment', 'donate_count', 'exist_count']);
       $input = $request->input();
       $userID = Auth::user()->id;
       $donate = Donate::where('org_id', $userID)->first();
@@ -426,7 +426,9 @@ class SellController extends PaypalPaymentController
       if (!is_null($request->file('pictureFile'))){
         $file = $request->file('pictureFile');
         $extension = $file->getClientOriginalExtension(); // getting image extension
-
+        if($extension == null || $extension == "") {
+          $extension = "jpg";
+        }
         $img_path = '/public'.config('constants.IMAGE_PATH');
         $destinationPath = base_path().$img_path;
 
@@ -441,6 +443,9 @@ class SellController extends PaypalPaymentController
       if (!is_null($image_origin)) {
         $destinationPath = base_path().$img_path; // upload path
         $extension = $image_origin->getClientOriginalExtension(); // getting image extension
+        if($extension == null || $extension == "") {
+          $extension = "jpg";
+        }
         $fileName = md5('donateOrigin'.$userID.$curtime).".".$extension;
         $image_origin->move($destinationPath, $fileName); // uploading file to given path
         $donate->image_origin = config('constants.IMAGE_PATH').$fileName;
