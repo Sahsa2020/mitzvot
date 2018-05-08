@@ -17,33 +17,33 @@
                         <div class="row row-eq-height">
                             @foreach($donates as $donate)
                             <div class="col-md-6">
-                                <div class="organization">
+                                <div class="organization" style="width:200px;">
                                     <div class="image">
                                         <img src="{{$donate->picture}}" class="img-responsive" alt="image">
-                                        <div class="small-img">
+                                        <!-- <div class="small-img">
                                             <ul>
                                                 <li class="donate-img">
                                                     <a href="#">
-                                                        <!-- <img src="/assets/img/donate-logo.png" class="img-responsive" alt="donate-logo"> -->
+                                                        <img src="/assets/img/donate-logo.png" class="img-responsive" alt="donate-logo">
                                                     </a>
                                                 </li>
                                                 <li class="envelope-img">
                                                     <a href="#">
-                                                        <!-- <img src="/assets/img/envelope.png" class="img-responsive" alt="envelope-logo"> -->
+                                                        <img src="/assets/img/envelope.png" class="img-responsive" alt="envelope-logo">
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="org-details">
                                         <h2>{{ $donate->name }}</h2>
                                         <p>{{ $donate->description }}</p>
-                                        <div class="download-btns">
+                                        <!-- <div class="download-btns">
                                             <ul>
                                                 <li><a href="#"><img src="/assets/images/admin/doc-icon.png" class="img-responsive" alt="image"></a></li>
                                                 <li><a href="#"><img src="/assets/images/admin/pdf-icon.png" class="img-responsive" alt="image"></a></li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="buttons">
                                             {!! Form::open([
@@ -73,8 +73,6 @@
                     <div class="clear"></div>
                 </div>
             </div>
-
-
         </div>
     </div>
 @endsection
