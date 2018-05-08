@@ -307,4 +307,49 @@ export class GeneralService {
     });
   }
 
+  addSponsor(params) {
+    return this.authService.postFormData('/api/v1/sponsors/add?', "country=" + params.country + "&box_count=" + params.box_count + "&state=" + params.state + "&city=" + params.city)
+      .map((result: any) =>{
+        if(result.success)
+          // console.log(result.data);
+          return result;
+      }, error =>{
+          // console.log(error);
+          return [];
+    });
+  }
+
+  updateSponsor(params) {
+    return this.authService.postFormData('/api/v1/sponsors/update?', "country=" + params.country + "&box_count=" + params.box_count + "&state=" + params.state + "&city=" + params.city)
+      .map((result: any) =>{
+        if(result.success)
+          // console.log(result.data);
+          return result;
+      }, error =>{
+          // console.log(error);
+          return [];
+    });
+  }
+
+  findSponsor() {
+    return this.authService.get('/api/v1/sponsors/find')
+    .map((res: any) => {
+        if (res.success) {
+            return res;
+        } else {
+          return [];
+        }
+    });
+  }
+
+  getSponsors(params) {
+    return this.authService.get('/api/v1/sponsors/?search=' + params.country)
+      .map((res: any) => {
+        if (res.success) {
+            return res;
+        } else {
+          return [];
+        }
+    });
+  }
 }

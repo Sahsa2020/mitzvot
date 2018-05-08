@@ -68,7 +68,7 @@ header{
 }
 .contact-form a{
     display: inline-block;
-    color: #999;
+    /* color: #999; */
     text-decoration: none;
 }
 .contact-form .form-control{

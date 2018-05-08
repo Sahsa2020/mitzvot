@@ -2,80 +2,64 @@
   <div class="container">
       <div class="row">
           <div class="col-md-12 text-center">
-              <h1>Want to Become a Sponsor?</h1>
-              <h2>Please choose country you interested in</h2>
-              <div class="clear20"></div>
-              <div class="col-md-6">
-                  <div class="form-group form-group-border">
-                      <label>Country</label>
-                      <select class="form-control">
-                          <option>United States</option>
-                          <option>United States</option>
-                          <option>United States</option>
-                      </select>
-                  </div>
-              </div>  
-              <div class="col-md-4">
-                  <div class="form-group form-group-border">
-                      <label>Number of boxes</label>
-                      <select class="form-control">
-                          <option>100 - 200</option>
-                          <option>100 - 200</option>
-                      </select>
-                  </div>
-              </div>
-              <div class="col-md-2 text-left">
-                  <div class="row">
-                      <button type="submit" class="community-btn">Submit</button>
-                  </div>
-              </div>
-              <div class="col-md-12">
-                  <div class="checkbox">
-                      <label>
-                        <input type="checkbox" checked="checked">
-                        <span class="cr"><i class="cr-icon fa fa-check" aria-hidden="true"></i></span> Only available for sponsorship regions
-                      </label>
-                  </div>
-              </div>
-              <div class="clear"></div>
-              <div class="col-md-12">
-                  <h3>Now you should select State</h3>
-                  <div class="row">
-                      <div class="col-sm-2">
-                          <div class="state">Alabama</div>
-                      </div>
-                      <div class="col-sm-2">
-                          <div class="state">Alaska</div>
-                      </div>
-                      <div class="col-sm-2">
-                          <div class="state selected">Arizona</div>
-                      </div>
-                      <div class="col-sm-2">
-                          <div class="state">Arkansas</div>
-                      </div>
-                      <div class="col-sm-2">
-                          <div class="state">California</div>
-                      </div>
-                      <div class="col-sm-2">
-                          <div class="state">Colorado</div>
-                      </div>
-                      <div class="clear20"></div>
-                      <div class="col-sm-2">
-                          <div class="state">Alabama</div>
-                      </div>
-                      <div class="col-sm-2">
-                          <div class="state">Alaska</div>
-                      </div>
-                      <div class="col-sm-2">
-                          <div class="state">Arizona</div>
-                      </div>
-                      <div class="col-sm-2">
-                          <div class="state">Arkansas</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="clear"></div>
-              <div class="col-md-12">
+              <form role="form" #profileForm="ngForm">
+                    <h1>Want to Become a Sponsor?</h1>
+                    <h2>Please choose country you interested in</h2>
+                    <div class="clear20"></div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-border">
+                            <label>Country</label>
+                            <select class="form-control" name="country" [(ngModel)]="model.country">
+                                <option value="United States">United States</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Finland">Finland</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group form-group-border">
+                            <label>Number of boxes</label>
+                            <select class="form-control" name="box_count" [(ngModel)]="model.box_count">
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="200">200</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-left">
+                        <div class="row">
+                            <button type="submit" class="community-btn" (click)="addSponsor(profileForm)">Submit</button>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="checkbox">
+                            <label>
+                              <input type="checkbox" checked="checked">
+                              <span class="cr"><i class="cr-icon fa fa-check" aria-hidden="true"></i></span> Only available for sponsorship regions
+                            </label>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                              <h3>Now you should select State</h3>
+                              <div  class="form-group form-group-border">
+                                  <label >State</label>                    
+                                  <input  class="form-control ng-valid ng-touched ng-dirty" id="state" name="state" type="text" [(ngModel)]="model.state">
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                              <h3>Choose City you want</h3>
+                              <div  class="form-group form-group-border">
+                                  <label >City</label>                    
+                                  <input  class="form-control ng-valid ng-touched ng-dirty" id="city" name="city" type="text" [(ngModel)]="model.city">
+                              </div>
+                        </div>
+                    </div>
+              </form>
+              
+              <!-- <div class="clear"></div> -->
+              <!-- <div class="col-md-12">
                   <h3>Choose City you want</h3>
                   <div class="row">
                       <ul class="city">
@@ -101,10 +85,17 @@
                           <li><a href="#">City Name ></a></li>
                       </ul>
                   </div>
-              </div>
-              <div class="clear"></div>
+                  <div class="form-group" hidden>
+                    <div class="col-md-5" >
+                        <div class="form-group form-group-border">
+                            <input placeholder="States" class="form-input ng-pristine ng-valid ng-touched" id="sell_board_discount_code" name="discount_code" style="text-align: left;" type="text" value="">
+                        </div>
+                    </div>
+                  </div>
+              </div> -->
+              <!-- <div class="clear"></div> -->
               <div class="col-md-2 hidden-xs hidden-sm"></div>
-              <div class="table-box col-md-8 box-display">
+              <div class="table-box col-md-8 box-display" hidden>
                   <div class="table-head">
                       <h3>Sponsors Table</h3>
                       <div class="top-right">

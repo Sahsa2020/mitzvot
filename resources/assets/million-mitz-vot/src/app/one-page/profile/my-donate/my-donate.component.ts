@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, state, style, transition, animate, keyframes, AfterViewChecked, ElementRef, ViewChild} from '@angular/core';
+import { Component, OnInit, trigger, state, style, transition, animate, keyframes, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LanguageService } from '../../../language.service';
 import { StateService } from '../../../state.service';
@@ -77,8 +77,11 @@ export class MyDonateComponent implements OnInit {
   }
   
   fileChange(input){
+    console.log(input);
+    
     if(input.files.length < 1)
       return;
+
     if(input.files[0].size > 4 * 1024 * 1024)
     {
       this.appState.errorMessage = "You can't upload image which is larger than 4MB.";

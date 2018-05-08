@@ -45,6 +45,14 @@ $api->version('v1', function ($api) {
 
         });
 
+        $api->group(['middleware' => ['auth'], 'prefix' => 'sponsors'], function($api) {
+            $api->post('/update', 		'ProfileController@Update');
+            $api->post('/add', 'SponsorController@addSponsor');
+            $api->get('/find', 'SponsorController@Find');
+            $api->get('/', 'SponsorController@getSponsors');
+
+        });
+
 
         $api->get('/donateMoneyDone',		'ProfileController@payDone');
         $api->get('/donateMoneyCancel',		'ProfileController@payCancel');
