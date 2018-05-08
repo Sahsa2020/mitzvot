@@ -78,6 +78,7 @@ export class MyDonateComponent implements OnInit {
   
   fileChange(input){
     console.log(input);
+    console.log(input.files.length);
     
     if(input.files.length < 1)
       return;
@@ -93,6 +94,8 @@ export class MyDonateComponent implements OnInit {
     var img = new Image;
     img.onload = function()
     {
+        console.log("SSSS");
+        console.log(img);
         jQuery('#cropper').cropper('replace', img.src);
         jQuery('#cropper').cropper('crop');
     }

@@ -94,7 +94,14 @@ export class EditProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    jQuery('#cropper').cropper({
+      aspectRatio: 1,
+      minContainerWidth: 400,
+      minContainerHeight: 400,
+      ready: function (e) {
+        jQuery('#cropper').cropper('crop');
+      }
+    });
   }
 
   onMenu(menu) {
