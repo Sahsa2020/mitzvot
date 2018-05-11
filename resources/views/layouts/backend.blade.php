@@ -25,6 +25,7 @@
         <link href="/admin_/css/posts.css" rel="stylesheet" type="text/css" />
         <link href="/admin_/css/upload_firmware.css" rel="stylesheet" type="text/css" />
         <link href="/admin_/css/upload_policies_rules.css" rel="stylesheet" type="text/css" />
+        <link href="/admin_/css/admin.sponsors.css" rel="stylesheet" type="text/css" />
         <link href="/assets/global/css/footer.css" rel="stylesheet" type="text/css" />
         <style type="text/css">
             .donate-image{

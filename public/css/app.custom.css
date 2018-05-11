@@ -15,10 +15,13 @@
   .login-text h1{
       color: #fff;
       font-size: 30px;
+      font-family: 'OpenSans-Semibold';
   }
   .login-text p{
       color: #fff;
       line-height: 25px;
+      padding-top: 30px;
+      font-family: 'OpenSans-Semibold';
   }
   .login-form{
       background: #fff;
@@ -29,11 +32,13 @@
       text-align: center;
       text-transform: capitalize;
       margin: 20px 0 40px;
+      font-family: 'OpenSans-Semibold';
+      color: #2a2937;
   }
   .login-form .form-group-border{
       border: 1px solid #ccc;
       border-radius: 3px !important;
-      padding: 5px 10px;
+      /* padding: 5px 10px; */
   }
   .login-form label{
       margin-bottom: 0;
@@ -135,8 +140,10 @@
       .login-form label {
           font-size: 12px;
       }
-      .login-form a{
+      .login-form a {
           font-size: 12px;
+          font-family: 'OpenSans-Semibold';
+          color: #467ffd;
       }
   }
   @media screen and ( max-width: 991px ){
@@ -181,3 +188,17 @@
   #header-ul {
       margin-left: 35px;
   }
+  
+  .font-open-semibold {
+      font-family: 'OpenSans-Semibold';
+  }
+
+  @font-face {
+      font-family: 'OpenSans-Semibold';
+      src: url('/fonts/open-sans/OpenSans-Semibold.ttf');
+  }
+
+  @font-face {
+    font-family: 'OpenSans-Light';
+    src: url('/fonts/open-sans/OpenSans-Light.ttf');
+}

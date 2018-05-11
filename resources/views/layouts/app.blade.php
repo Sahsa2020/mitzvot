@@ -41,8 +41,7 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/custom-style.css" rel="stylesheet">
     <link href="/css/app.custom.css" rel="stylesheet">
-    <link href="/app_/css/chat.css" rel="stylesheet">
-    <link href="/app_/css/chat.css" rel="stylesheet">
+    <link href="/app_/css/chat.css" rel="stylesheet">    
     <link href="assets/personal-account/css/sidebar.css" rel="stylesheet">
 
     <!-- Bootstrap -->

@@ -13,9 +13,9 @@
     					<img src="assets/images/login-logo.png" class="img-responsive" alt="Logo">
     				</div>
     			</div>
-                <!-- <div class="col-sm-6 text-right">
-                    <a href="#" class="close-btn">X</a>
-                </div> -->
+          <!-- <div class="col-sm-6 text-right">
+              <a href="#" class="close-btn">X</a>
+          </div> -->
     		</div>
     	</div>
     </header>

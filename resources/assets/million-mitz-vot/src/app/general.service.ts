@@ -270,7 +270,7 @@ export class GeneralService {
   }
 
   updatePassword(params) {
-    return this.authService.postFormData('/api/v1/profile/updatePassword?', "cur_password=" + params.cur_password + 
+    return this.authService.postFormData('/api/v1/profile/updatePassword?', "cur_password=" + params.cur_password +
     "&new_password=" + params.new_password + "&confirm_password=" + params.confirm_password)
       .map((result: any) =>{
         if(result.success)
@@ -308,7 +308,7 @@ export class GeneralService {
   }
 
   addSponsor(params) {
-    return this.authService.postFormData('/api/v1/sponsors/add?', "country=" + params.country + "&box_count=" + params.box_count + "&state=" + params.state + "&city=" + params.city)
+    return this.authService.postFormData('/api/v1/sponsor/add?', "country=" + params.country + "&box_count=" + params.box_count + "&state=" + params.state + "&city=" + params.city)
       .map((result: any) =>{
         if(result.success)
           // console.log(result.data);
@@ -320,7 +320,7 @@ export class GeneralService {
   }
 
   updateSponsor(params) {
-    return this.authService.postFormData('/api/v1/sponsors/update?', "country=" + params.country + "&box_count=" + params.box_count + "&state=" + params.state + "&city=" + params.city)
+    return this.authService.postFormData('/api/v1/sponsor/update?', "country=" + params.country + "&box_count=" + params.box_count + "&state=" + params.state + "&city=" + params.city)
       .map((result: any) =>{
         if(result.success)
           // console.log(result.data);
@@ -332,7 +332,7 @@ export class GeneralService {
   }
 
   findSponsor() {
-    return this.authService.get('/api/v1/sponsors/find')
+    return this.authService.get('/api/v1/sponsor/find')
     .map((res: any) => {
         if (res.success) {
             return res;
@@ -343,7 +343,7 @@ export class GeneralService {
   }
 
   getSponsors(params) {
-    return this.authService.get('/api/v1/sponsors/?search=' + params.country)
+    return this.authService.get('/api/v1/sponsor/?search=' + params.country)
       .map((res: any) => {
         if (res.success) {
             return res;

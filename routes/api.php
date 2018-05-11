@@ -45,11 +45,24 @@ $api->version('v1', function ($api) {
 
         });
 
-        $api->group(['middleware' => ['auth'], 'prefix' => 'sponsors'], function($api) {
+        $api->group(['middleware' => ['auth'], 'prefix' => 'sponsor'], function($api) {
             $api->post('/update', 		'ProfileController@Update');
             $api->post('/add', 'SponsorController@addSponsor');
             $api->get('/find', 'SponsorController@Find');
             $api->get('/', 'SponsorController@getSponsors');
+            
+            $api->group(['prefix' => 'country'], function($api) {
+                $api->get('/', 'SponsorController@getTotalCountries');
+                $api->get('/added', 'SponsorController@getCountries');
+                $api->post('/add', 'SponsorController@addCountry');
+                $api->post('/delete', 'SponsorController@deleteCountry');
+            });
+
+            $api->group(['prefix' => 'state'], function($api) {
+                $api->get('/', 'SponsorController@getStates');
+                $api->post('/add', 'SponsorController@addState');
+                $api->post('/delete', 'SponsorController@deleteState');
+            });
 
         });
 

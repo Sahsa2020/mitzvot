@@ -675,5 +675,23 @@ footer .community-btn{
 
 .searchbox{
   position: relative;
-  border-radius: 5px !important;  
+  border-radius: 5px !important;
 }
+
+a.disabled {
+  /* color: gray; */
+  pointer-events: none;
+  cursor: default;
+  /* text-decoration: underline; */
+}
+
+.send-btn {
+  border-radius: 3px !important;
+  background: #467ffd;
+}
+
+#sell {
+  height: 800px;
+}
+
+

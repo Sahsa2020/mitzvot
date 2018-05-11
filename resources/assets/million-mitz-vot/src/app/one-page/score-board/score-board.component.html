@@ -5,7 +5,7 @@
                 <div class="sidebar-inner">
                     <div class="backtoprev">
                         <!-- <a href="#">&lt; My Profile</a> -->
-                        <a *ngIf = "authService.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN" (click) = "showMyProfile();">< My Profile</a>
+                        <!-- <a *ngIf = "authService.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN" (click) = "showMyProfile();">< My Profile</a> -->
                     </div>
                     <div class="myprofile">
                         <img src="{{currentSelectedUser.image_url}}" class="img-responsive" alt="Image">
@@ -44,11 +44,12 @@
                     <div class="yourmitzvot" *ngIf = "authService.currentUser != null">
                         <h2>Your C - Box</h2>
                         <div class="total">
-                            <span>Total<span class="dotted-border"></span><span class="cbox-count">${{authService.currentUser.deposit_money}}</span></span>
+                            <span>Total<span class="dotted-border"></span><span class="cbox-count">${{authService.currentUser?.deposit_money}}</span></span>
                         </div>
                     </div>
-                    <a class="community-btn" *ngIf = "authService.currentUser != null && authService.currentUser.deposit_money > 0 && authService.currentUser.role == USER_TYPE.INDIVIDUAL" [routerLink]="['/donate/']">send now</a>
-                    <a class="community-btn" *ngIf = "authService.currentUser != null && authService.currentUser.deposit_money > 0 && authService.currentUser.role == USER_TYPE.MEMBER" href ="/profile/donateMoney?amount={{authService.currentUser.deposit_money}}">send now</a>
+                    <!-- <a class="community-btn" [class.disabled] = "authService.currentUser != null && authService.currentUser.deposit_money > 0 && authService.currentUser.role == USER_TYPE.INDIVIDUAL" [routerLink]="['/donate/']">send now</a> -->
+                    <!-- <a class="community-btn send-btn" [class.disabled] = "(authService.currentUser != null && authService.currentUser?.deposit_money > 0 && authService.currentUser?.role == USER_TYPE.INDIVIDUAL) == false" [routerLink]="['/donate/']">send now</a> -->
+                    <a class="community-btn send-btn" [class.disabled] = "(authService.currentUser != null && authService.currentUser?.deposit_money > 0 && authService.currentUser.role == USER_TYPE.MEMBER) == false" href ="/profile/donateMoney?amount={{authService.currentUser?.deposit_money}}">send now</a>
                 </div>
             </div>
         </div>

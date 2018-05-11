@@ -46,7 +46,7 @@ class Sponsor extends Authenticatable
          'user_id',
          'del_flg',
          'updated_at',
-         'id',
+        //  'id',
      ];
 
 }

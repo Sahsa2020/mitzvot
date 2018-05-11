@@ -4,6 +4,8 @@ import { LanguageService } from '../../language.service';
 import { StateService } from '../../state.service';
 import { GeneralService } from '../../general.service';
 import { AuthenticateService } from '../../authenticate.service';
+import { environment } from '../../../environments';
+
 
 declare var jQuery:any;
 @Component({
@@ -13,6 +15,7 @@ declare var jQuery:any;
 })
 export class DirectorBoardComponent implements OnInit {
   public directors: any[];
+  public SERVER_URL = environment.serverUrl;
   constructor(public lang: LanguageService, public router: Router, public appState: StateService, public generalService: GeneralService) {
     this.appState.set("one_page_menu_selected", 7);
     this.directors = [

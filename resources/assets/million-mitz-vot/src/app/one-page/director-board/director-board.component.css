@@ -86,9 +86,10 @@
 .third-section{
   display: inline-block;
   width: 100%;
-  background: url(../../../assets/img/wrapper.jpg) no-repeat center;
+  /* background: url(../../../assets/img/wrapper.jpg) no-repeat center; */
   background-size: cover;
-  padding: 20px 0; 
+  padding: 20px 0 0; 
+  background: #467ffd;  
 }
 .third-section h2{
   color: #fff;
@@ -207,4 +208,21 @@
   }
 
   .second-section h3, .fourth-section h3{font-size: 21px; line-height: 32px;}
+}
+
+.community-btn {
+  display: inline-block;
+  color: #fff !important;
+  /* background: url(../img/send-msg-btn.png) no-repeat; */
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border-radius: 3px;
+  margin: 5px 0;
+  font-size: 13px;
+  background-size: 100% 100%;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'OpenSans-Semibold';
+  background: #467ffd;
 }

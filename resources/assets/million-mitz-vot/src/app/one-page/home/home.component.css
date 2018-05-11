@@ -216,10 +216,12 @@ iframe{
         color: #fff;
         font-weight: bold;
         margin-top: 102px;
+        font-family: 'OpenSans-Semibold';
     }
     .banner-txt p{
         color: #fff;
         font-size: 18px;
+        font-family: 'OpenSans-Light';
     }
     .mitzvot-boxes{
         text-align: center;
@@ -233,9 +235,11 @@ iframe{
         margin-top: 0;
         font-weight: bold;
         font-size: 40px;
+        font-family: 'OpenSans-Semibold';
     }
     .mitzvot-boxes p{
         font-size: 20px;
+        font-family: 'OpenSans-Light';
     }
     .mitzvot-boxes a{
         color: #fff;
@@ -264,6 +268,7 @@ iframe{
         padding: 100px 0;
         /* background: url(../../../assets/img/banner-second.png) no-repeat center;
         background-size: 100% 100%; */
+        background-color: white;
     }
     .second-section h3{
         color: #333;
@@ -276,18 +281,21 @@ iframe{
     }
     .second-section p{
         line-height: 25px;
+        font-family: 'OpenSans-Semibold';
     }
     .third-section{
         display: inline-block;
         width: 100%;
         padding: 100px 0;
-        background: url(../../../assets/img/banner-third.png) no-repeat center;
+        /* background: url(../../../assets/img/banner-third.png) no-repeat center; */
         background-size: cover;
+        background-color: white;
     }
     .third-section h3{
         color: #333;
         font-size: 36px;
         margin-bottom: 20px;
+        font-family: 'OpenSans-Semibold';
     }
     .second-section .img-mobile{
         margin: 20px auto;
@@ -307,6 +315,7 @@ iframe{
     .text h4{
         color: #467ffd;
         font-size: 16px;
+        font-family: 'OpenSans-Semibold';
     }
     .third-section ul{
         
@@ -325,10 +334,12 @@ iframe{
         color: #fff;
         font-size: 36px;
         margin-bottom: 20px;
+        font-family: 'OpenSans-Semibold';
     }
     .fourth-section p{
         color: #fff;
         line-height: 26px;
+        font-family: 'OpenSans-Semibold';
     }
     .fourth-section ul li img {
         display: inline-block;
@@ -394,6 +405,7 @@ iframe{
         color: #2A2937;
         font-size: 36px;
         margin-bottom: 20px;
+        font-family: 'OpenSans-Semibold';
     }
     .fifth-section h3 span{
         color: #467FFD;
@@ -450,7 +462,7 @@ iframe{
     }
     .mitznumber{
         background: #fbfbfb;
-        border-top: 1px solid #ccc;
+        border-top: 1px solid #e8e8e8;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         padding: 10px 0;
@@ -460,6 +472,7 @@ iframe{
         display: block;
         font-size: 45px;
         line-height: 30px;
+        font-family: 'OpenSans-Semibold';
     }
     .mitznumber span:last-child{
         font-size: 12px;
@@ -475,6 +488,7 @@ iframe{
     .join-comm .family-box h4{
         font-size: 27px;
         color: #2A2937;
+        font-family: 'OpenSans-Semibold';
     }
     .sixth-section{
         background: #eef5f9;
@@ -491,6 +505,7 @@ iframe{
     .sixth-section h3 span{
         color: #467FFD;
         font-weight: bold;
+        font-family: 'OpenSans-Semibold';
     }
     .sixth-section ul li{
         display: inline-block;
@@ -527,9 +542,12 @@ iframe{
     @media screen and (min-width: 768px) and (max-width: 991px){
         .banner-txt h1 {
             font-size: 25px;
+            font-family: 'OpenSans-Semibold';
         }
         .banner-txt p {
             font-size: 14px;
+            font-family: 'OpenSans-Light';
+            
         }
         .community-btn {
             padding: 10px;
@@ -583,9 +601,11 @@ iframe{
         .banner-txt h1 {
             font-size: 25px;
             margin: 5px 0;
+            font-family: 'OpenSans-Semibold';
         }
         .banner-txt p {
             font-size: 10px;
+            font-family: 'OpenSans-Light';
         }
         .banner-txt img{
             width: 30px;
@@ -595,6 +615,7 @@ iframe{
         }
         .mitzvot-boxes p {
             font-size: 15px;
+            font-family: 'OpenSans-Light';
         }
         .second-section,.fifth-section, .fourth-section {
             background-size: cover;
@@ -612,10 +633,12 @@ iframe{
         .second-section h3, .fourth-section h3, .fifth-section h3,.sixth-section h3{
             font-size: 25px;
             line-height: 30px;
+            font-family: 'OpenSans-Semibold';
         }
         .fifth-section .details h3{
             font-size: 11px;
             line-height: 18px;
+            font-family: 'OpenSans-Semibold';
         }
         .details p {
             font-size: 10px;
@@ -629,6 +652,7 @@ iframe{
         .mitznumber span {
             font-size: 24px;
             line-height: 20px;
+            font-family: 'OpenSans-Semibold';
         }
         .mitznumber span:last-child {
             font-size: 8px;
@@ -656,6 +680,7 @@ iframe{
         .second-section p, .fourth-section p {
             line-height: 20px;
             font-size: 11px;
+            font-family: 'OpenSans-Semibold';
         }
         .scroll-div {
             position: relative;
@@ -676,6 +701,7 @@ iframe{
         }
         .fourth-section .each-block p {
             font-size: 11px;
+            font-family: 'OpenSans-Semibold';
         }
         .banner-txt{
             padding-top: 130px;
@@ -746,5 +772,12 @@ iframe{
 
         .join-comm .family-box h4 {
             font-size: 14px;
+            font-family: 'OpenSans-Semibold';
         }
+    }
+
+
+    .join-body{
+        margin-left: 15px;
+        margin-top: 40px;
     }

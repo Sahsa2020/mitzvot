@@ -49,7 +49,7 @@ footer ul li i{
 }
 .bottom-footer{
     background: #14142C;
-    padding: 20px 0 10px;
+    /* padding: 0px 0 10px; */
     margin-top: 50px;
 }
 .divider{
@@ -61,22 +61,26 @@ footer ul li i{
 .community-btn{
     display: inline-block;
     color: #fff !important;
-    background: url(../img/send-msg-btn.png) no-repeat;
+    /* background: url(../img/send-msg-btn.png) no-repeat; */
     text-decoration: none;
     text-transform: uppercase;
     padding: 14px 30px;
-    border-radius: 3px;
+    border-radius: 3px !important;
     margin: 20px 0;
     font-size: 13px;
     background-size: 100% 100%;
     font-weight: bold;
     letter-spacing: 1px;
+    font-family: 'OpenSans-Semibold';
+    background: #467ffd;
 }
 .community-btn:hover{
-    background: url(../img/send-msg-btn-hover.png) no-repeat !important  ;
+    /* background: url(../img/send-msg-btn-hover.png) no-repeat !important  ; */
     background-size: 100% 100% !important;
     text-decoration: none;
     color: #fff;
+    background: #467ffd;    
+    border-radius: 3px !important;    
 }
 .community-btn:focus{
     text-decoration: none;
