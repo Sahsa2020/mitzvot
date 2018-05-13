@@ -17,6 +17,9 @@ export class FriendComponent implements OnInit {
   @ViewChild('add_box_dialog') add_box_dialog: any;
   @ViewChild('edit_box_dialog') edit_box_dialog: any;
   public friends = [];
+  public daily = [];
+  public weekly = [];
+  public monthly = [];
   public current_item: number = 0;
   public curPage:number = 1;
   public itemsPerPage:number = 16;
@@ -30,8 +33,10 @@ export class FriendComponent implements OnInit {
 
     this.appState.setLoading('Loading....');
     this.general.getFriends(this.searchString).subscribe(result => {
-      this.friends = result;
-      console.log(this.friends);
+      this.friends = result.data;
+      this.daily = result.daily;
+      this.weekly = result.weekly;
+      this.monthly = result.monthly;
       this.appState.closeLoading();
     });
 
@@ -47,8 +52,10 @@ export class FriendComponent implements OnInit {
      result => {
        if(result)
        {
-        this.friends = result;
-        console.log(this.friends);
+        this.friends = result.data;
+        this.daily = result.daily;
+        this.weekly = result.weekly;
+        this.monthly = result.monthly;
        }
        else
        {

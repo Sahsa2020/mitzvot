@@ -9,7 +9,7 @@
                 <div class="main-body">
                     <div class="col-md-12">
                         <div class="row">
-                            <h1><span><img src="images/menu-icon11-white.png" alt="list icon" class="img-responsive"></span> Messsage from Customer</h1>
+                            <h1><span><img src="/assets/images/admin/menu-icon11-white.png" alt="list icon" class="img-responsive"></span> Messsage from Customer</h1>
                         </div>
                     </div>
                     <div class="col-md-10">

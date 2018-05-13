@@ -13,15 +13,16 @@ import { AuthenticateService, USER_SIGNED_INFO } from '../../authenticate.servic
 })
 export class FaqComponent implements OnInit {
 
-  public ask_state: number = 1;
-  public answer_state: boolean = false;
-  public ask_answer_list = [
-    {'ask': 'What the difference between Mitz and Mitzvot', 'answer': "Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate."},
-    {'ask': 'How can put money in C -Box?', 'answer': "Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate."},
-    {'ask': 'What the difference between Mitz and Mitzvot', 'answer': "Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate."},
-    {'ask': 'How can put money in C -Box?', 'answer': "Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate."},
+  is_0: boolean = true;
+  is_1: boolean = true;
+  is_2: boolean = true;
+  is_3: boolean = true;
 
-  ];
+  is_0_clicked: boolean = true;
+  is_1_clicked: boolean = true;
+  is_2_clicked: boolean = true;
+  is_3_clicked: boolean = true;
+
   constructor(public authService:AuthenticateService, public lang: LanguageService, public router: Router, public appState: StateService) {
     this.appState.set("one_page_menu_selected", 13);
     // this.refreshTimer();
@@ -30,10 +31,35 @@ export class FaqComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClickAsk(index) {
-    this.ask_state = index;
-    this.answer_state = !this.answer_state;
+  onClickAsk(event) {
+    console.log(event.srcElement.className);
+    if (event.srcElement.className == '0') {
+      this.setState(0);
+    }
+    if (event.srcElement.className == '1') {
+      this.setState(1);
+    }
+    if (event.srcElement.className == '2') {
+      this.setState(2);
+    }
+    if (event.srcElement.className == '3') {
+      this.setState(3);
+    }
+  }
 
+  setState(index) {
+    if (index == 0) {
+      this.is_0_clicked = !this.is_0_clicked;
+    }
+    if (index == 1) {
+      this.is_1_clicked = !this.is_1_clicked;
+    }
+    if (index == 2) {
+      this.is_2_clicked = !this.is_2_clicked;
+    }
+    if (index == 3) {
+      this.is_3_clicked = !this.is_3_clicked;
+    }
   }
 
 }

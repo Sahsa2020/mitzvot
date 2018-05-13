@@ -33,8 +33,8 @@
                         <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    <h2>What the difference between Mitz and Mitzvot? <span class="plus">+</span><span class="minus">-</span></h2>
+                                    <i class="more-less glyphicon "></i>
+                                    <h2 class="0" (click)="onClickAsk($event);">What the difference between Mitz and Mitzvot? <span class="0" *ngIf="is_0 && is_0_clicked">+</span><span class="0" *ngIf="is_0 && !is_0_clicked">-</span></h2>
                                 </a>
                             </h4>
                         </div>
@@ -54,8 +54,8 @@
                         <div class="panel-heading" role="tab" id="headingTwo">
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    <h2>How can put money in C - Box? <span class="plus">+</span><span class="minus">-</span></h2>
+                                    <i class="more-less glyphicon "></i>
+                                    <h2 class="1" (click)="onClickAsk($event);">How can put money in C - Box? <span class="1" *ngIf="is_1_clicked && is_1">+</span><span class="1" *ngIf="is_1 && !is_1_clicked">-</span></h2>
                                 </a>
                             </h4>
                         </div>
@@ -74,9 +74,9 @@
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingThree">
                             <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    <h2>What the difference between Mitz and Mitzvot? <span class="plus">+</span><span class="minus">-</span></h2>
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" >
+                                    <i class="more-less glyphicon"></i>
+                                    <h2 class="2" (click)="onClickAsk($event);">What the difference between Mitz and Mitzvot? <span class="2" *ngIf="is_2 && is_2_clicked">+</span><span class="2" *ngIf="is_2 && !is_2_clicked">-</span></h2>
                                 </a>
                             </h4>
                         </div>
@@ -96,8 +96,8 @@
                         <div class="panel-heading" role="tab" id="headingFour">
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    <h2>How can put money in C - Box? <span class="plus">+</span><span class="minus">-</span></h2>
+                                    <i class="more-less glyphicon "></i>
+                                    <h2 class="3" (click)="onClickAsk($event);">How can put money in C - Box? <span class="3" *ngIf="is_3 && is_3_clicked">+</span><span class="3" *ngIf="is_3 && !is_3_clicked">-</span></h2>
                                 </a>
                             </h4>
                         </div>
@@ -111,46 +111,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-            
-                </div><!-- panel-group -->
-
-
-                 <h2>What the difference between Mitz and Mitzvot? <span class="plus">+</span><span class="minus">-</span></h2>
-                 <div class="answer">
-                     <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                     ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                     amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                     odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-                 </div>
-              </div>
-              <div class="faq">
-                  <h2>How can put money in C - Box? <span class="plus">+</span><span class="minus">-</span></h2>
-                  <div class="answer">
-                      <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                      ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                      amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                      odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-                  </div>
-              </div>
-              <div class="faq">
-                  <h2>What the difference between Mitz and Mitzvot? <span class="plus">+</span><span class="minus">-</span></h2>
-                  <div class="answer">
-                      <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                      ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                      amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                      odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-                  </div>
-              </div>
-              <div class="faq">
-                  <h2 >How can put money in C - Box? <span class="plus">+</span><span class="minus">-</span></h2>
-                  <div class="answer" >
-                      <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                      ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                      amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                      odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-                  </div>
-              </div>           
+                    </div>            
+                </div><!-- panel-group -->             
+              </div>        
           </div>
           <div class="col-md-1 hidden-sm hidden-xs"></div>
       </div>

@@ -760,3 +760,11 @@ section {
     width: 75px;
     padding-left: 10px;
 }
+
+.yourmitzvot h2 {
+    font-family: 'OpenSans-Semibold';    
+}
+
+.yourmitzvot label {
+    font-family: 'OpenSans-Semibold';
+}
