@@ -25,7 +25,7 @@ export class MainComponent implements OnInit {
 
     this.appState.setLoading('Loading....');
     this.general.getFriends('').subscribe(result => {
-      this.friends = result;
+      this.friends = result.data;
       this.appState.closeLoading();
     });
   }

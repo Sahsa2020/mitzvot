@@ -73,7 +73,7 @@
                                                             'url' => ['/admin/message_history/reply', 17],
                                                             'class' => 'form-horizontal'
                                                     ]) !!}
-                                                    <textarea class="form-control" name="message" rows="8" required="true" cols="40" placeholder="Write here..."></textarea>
+                                                    <textarea class="form-control" name="message" rows="8" required="true" cols="40" placeholder="Write here..." style="height:100px;"></textarea>
                                                     <span class="attachment-icon">
                                                         <input type="file">
                                                         <img src="/assets/img/attachment-icon.png" class="img-responsive" alt="chat-sent-icon">
@@ -94,7 +94,6 @@
                     <div class="clear"></div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection
