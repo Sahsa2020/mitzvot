@@ -53,9 +53,7 @@ class UsersController extends Controller
         foreach ($request->roles as $role) {
             $user->assignRole($role);
         }
-
         Session::flash('flash_message', 'User added!');
-
         return redirect('admin/users');
     }
 

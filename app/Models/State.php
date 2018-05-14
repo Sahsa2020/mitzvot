@@ -32,7 +32,10 @@ class State extends Authenticatable
      */
 
     protected $table = 'states';
-
+    protected $fillable = [
+        'name',
+        'country_id'
+    ];
     /**
      * The attributes that should be hidden for arrays.
      *

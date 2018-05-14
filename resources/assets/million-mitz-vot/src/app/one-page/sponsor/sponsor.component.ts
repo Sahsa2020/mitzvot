@@ -6,25 +6,58 @@ import { AuthenticateService, USER_TYPE } from '../../authenticate.service';
 import { GeneralService } from '../../general.service';
 
 @Component({
-  selector: 'app-sponsor',
+  selector: 'app-become-sponsor-page',
   templateUrl: './sponsor.component.html',
   styleUrls: ['./sponsor.component.css']
 })
 export class SponsorComponent implements OnInit {
-
-  public model:any = {};
+  public model:any = {country_id: 0, box_count: 50};
   public is_sponsor:boolean = false;
+  public states: any[] = [];
+  public countries: any[] = [];
+  public places: any[] = [];
   constructor(public authService:AuthenticateService, public general: GeneralService,  public lang: LanguageService, public router: Router, public appState: StateService) {
     this.appState.set("one_page_menu_selected", 11);
     // this.refreshTimer();
-    this.findSponsor();
+    // this.findSponsor();
+    this.getCountries();
   }
 
   ngOnInit() {
   }
 
+  getCountries() {
+    this.general.getCountries().subscribe(
+      countries => {
+        this.countries = countries;
+        if (this.countries.length > 0){
+          this.model.country_id = this.countries[0].id;
+        }
+        this.findSponsor();
+      }
+    );
+  }
+
+  getStates(){
+    this.general.getStates(this.model.country_id).subscribe(
+      states => {
+        this.states = states;
+        if(this.states.length > 0 && this.model.state_id == null){
+          this.model.state_id = this.states[0].id;
+        }
+      }
+    );
+  }
+
+  getPlaces(){
+    this.general.getPlaces(this.model.country_id, this.model.state_id).subscribe(
+      places => {
+        this.places = places;
+      }
+    )
+  }
+
   addSponsor(profileForm) {
-    console.log(this.model);
     if (!this.is_sponsor) {
       this.general.addSponsor(this.model).subscribe(
         result => {
@@ -43,16 +76,14 @@ export class SponsorComponent implements OnInit {
   }
 
   findSponsor() {
-    if (!this.is_sponsor) {
-      this.general.findSponsor().subscribe(
-        result => {
-          if (result.success) {
-            console.log(result.data[0]);
-            this.is_sponsor = true;
-            this.model = result.data[0];
-          }
-       });
-    }
+    this.general.findSponsor().subscribe(
+      sponsor => {
+        if(sponsor.id != null){
+          this.model = sponsor;
+        }
+        console.log("SDFSDFSDF");
+        this.getStates();
+      });
   }
 
 }

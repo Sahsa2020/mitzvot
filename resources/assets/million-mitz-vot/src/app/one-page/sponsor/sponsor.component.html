@@ -9,14 +9,12 @@
                     <div class="col-md-6">
                         <div class="form-group form-group-border">
                             <label>Country</label>
-                            <select class="form-control" name="country" [(ngModel)]="model.country">
-                                <option value="United States">United States</option>
-                                <option value="Canada">Canada</option>
-                                <option value="Finland">Finland</option>
+                            <select class="form-control" name="country_id" [(ngModel)]="model.country_id">
+                                <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group form-group-border">
                             <label>Number of boxes</label>
                             <select class="form-control" name="box_count" [(ngModel)]="model.box_count">
@@ -26,11 +24,11 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-2 text-left">
+                    <!-- <div class="col-md-2 text-left">
                         <div class="row">
                             <button type="submit" class="community-btn" (click)="addSponsor(profileForm)">Submit</button>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-12">
                         <div class="checkbox">
                             <label>
@@ -40,71 +38,23 @@
                         </div>
                     </div>
                     <div class="clear"></div>
-                    <div class="col-md-12">
-                        <div class="col-md-6">
-                              <h3>Now you should select State</h3>
-                              <div  class="form-group form-group-border">
-                                  <label >State</label>                    
-                                  <input  class="form-control ng-valid ng-touched ng-dirty" id="state" name="state" type="text" [(ngModel)]="model.state" style="padding-left:15px">
-                              </div>
-                        </div>
-                        <div class="col-md-6">
-                              <h3>Choose City you want</h3>
-                              <div  class="form-group form-group-border">
-                                  <label >City</label>                    
-                                  <input  class="form-control ng-valid ng-touched ng-dirty" id="city" name="city" type="text" [(ngModel)]="model.city" style="padding-left:15px">
-                              </div>
+                    <div class="col-md-12" id="state-body" >
+                        <div class="select-state">
+                            <h3>Now you should select State</h3>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-2" *ngFor="let state of states">
+                                    <div class="state {{ state.id == model.state_id? 'selected': ''}}">{{state.name}}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
               </form>
-              
-              <!-- <div class="clear"></div> -->
-              <!-- <div class="col-md-12">
-                  <h3>Choose City you want</h3>
-                  <div class="row">
-                      <ul class="city">
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                      </ul>
-                  </div>
-                  <div class="row">
-                      <ul class="city">
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                          <li><a href="#">City Name ></a></li>
-                      </ul>
-                  </div>
-                  <div class="form-group" hidden>
-                    <div class="col-md-5" >
-                        <div class="form-group form-group-border">
-                            <input placeholder="States" class="form-input ng-pristine ng-valid ng-touched" id="sell_board_discount_code" name="discount_code" style="text-align: left;" type="text" value="">
-                        </div>
-                    </div>
-                  </div>
-              </div> -->
-              <!-- <div class="clear"></div> -->
+              <div class="clear"></div>
               <div class="col-md-2 hidden-xs hidden-sm"></div>
-              <div class="table-box col-md-8 box-display" hidden>
+              <div class="table-box col-md-8 box-display">
                   <div class="table-head">
                       <h3>Sponsors Table</h3>
                       <div class="top-right">
-                          <div class="col-md-5">
-                              <select class="form-control">
-                                  <option value="">Sort By</option>
-                                  <option>Price: Low to High</option>
-                              </select>
-                          </div>
                           <div class="col-md-7">
                               <div class="row">
                                   <div class="searchbox">
@@ -128,75 +78,18 @@
                               </tr>
                           </thead>
                           <tbody>
-                              <tr>
-                                  <td>1</td>
-                                  <td>New York</td>
-                                  <td>Upper East</td>
-                                  <td>100</td>
-                                  <td>Ann Ford</td> 
-                              </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>New York</td>
-                                  <td>Upper East</td>
-                                  <td>100</td>
-                                  <td class="available">Available</td> 
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>New York</td>
-                                  <td>Upper East</td>
-                                  <td>100</td>
-                                  <td class="available">Available</td> 
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>New York</td>
-                                  <td>Upper East</td>
-                                  <td>100</td>
-                                  <td>John Stewart</td> 
-                              </tr>
-                              <tr>
-                                  <td>1</td>
-                                  <td>New York</td>
-                                  <td>Upper East</td>
-                                  <td>100</td>
-                                  <td>Ann Ford</td> 
-                              </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>New York</td>
-                                  <td>Upper East</td>
-                                  <td>100</td>
-                                  <td class="available">Available</td> 
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>New York</td>
-                                  <td>Upper East</td>
-                                  <td>100</td>
-                                  <td class="available">Available</td> 
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>New York</td>
-                                  <td>Upper East</td>
-                                  <td>100</td>
-                                  <td>John Stewart</td> 
+                              <tr *ngFor = "let place of places">
+                                  <td>{{place.id}}</td>
+                                  <td>{{place.city}}</td>
+                                  <td>{{place.district}}</td>
+                                  <td>{{place.units}}</td>
+                                  <td>
+                                      {{place.sponsor_name}}
+                                      <a class="" *ngIf="place.sponsor_name">Become a Sponsor</a>
+                                  </td> 
                               </tr>
                           </tbody>
                       </table>
-                  </div>
-                  <div class="pagination-block text-right">
-                      <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                          <li class="page-item"><a class="page-link" href="#">&lt; Prev</a></li>
-                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">Next ></a></li>
-                        </ul>
-                      </nav>
                   </div>
               </div>
               <div class="col-md-2 hidden-xs hidden-sm"></div>

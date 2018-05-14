@@ -346,7 +346,40 @@ export class GeneralService {
     return this.authService.get('/api/v1/sponsor/?search=' + params.country)
       .map((res: any) => {
         if (res.success) {
-            return res;
+            return res.data;
+        } else {
+          return null;
+        }
+    });
+  }
+
+  getCountries() {
+    return this.authService.get('/api/v1/countries')
+      .map((res: any) => {
+        if (res.success) {
+            return res.countries;
+        } else {
+          return [];
+        }
+    });
+  }
+
+  getStates(country_id){
+    return this.authService.get('/api/v1/states?country_id=' + country_id)
+      .map((res: any) => {
+        if (res.success) {
+            return res.states;
+        } else {
+          return [];
+        }
+    });
+  }
+
+  getPlaces(country_id, state_id){
+    return this.authService.get('/api/v1/places?country_id=' + country_id + '&state_id=' + state_id)
+      .map((res: any) => {
+        if (res.success) {
+            return res.places;
         } else {
           return [];
         }

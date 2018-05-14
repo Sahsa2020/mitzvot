@@ -13,7 +13,7 @@ class AddShowShareColumnsToPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::table('posts', function (Blueprint $table) {
             
             $table->boolean('shared_in_social')
                 ->comment('0 => No, 1 => Yes')

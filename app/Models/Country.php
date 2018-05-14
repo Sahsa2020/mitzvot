@@ -31,21 +31,19 @@ class Country extends Authenticatable
      * @var array
      */
 
-     protected $table = 'countries';
-     // protected $fillable = [
-     //     'user_id', 'follow_user_id'
-     // ];
- 
+    protected $table = 'countries';
      /**
       * The attributes that should be hidden for arrays.
       *
       * @var array
       */
-     protected $hidden = [
+    protected $fillable = [
+        'name'
+    ];
+    protected $hidden = [
          'created_at',        
          'del_flg',
          'updated_at',
          'deleted_at'
      ];
-
 }

@@ -91,7 +91,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/sponsor">
+                            <a href="/admin/sponsors">
                                 <img src="/assets/images/admin/menu-icon10.png" class="img-responsive" alt="icon">
                                 <img src="/assets/images/admin/menu-icon10-white.png" class="img-responsive onhovershow" alt="icon">
                                 Sponsors

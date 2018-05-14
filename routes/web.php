@@ -32,7 +32,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::resource('permissions', 'PermissionsController');
     Route::resource('users', 'UsersController');
     Route::resource('discounts', 'DiscountsController');
-    Route::resource('sponsor', 'SponsorController');
+    Route::resource('sponsors', 'SponsorsController');
+    Route::post('/sponsors/countries', 'SponsorsController@storeCountry');
+    Route::delete('/sponsors/countries/{id}', 'SponsorsController@destroyCountry');
+    Route::post('/sponsors/states', 'SponsorsController@storeState');
+    Route::delete('/sponsors/states/{id}', 'SponsorsController@destroyState');
+    Route::post('/sponsors/places', 'SponsorsController@storePlace');
+    Route::delete('/sponsors/places/{id}', 'SponsorsController@destroyPlace');
     Route::resource('donates', 'DonatesController');
     Route::post('donates/approve/{id}', 'DonatesController@approve');
     Route::post('donates/unapprove/{id}', 'DonatesController@unapprove');

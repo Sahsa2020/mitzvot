@@ -27,6 +27,7 @@
         <link href="/admin_/css/upload_policies_rules.css" rel="stylesheet" type="text/css" />
         <link href="/admin_/css/admin.sponsors.css" rel="stylesheet" type="text/css" />
         <link href="/assets/global/css/footer.css" rel="stylesheet" type="text/css" />
+        <link href="/css/app.backend.custom.css" rel="stylesheet">
         <style type="text/css">
             .donate-image{
                 width: 150px;
@@ -96,9 +97,6 @@
                 </div>
             </div>
         </div>
-        
-    
-
         @if (Session::has('flash_message'))
             <div class="container">
                 <div class="alert alert-success">
@@ -133,7 +131,13 @@
             <br/><br/>
         </div>
 
-        <!-- Scripts -->
+        <script src="assets/global/js/jquery.min.js"></script>
+        <script src="assets/global/js/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="assets/global/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="assets/global/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+        <script src="assets/global/js/owl.carousel.min.js" type="text/javascript"></script>
+        <script src="assets/global/js/bootstrap-fileinput.js" type="text/javascript"></script>
+        <script src="/js/custom.js"></script>
         <script src="/js/app.js"></script>
 
         <script type="text/javascript">

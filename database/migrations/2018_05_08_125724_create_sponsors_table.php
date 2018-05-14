@@ -17,15 +17,11 @@ class CreateSponsorsTable extends Migration
         Schema::create('sponsors', function (Blueprint $table) {
             
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('country', 255)
-                ->default('');
-            $table->string('box_count', 255)
-                ->default('');
-            $table->string('state', 255)
-                ->default('');
-            $table->string('city', 255)
-                ->default('');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('place_id')->unsigned()->nullable();
+            $table->integer('box_count')->default(0);
+            $table->integer('status')->default(0);
+            $table->timestamps();
         });
     }
 

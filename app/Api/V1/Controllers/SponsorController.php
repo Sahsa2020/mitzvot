@@ -62,21 +62,6 @@ class SponsorController extends BaseController
     public function getSponsors(Request $request)
     {        
         $data = $request->only(['search_id', 'search_type']);
-        // $validator = Validator::make($data, [
-        //     'search_id' => 'required',
-        //     'search_type' => 'required|numeric',
-        // ]);
-        // if ($validator->fails()) {
-        //     $res['success'] = false;
-        //     $res['message'] = "The data is not correct.";
-        //     return $res;            
-        // }
-
-        // 1 -- country
-        // 2 -- city
-        // 3 -- state
-        // 4 -- district
-
         $query = Sponsor::where('sponsors.del_flg', '<>', config('constants.ITEM_IS_DELETE'));
 
         if ($data['search_type'] == 1) {
@@ -225,8 +210,7 @@ class SponsorController extends BaseController
     {
       $sponsor = Sponsor::
                           where('user_id', '=', Auth::user()->id) 
-                          ->get();
-      
+                          ->first();
       $res['success'] = true;
       $res['data'] = $sponsor;
       return $res;

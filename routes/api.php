@@ -63,9 +63,20 @@ $api->version('v1', function ($api) {
                 $api->post('/add', 'SponsorController@addState');
                 $api->post('/delete', 'SponsorController@deleteState');
             });
-
         });
 
+        $api->group(['middleware' => ['auth'], 'prefix' => 'places'], function($api) {
+            $api->get('/', 'PlacesController@getPlaces');
+            $api->put('/{id}', 'PlacesController@updatePlace');
+        });
+
+        $api->group(['middleware' => ['auth'], 'prefix' => 'countries'], function($api) {
+            $api->get('/', 'CountriesController@getCountries');
+        });
+
+        $api->group(['middleware' => ['auth'], 'prefix' => 'states'], function($api) {
+            $api->get('/', 'StatesController@getStates');
+        });
 
         $api->get('/donateMoneyDone',		'ProfileController@payDone');
         $api->get('/donateMoneyCancel',		'ProfileController@payCancel');
