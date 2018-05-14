@@ -8,6 +8,7 @@ use DB;
 use App\User;
 use App\Models\Box;
 use App\Models\MemberBox;
+use App\Models\Deposit;
 use App\Models\Follow;
 use App\Models\Conversation;
 use App\Models\Message;
@@ -16,21 +17,14 @@ use App\Models\Friend;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use DateTime;
+
 
 class FriendController extends BaseController
 {
     public function getFriends(Request $request)
     {
-      $search = $request->input('search');
-
-      // $dCountTable = DB::raw("(
-      //     SELECT users.id as user_id, sum(cbox_boxes.d_count) as d_count, roles.name as role FROM users
-      //     join role_user on (role_user.user_id = users.id)
-      //     join roles on (roles.id = role_user.role_id)
-      //     LEFT JOIN cbox_boxes ON (cbox_boxes.user_id = users.id and cbox_boxes.del_flg <> " . config('constants.ITEM_IS_DELETE') .")
-      //     GROUP BY users.id
-      //     ) as user_d_counts
-      // ");
+      $search = $request->input('search'); 
 
       $allFriends = Friend::
                           where('friends.user_id', '=', Auth::user()->id)
@@ -40,34 +34,48 @@ class FriendController extends BaseController
                           ->where('users.name', 'LIKE', '%'.$search.'%')
                           ->leftjoin('cbox_boxes', function($join) {
                               $join->on('friends.friend_id', '=', 'cbox_boxes.user_id');
-                          })
-                          // ->leftjoin($dCountTable, 'users.id', '=', 'user_d_counts.user_id')
-                          // ->select(DB::raw('sum(cbox_boxes.d_count) as deposit_count'))
-                          // ->where('cbox_boxes.user_id', 'friends.friend_id')
-                          // ->orderByDesc('friends.created_at')
+                          })                         
                           ->select('image_url', 'name', 'city', 'device_id', 'friend_id')
                           ->get();
 
+      $cur_date = new DateTime();
+      $cur_date->format('Y-m-d H:i:s');
 
-      // if ($allFriends['image_url'] == "") {
-      //   $allFriends['image_url'] ="/assets/global/img/default_avatar.jpg";
-      // }
-
-      // $allFriends['image_url'] = is_null($allFriends['image_url'])?"":$allFriends['image_url'];
-      // $friends = $allFriends;
-      // $friends['temp'] = 'temp';
-      // $daily_count = Friend::where('friends.user_id', '=', Auth::user()->id)
-      //                     ->join('users', function($join) {
-      //                         $join->on('friends.friend_id', '=', 'users.id');
-      //                     })
-      //                     ->select(DB::raw('sum(cbox_boxes.d_count) as deposit_count'))
-      //                     ->where('cbox_boxes.user_id', 'friends.friend_id')
-      //                     ->first()->deposit_count;
+      $monthly = $cur_date->modify('-1 month');
+      $daily = $cur_date->modify('-1 day');
+      $weekly = $cur_date->modify('-1 week');
       
+      foreach ($allFriends as $friend) {
+              $daily_count = Deposit::
+                                  where('user_id', '=', $friend['friend_id'])                                 
+                                  ->whereBetween('cbox_deposits.created_at', [$daily, $cur_date])
+                                  ->get();
+                                  
+              $weekly_count = Deposit::
+                                  where('user_id', '=', $friend['friend_id'])
+                                  ->whereBetween('cbox_deposits.created_at', [$weekly, $cur_date])
+                                  ->get();
+
+
+              $monthly_count = Deposit::
+                                  where('user_id', '=', $friend['friend_id'])              
+                                  ->whereBetween('cbox_deposits.created_at', [$monthly, $cur_date])
+                                  ->get();
+
+              $daily_[] = count($daily_count);
+              $weekly_[] = count($weekly_count);
+              $monthly_[] = count($monthly_count);
+      }
+
       $res['success'] = true;
       $res['data'] = $allFriends;
+      $res['daily'] = $daily_;
+      $res['weekly'] = $weekly_;
+      $res['monthly'] = $monthly_;    
+
       return $res;
     }
+
 
     public function addFriend(Request $request)
     {

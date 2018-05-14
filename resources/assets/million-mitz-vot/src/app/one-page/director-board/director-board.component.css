@@ -29,7 +29,7 @@
   font-weight: bold;
 } 
 .community-btn.btn-white:hover{
-  color: #fff !important;
+  /* color: #fff !important; */
 } 
 .motivation-box{
   background: #fff;

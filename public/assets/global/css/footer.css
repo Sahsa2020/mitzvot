@@ -72,7 +72,7 @@ footer ul li i{
     font-weight: bold;
     letter-spacing: 1px;
     font-family: 'OpenSans-Semibold';
-    background: #467ffd;
+    background: linear-gradient(#4779E8, #658EE7);    
 }
 .community-btn:hover{
     /* background: url(../img/send-msg-btn-hover.png) no-repeat !important  ; */
@@ -80,7 +80,7 @@ footer ul li i{
     text-decoration: none;
     color: #fff;
     background: #467ffd;    
-    border-radius: 3px !important;    
+    border-radius: 3px !important;
 }
 .community-btn:focus{
     text-decoration: none;

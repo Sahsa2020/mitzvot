@@ -370,3 +370,15 @@ background-color: #26a69a;
 padding-top: 60px;
 padding-bottom: 60px;
 }
+
+
+.collapsed .plus {
+    /* display: none; */
+    /* visibility: hidden; */
+}
+
+.collapsed span {
+    /* display: none;
+    visibility: hidden; */
+}
+

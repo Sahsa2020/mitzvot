@@ -687,7 +687,7 @@ a.disabled {
 
 .send-btn {
   border-radius: 3px !important;
-  background: #467ffd;
+  /* background: #467ffd; */
 }
 
 #sell {

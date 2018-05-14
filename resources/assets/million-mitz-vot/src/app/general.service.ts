@@ -177,7 +177,7 @@ export class GeneralService {
     return this.authService.get('/api/v1/profile/friends?search=' + search)
     .map((res: any) => {
         if (res.success == true) {
-            return res.data;
+            return res;
         } else {
           return [];
         }
