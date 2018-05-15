@@ -68,12 +68,6 @@ class RegisterController extends Controller
      * @return User
      */
 
-    protected function register(Request $request) {
-        $data = array();
-        $data = $request->all();        
-        $this->create($data);
-    }
-
     protected function create(array $data)
     {        
         if($data['type'] != 'INDIVIDUAL' && $data['type'] != 'SCHOOL' && $data['type'] != 'INSTITUTION'){

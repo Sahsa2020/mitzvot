@@ -43,7 +43,7 @@
     <link href="/css/app.custom.css" rel="stylesheet">
     <link href="/app_/css/chat.css" rel="stylesheet">    
     <link href="assets/personal-account/css/sidebar.css" rel="stylesheet">
-
+    @yield('additional_styles')
     <!-- Bootstrap -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
@@ -261,8 +261,8 @@
     <script src="assets/global/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
     <script src="assets/global/js/owl.carousel.min.js" type="text/javascript"></script>
     <script src="assets/global/js/bootstrap-fileinput.js" type="text/javascript"></script>
+    <!-- <script src="/js/app.js"></script> -->
     <script src="/js/custom.js"></script>
-    <script src="/js/app.js"></script>
 
     @yield('script')
 
