@@ -34,7 +34,7 @@ class FriendController extends BaseController
                           ->where('users.name', 'LIKE', '%'.$search.'%')
                           ->leftjoin('cbox_boxes', function($join) {
                               $join->on('friends.friend_id', '=', 'cbox_boxes.user_id');
-                          })                         
+                          })
                           ->select('image_url', 'name', 'city', 'device_id', 'friend_id')
                           ->get();
 
@@ -44,6 +44,12 @@ class FriendController extends BaseController
       $monthly = $cur_date->modify('-1 month');
       $daily = $cur_date->modify('-1 day');
       $weekly = $cur_date->modify('-1 week');
+
+      if (count($allFriends) == 0) {        
+        $daily_[] = 0;
+        $weekly_[] = 0;
+        $monthly_[] = 0;
+      }
       
       foreach ($allFriends as $friend) {
               $daily_count = Deposit::

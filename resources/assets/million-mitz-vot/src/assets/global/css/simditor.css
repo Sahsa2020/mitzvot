@@ -744,3 +744,8 @@
   margin: 0 5px;
   vertical-align: middle;
 }
+
+
+.simditor-wrapper {
+  height: 200px;
+}

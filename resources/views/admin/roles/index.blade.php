@@ -14,7 +14,7 @@
                     </div>
                     <div class="table-box col-md-6 box-display">
                         <div class="table-head">
-                            <div class="col-md-4">
+                            <!-- <div class="col-md-4">
                                 <div class="row">
                                     <select class="form-control">
                                         <option value="0">Sort By</option>
@@ -28,11 +28,11 @@
                                     <span class="search-btn">
                                     <i class="fa fa-search" aria-hidden="true"></i></span>
                                 </div>
-                            </div>
-                            <div class="col-md-2 text-right">
+                            </div> -->
+                            <div class=" text-right">
                                 <div class="row">
-                                    <div class="icons">
-                                        <ul>
+                                    <div class="icons" >
+                                        <ul style="padding-right: 20px;">
                                             <li><a href="{{ url('/admin/roles/create') }}"><img src="/assets/img/add-icon.png" class="img-responsive" alt="Add Icon" title="Add User"></a></li>
                                             <!-- <li><a href="#" id="delete-role"><img src="/assets/img/delete-icon.png" class="img-responsive" alt="Delete Icon" title="Delete User"></a></li> -->
                                             <li>

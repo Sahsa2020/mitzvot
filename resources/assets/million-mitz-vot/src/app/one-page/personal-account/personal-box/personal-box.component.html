@@ -3,6 +3,13 @@
       <div class="main-body">
           <h2><span><i class="fa fa-star" aria-hidden="true"></i></span> My Boxes</h2>
           <div class="table-box">
+              <div class="col-xs-6">
+                <div class="btn-group" *ngIf = "authService.isLoggedIn() == USER_SIGNED_INFO.SIGNED_IN">
+                    <button class="btn sbold green add-box-btn" *ngIf="authService.currentUser.role == USER_TYPE.INDIVIDUAL" (click) = "model.device_id = 0; model.location = ''; add_box_dialog.show();">{{tr("ADD_NEW")}}
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+              </div>            
               <div class="table-head" style="background:#eef5f9">
                   <h3>Current Firmware Version: {{ general.firmware_version.major_version}}.{{general.firmware_version.minor_version }}</h3>
               </div>

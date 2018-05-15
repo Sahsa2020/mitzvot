@@ -78,9 +78,9 @@
                                             <div class="settings">
                                                 <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
                                             </div>
-                                            <div class="settings">
+                                            <!-- <div class="settings">
                                                 <a href="#"><i class="fa fa-archive" aria-hidden="true"></i></a>
-                                            </div>
+                                            </div> -->
                                         </td>
                                     </tr>
                                     @endforeach

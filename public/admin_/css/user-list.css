@@ -353,3 +353,7 @@ table tr td:nth-child(3) {
         text-align: center;
     }
 }
+
+.table .settings .fa {
+    padding-bottom: 1px;
+}

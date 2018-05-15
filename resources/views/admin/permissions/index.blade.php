@@ -14,15 +14,15 @@
                     </div>
                     <div class="table-box col-md-6 box-display">
                         <div class="table-head">
-                            <h3>Current Permissions</h3>
+                        <h3 style="padding-left: 0px">Current Permissions</h3>
                             <div class="top-right">
                                 <div class="col-md-8">
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <select class="form-control">
                                             <option value="0">Sort By</option>
                                             <option>Price: Low to High</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="col-md-4">
                                     <div class="row">
