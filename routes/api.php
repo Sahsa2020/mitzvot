@@ -46,7 +46,7 @@ $api->version('v1', function ($api) {
         });
 
         $api->group(['middleware' => ['auth'], 'prefix' => 'sponsor'], function($api) {
-            $api->post('/update', 		'ProfileController@Update');
+            $api->post('/update', 		'SponsorController@Update');
             $api->post('/add', 'SponsorController@addSponsor');
             $api->get('/find', 'SponsorController@Find');
             $api->get('/', 'SponsorController@getSponsors');

@@ -16,7 +16,7 @@ class PlacesController extends BaseController
     public function getPlaces(Request $request)
     {
         $data = $request->only(['country_id', 'state_id']);
-        $places = Place::where("country_id", $data['country_id'])->all();
+        $places = Place::where("country_id", $data['country_id'])->get();
         $places = Place::leftJoin('sponsors', 'sponsors.place_id', '=', 'places.id')
             ->leftJoin('users', 'users.id', '=', 'sponsors.user_id')
             ->where('country_id', $data['country_id'])

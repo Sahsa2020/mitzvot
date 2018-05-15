@@ -244,6 +244,7 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            @if (isset($state))
             <div class="modal-body">
               {!! Form::open(['url' => '/admin/sponsors/places', 'class' => '', 'method' => 'post']) !!}
                 <input type="hidden" name="state_id" value="{{$state->id}}">
@@ -274,6 +275,7 @@
                 </div>
               {!! Form::close() !!}
             </div>
+            @endif
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary submit-add-place-js">Add</button>

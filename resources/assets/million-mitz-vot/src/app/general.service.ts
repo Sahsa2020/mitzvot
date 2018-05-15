@@ -319,14 +319,12 @@ export class GeneralService {
     });
   }
 
-  updateSponsor(params) {
-    return this.authService.postFormData('/api/v1/sponsor/update?', "country=" + params.country + "&box_count=" + params.box_count + "&state=" + params.state + "&city=" + params.city)
+  updateSponsor(place_id, box_count) {
+    return this.authService.post('/api/v1/sponsor/update', {place_id: place_id, box_count: box_count})
       .map((result: any) =>{
         if(result.success)
-          // console.log(result.data);
           return result;
       }, error =>{
-          // console.log(error);
           return [];
     });
   }
@@ -335,7 +333,7 @@ export class GeneralService {
     return this.authService.get('/api/v1/sponsor/find')
     .map((res: any) => {
         if (res.success) {
-            return res;
+            return res.sponsor;
         } else {
           return [];
         }

@@ -9,7 +9,7 @@
                     <div class="col-md-6">
                         <div class="form-group form-group-border">
                             <label>Country</label>
-                            <select class="form-control" name="country_id" [(ngModel)]="model.country_id">
+                            <select class="form-control" name="country_id" [(ngModel)]="model.country_id" (change)="countryChanged()">
                                 <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
                             </select>
                         </div>
@@ -42,7 +42,7 @@
                         <div class="select-state">
                             <h3>Now you should select State</h3>
                             <div class="row">
-                                <div class="col-sm-6 col-md-2" *ngFor="let state of states">
+                                <div class="col-sm-6 col-md-2" *ngFor="let state of states" (click)="stateChanged(state.id)">
                                     <div class="state {{ state.id == model.state_id? 'selected': ''}}">{{state.name}}</div>
                                 </div>
                             </div>
@@ -56,13 +56,13 @@
                       <h3>Sponsors Table</h3>
                       <div class="top-right">
                           <div class="col-md-7">
-                              <div class="row">
+                              <!-- <div class="row">
                                   <div class="searchbox">
                                       <input type="text" class="form-control" placeholder="Search">
                                       <span class="search-btn">
                                       <i class="fa fa-search" aria-hidden="true"></i></span>
                                   </div>
-                              </div>
+                              </div> -->
                           </div>
                       </div>
                   </div>
@@ -85,7 +85,7 @@
                                   <td>{{place.units}}</td>
                                   <td>
                                       {{place.sponsor_name}}
-                                      <a class="" *ngIf="place.sponsor_name">Become a Sponsor</a>
+                                      <a class="" *ngIf="place.sponsor_name == null" (click)="addSponsor(place.id)">Become a Sponsor</a>
                                   </td> 
                               </tr>
                           </tbody>

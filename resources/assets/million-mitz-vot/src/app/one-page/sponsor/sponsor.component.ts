@@ -18,8 +18,6 @@ export class SponsorComponent implements OnInit {
   public places: any[] = [];
   constructor(public authService:AuthenticateService, public general: GeneralService,  public lang: LanguageService, public router: Router, public appState: StateService) {
     this.appState.set("one_page_menu_selected", 11);
-    // this.refreshTimer();
-    // this.findSponsor();
     this.getCountries();
   }
 
@@ -38,12 +36,24 @@ export class SponsorComponent implements OnInit {
     );
   }
 
-  getStates(){
+  countryChanged() {
+    this.getStates(false);
+  }
+
+  stateChanged(state_id) {
+    this.model.state_id = state_id;
+    this.getPlaces();
+  }
+
+  getStates(is_default:boolean){
     this.general.getStates(this.model.country_id).subscribe(
       states => {
         this.states = states;
-        if(this.states.length > 0 && this.model.state_id == null){
+        if(this.states.length > 0 && !is_default){
           this.model.state_id = this.states[0].id;
+        }
+        if(this.model.state_id != null){
+          this.getPlaces();
         }
       }
     );
@@ -57,32 +67,28 @@ export class SponsorComponent implements OnInit {
     )
   }
 
-  addSponsor(profileForm) {
-    if (!this.is_sponsor) {
-      this.general.addSponsor(this.model).subscribe(
-        result => {
-          if (result) {
-            this.is_sponsor = true;
-          }
-       });
-    } else {
-      this.general.updateSponsor(this.model).subscribe(
-        result => {
-          if (result) {
-            this.is_sponsor = true;
-          }
-       });
-    }
+  addSponsor(place_id) {
+    this.general.updateSponsor(place_id, this.model.box_count).subscribe(
+      result => {
+        if (result) {
+          this.is_sponsor = true;
+          this.getPlaces();
+        }
+      });
   }
 
   findSponsor() {
     this.general.findSponsor().subscribe(
       sponsor => {
+        console.log(sponsor);
         if(sponsor.id != null){
           this.model = sponsor;
+          this.is_sponsor = true;
+          this.getStates(true);
         }
-        console.log("SDFSDFSDF");
-        this.getStates();
+        else {
+          this.getStates(false);
+        }
       });
   }
 

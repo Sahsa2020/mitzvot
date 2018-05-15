@@ -8,6 +8,7 @@ use DB;
 use App\User;
 use App\Models\Box;
 use App\Models\Sponsor;
+use App\Models\Place;
 use App\Models\State;
 use App\Models\City;
 use App\Models\District;
@@ -208,39 +209,44 @@ class SponsorController extends BaseController
 
     public function Find(Request $request)
     {
-      $sponsor = Sponsor::
-                          where('user_id', '=', Auth::user()->id) 
-                          ->first();
+      $sponsor = Sponsor::join("places", 'sponsors.place_id', '=', 'places.id')
+        ->where('user_id', '=', Auth::user()->id)
+        ->select(['places.country_id', 'places.state_id', 'sponsors.*'])
+        ->first();
       $res['success'] = true;
-      $res['data'] = $sponsor;
+      $res['sponsor'] = $sponsor;
       return $res;
     }
 
     public function Update(Request $request){
         
-        $data = $request->only(['country', 'box_count', 'state', 'city']);
+        $data = $request->only(['place_id', 'box_count']);
         $validator = Validator::make($data, [
-                'country' => 'required',
-                'box_count' => 'required|numeric',
-                'state' => 'required',
-                'city' => 'required',             
+                'place_id' => 'required|numeric',
+                'box_count' => 'required|numeric'
             ]);
         if ($validator->fails()) {
             $res['success'] = false;
             $res['message'] = "The data is not correct.";
             return $res;
         }
-
-        $sponsor = Sponsor::where('user_id', '=', '');
-        $sponsor['user_id'] = Auth::user()->id;
-        $data['country'] = $data['country'];
-        $data['box_count'] = $data['box_count'];
-        $data['state'] = $data['state'];
-        $data['city'] = $data['city'];
-        $sponsor->save();       
-        
+        $_sponsor = Sponsor::where("place_id", "=", $data['place_id'])->where("user_id", "<>", Auth::user()->id)->first();
+        if($_sponsor != null){
+            $res['success'] = false;
+            $res['message'] = "This place has already sponsor.";
+            return $res;
+        }
+        $sponsor = Sponsor::where("user_id", "=", Auth::user()->id)->first();
+        if($sponsor == null) {
+            $data['user_id'] = Auth::user()->id;
+            $sponsor = Sponsor::create($data);
+        }
+        else {
+            $sponsor->place_id = $data['place_id'];
+            $sponsor->save();
+        }
         $res['success'] = true;
-        $res['data'] = $user;
+        $res['sponsor'] = $sponsor;
         return $res;
     }
 }
