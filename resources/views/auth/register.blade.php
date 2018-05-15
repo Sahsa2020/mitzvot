@@ -531,7 +531,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <div id="step_page" class="step-bar" style="visibility:visible">
+                    <div id="step_page" class="step-bar" style="visibility:hidden">
                       <ul id="step-ul">
                         <li id = "li_1" class="current">1</li>
                         <li id="li_2" class="">2</li>
