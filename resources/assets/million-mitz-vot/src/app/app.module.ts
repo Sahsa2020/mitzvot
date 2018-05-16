@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule}  from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OnePageComponent, HomeComponent, AboutComponent, DirectorBoardComponent, ScoreBoardComponent, SellBoardComponent } from './one-page';
-import { DonateComponent, ContactUsComponent, ContactAdminComponent, ReportComponent, ProfileComponent, MainInfoComponent } from './one-page';
-import { MyBoxComponent, MyMemberComponent, ChangePasswordComponent, MyDonateComponent, ActivateComponent, SellDonateComponent, MySoundComponent } from './one-page';
+import { DonateComponent, ContactUsComponent, ContactAdminComponent, ReportComponent } from './one-page';
+import {  MyDonateComponent, ActivateComponent, SellDonateComponent } from './one-page';
 import { AlertModule, DatepickerModule, PaginationModule, ModalModule, BsDropdownModule  } from 'ngx-bootstrap';
 import { AuthenticateService } from './authenticate.service';
 import { LanguageService } from './language.service';
@@ -63,14 +63,8 @@ import { PersonalUserComponent } from './one-page/personal-account/personal-user
     ContactUsComponent,
     ContactAdminComponent,
     ReportComponent,
-    ProfileComponent,
-    MainInfoComponent,
-    MyBoxComponent,
-    MyMemberComponent,
-    ChangePasswordComponent,
     MyDonateComponent,
     ActivateComponent,
-    MySoundComponent,
     FooterComponent,
     HeaderComponent,
     CheckoutComponent,

@@ -73,7 +73,7 @@
                                 @else 
                                     <li class="dropdown admin-top-menu">
                                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >
-                                            <img src="/assets/img/user-img.jpg" class="img-responsive" alt="User">
+                                            <img src="{{ Auth::user()->image_url }}" class="avatar img-responsive" alt="User" onerror="this.src='/assets/global/img/default_avatar.jpg'">
                                             {{ Auth::user()->name }} <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">

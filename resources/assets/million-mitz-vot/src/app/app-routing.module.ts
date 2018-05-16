@@ -1,7 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OnePageComponent, HomeComponent, AboutComponent, DirectorBoardComponent, ScoreBoardComponent, SellBoardComponent, SellDonateComponent, MySoundComponent, CheckoutComponent} from './one-page';
-import { DonateComponent, ContactUsComponent, ContactAdminComponent, ReportComponent, ProfileComponent, MainInfoComponent, MyBoxComponent, MyMemberComponent, ChangePasswordComponent, MyDonateComponent, ActivateComponent } from './one-page';
+import { OnePageComponent, HomeComponent, AboutComponent, DirectorBoardComponent, ScoreBoardComponent, SellBoardComponent, SellDonateComponent, CheckoutComponent} from './one-page';
+import { DonateComponent, ContactUsComponent, ContactAdminComponent, ReportComponent,  MyDonateComponent, ActivateComponent } from './one-page';
 import { Guard } from './guard';
 import { AuthenticateService } from './authenticate.service';
 // import { OnePageRoutes } from './one-page/one-page.routing';
@@ -29,19 +29,6 @@ const routes: Routes = [
       { path: 'sponsor',      component:  SponsorComponent },
       { path: 'sponsor/list',      component: SponsorListComponent },
       { path: 'faq',      component: FaqComponent },
-      {
-        path: 'profile_org',
-        component: ProfileComponent,
-        children: [
-          { path: '',      component: MainInfoComponent, },
-          { path: 'boxes',      component: MyBoxComponent },
-          { path: 'members',      component: MyMemberComponent },
-          { path: 'sounds',      component: MySoundComponent },
-          { path: 'changePassword',      component: ChangePasswordComponent },
-          // { path: 'donate',      component: MyDonateComponent }
-        ],
-        canActivate: [ AuthenticateService ]
-      },
       {
         path: 'profile',
         component: PersonalAccountComponent,
